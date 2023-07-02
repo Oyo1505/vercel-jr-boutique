@@ -1,6 +1,7 @@
 import { Carousel } from 'components/carousel';
 import { ThreeItemGrid } from 'components/grid/three-items';
 import Footer from 'components/layout/footer';
+import { getAllProducts } from 'lib/shopify';
 import { Suspense } from 'react';
 
 export const runtime = 'edge';
@@ -20,6 +21,8 @@ export const metadata = {
 };
 
 export default async function HomePage() {
+  const test = await getAllProducts({ reverse: false });
+  console.log(test, 'test');
   return (
     <>
       <ThreeItemGrid />

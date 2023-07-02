@@ -14,7 +14,7 @@ import {
 } from './queries/collection';
 import { getMenuQuery } from './queries/menu';
 import { getPageQuery, getPagesQuery } from './queries/page';
-import {
+import getAllProductsQuery, {
   getProductQuery,
   getProductRecommendationsQuery,
   getProductsQuery
@@ -384,6 +384,28 @@ export async function getProducts({
 }): Promise<Product[]> {
   const res = await shopifyFetch<ShopifyProductsOperation>({
     query: getProductsQuery,
+    tags: [TAGS.products],
+    variables: {
+      query,
+      reverse,
+      sortKey
+    }
+  });
+
+  return reshapeProducts(removeEdgesAndNodes(res.body.data.products));
+}
+
+export async function getAllProducts({
+  query,
+  reverse,
+  sortKey
+}: {
+  query?: string;
+  reverse?: boolean;
+  sortKey?: string;
+}): Promise<Product[]> {
+  const res = await shopifyFetch<ShopifyProductsOperation>({
+    query: getAllProductsQuery,
     tags: [TAGS.products],
     variables: {
       query,
