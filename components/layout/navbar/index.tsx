@@ -7,7 +7,6 @@ import LogoIcon from 'components/icons/logo';
 import { getMenu } from 'lib/shopify';
 import { Menu } from 'lib/shopify/types';
 import MobileMenu from './mobile-menu';
-import Search from './search';
 
 export default async function Navbar() {
   const menu = await getMenu('next-js-frontend-header-menu');
@@ -35,12 +34,13 @@ export default async function Navbar() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link href={'contact'}>Contact</Link>
+            </li>
           </ul>
         ) : null}
       </div>
-      <div className="hidden w-1/3 md:block">
-        <Search />
-      </div>
+      <div className="hidden w-1/3 md:block">{/* <Search /> */}</div>
 
       <div className="flex w-1/3 justify-end">
         <Suspense fallback={<CartIcon className="h-6" />}>
