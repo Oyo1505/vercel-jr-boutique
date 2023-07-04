@@ -1,14 +1,14 @@
 import Cart from 'components/cart';
 import CartIcon from 'components/icons/cart';
+import SearchIcon from 'components/icons/search';
 import { getMenu } from 'lib/shopify';
-import { Menu } from 'lib/shopify/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import headerLogo from '../../../public/images/header/Header.png';
-import MobileMenu from './mobile-menu';
+import logoLogin from '../../../public/images/header/ProfilMenu.png';
 import styles from './navbar.module.scss';
-export default async function Navbar() {
+const Navbar = async () => {
   const menu = await getMenu('next-js-frontend-header-menu');
 
   return (
@@ -16,32 +16,57 @@ export default async function Navbar() {
       <Link href="/" className={styles.logo} aria-label="Logo">
         <Image src={headerLogo} alt="header-logo" />
       </Link>
-      <div>
-        <MobileMenu menu={menu} />
-      </div>
-      <div>
+      <div className={styles.navBarMenu}>
         {menu.length ? (
-          <ul>
-            {menu.map((item: Menu) => (
-              <li key={item.title} className={styles.link}>
-                <Link href={item.path}>{item.title}</Link>
+          <>
+            <ul className={styles.menuItems}>
+              {menu.map((l: any) => (
+                <>
+                  <li>
+                    <Link href={l.path} key={l.path} className={styles.link}>
+                      {l.title}
+                    </Link>
+                    <span className={styles.slash}> </span>
+                  </li>
+                </>
+              ))}
+              <li>
+                <Link className={styles.link} href={'contact'}>
+                  Contact
+                </Link>
               </li>
-            ))}
-            <li>
-              <Link className={styles.link} href={'contact'}>
-                Contact
-              </Link>
-            </li>
-          </ul>
+              <li>
+                <button className={styles.button}>
+                  {' '}
+                  <SearchIcon className={styles.loupe} />
+                </button>
+              </li>
+            </ul>
+          </>
         ) : null}
       </div>
-      {/* <div><Search /></div> */}
+      <div className={styles.asideContainer}>
+        <div className={styles.logoReseau}>
+          <a href="https://www.facebook.com/jrdistribution" />
+          <a href="https://www.instagram.com/jrdistribution.particuliers" />
+        </div>
+        <div className={styles.menuProfil}>
+          <Suspense fallback={<CartIcon />}>
+            <Cart />
+          </Suspense>
+          <Link href={'/espace-personnel'}>
+            <Image src={logoLogin} alt="profil" />
+          </Link>
+        </div>
+      </div>
 
-      <div>
+      {/* <div>
         <Suspense fallback={<CartIcon />}>
           <Cart />
         </Suspense>
-      </div>
+      </div> */}
     </nav>
   );
-}
+};
+
+export default Navbar;

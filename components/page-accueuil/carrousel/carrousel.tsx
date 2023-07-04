@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
@@ -26,6 +25,7 @@ const Carrousel: FC<Props> = ({ title, products }) => {
     autoplaySpeed: 6000
   };
 
+  if (!products?.length) return null;
   return (
     <div className={styles.container}>
       <h4 className={styles.title}>{title}</h4>

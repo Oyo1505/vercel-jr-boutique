@@ -1,10 +1,10 @@
-import { getCollection, getCollectionProducts } from 'lib/shopify';
-import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-
 import Grid from 'components/grid';
 import ProductGridItems from 'components/layout/product-grid-items';
 import { defaultSort, sorting } from 'lib/constants';
+import { getCollection, getCollectionProducts } from 'lib/shopify';
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import styles from './page.module.scss';
 
 export const runtime = 'edge';
 
@@ -36,7 +36,7 @@ export default async function CategoryPage({
   const products = await getCollectionProducts({ collection: params.collection, sortKey, reverse });
 
   return (
-    <section>
+    <section className={styles.container}>
       {products.length === 0 ? (
         <p className="py-3 text-lg">{`No products found in this collection`}</p>
       ) : (

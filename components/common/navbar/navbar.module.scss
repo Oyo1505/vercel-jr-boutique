@@ -3,13 +3,53 @@
   margin: 0 auto;
   position: relative;
   display: flex;
-  padding: 50px;
   justify-content: center;
-}
+  flex-direction: column;
 
+  .logo {
+    margin: 0 auto;
+    z-index: 10;
+  }
+  .navBarMenu {
+    margin-top: -33px;
+
+    z-index: 0;
+    &:after {
+      content: url('../../../public/images/header/Separateur.png');
+    }
+    &:before {
+      content: url('../../../public/images/header/Separateur.png');
+    }
+  }
+}
+.menuItems {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  margin-bottom: 3px;
+  margin-top: 8px;
+  li {
+    margin: 0 5px;
+    span {
+      color: $red;
+    }
+  }
+  .slash {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    transform: rotate(25deg) scale(var(--ggs, 1.2));
+    width: 2px;
+    height: 14px;
+    margin-left: 10px;
+    background: currentColor;
+    border-radius: 3px;
+  }
+}
 .asideContainer {
   position: absolute;
   right: 0;
+  top: 0;
 }
 
 .searchBar {
@@ -35,4 +75,28 @@
   color: $black;
   font-size: $font-size-3;
   text-decoration: none;
+}
+
+.menuProfil {
+  z-index: 50;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+.loupe {
+  display: inline-block;
+  @include square(20px);
+}
+
+.button {
+  @include square(20px);
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 }

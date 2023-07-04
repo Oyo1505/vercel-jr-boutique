@@ -1,4 +1,4 @@
-import { HIDDEN_PRODUCT_TAG, SHOPIFY_GRAPHQL_API_ENDPOINT, TAGS } from 'lib/constants';
+import { SHOPIFY_GRAPHQL_API_ENDPOINT, TAGS } from 'lib/constants';
 import { isShopifyError } from 'lib/type-guards';
 import {
   addToCartMutation,
@@ -152,7 +152,7 @@ const reshapeCollections = (collections: ShopifyCollection[]) => {
 };
 
 const reshapeProduct = (product: ShopifyProduct, filterHiddenProducts: boolean = true) => {
-  if (!product || (filterHiddenProducts && product.tags.includes(HIDDEN_PRODUCT_TAG))) {
+  if (!product || filterHiddenProducts) {
     return undefined;
   }
 

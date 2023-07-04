@@ -1,7 +1,6 @@
-import Footer from 'components/common/footer/footer';
 import AcceuilAvantages from 'components/page-accueuil/acceuil-avantages/acceuil-avantages';
-import { Suspense } from 'react';
-import styles from './page.module.scss';
+import { getAllProducts } from 'lib/shopify';
+
 export const runtime = 'edge';
 
 export const metadata = {
@@ -19,15 +18,11 @@ export const metadata = {
 };
 
 export default async function HomePage() {
+  const products = await getAllProducts({ sortKey: 'BEST_SELLING' });
+  console.log(products);
   return (
-    <div className={styles.container}>
+    <>
       <AcceuilAvantages />
-      <Suspense>
-        {/* <Carousel /> */}
-        <Suspense>
-          <Footer />
-        </Suspense>
-      </Suspense>
-    </div>
+    </>
   );
 }
