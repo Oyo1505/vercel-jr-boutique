@@ -1,0 +1,38 @@
+.container {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  padding: 50px;
+  justify-content: center;
+}
+
+.asideContainer {
+  position: absolute;
+  right: 0;
+}
+
+.searchBar {
+  width: 16px;
+  height: 16px;
+}
+
+.logoReseau {
+  width: 166px;
+  height: 116px;
+  background: url('../../../public/images/header/reseaux.png') center no-repeat;
+  display: flex;
+  flex-direction: column;
+
+  a {
+    height: 50%;
+  }
+}
+
+.link {
+  font-family: rubik-medium;
+  text-transform: uppercase;
+  color: $black;
+  font-size: $font-size-3;
+  text-decoration: none;
+}

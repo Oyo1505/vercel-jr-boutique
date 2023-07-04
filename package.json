@@ -10,6 +10,7 @@
     "start": "next start",
     "lint": "next lint",
     "lint-staged": "lint-staged",
+    "lintFix": "eslint \"***/**/*.{tsx,ts,js}\" --fix && stylelint \"***/**/*.scss\" --fix",
     "prettier": "prettier --write --ignore-unknown .",
     "prettier:check": "prettier --check --ignore-unknown .",
     "test": "pnpm lint && pnpm prettier:check",
@@ -48,8 +49,9 @@
     "lint-staged": "^13.2.3",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^9.0.0",
-    "sass": "^1.63.6",
     "prettier": "^2.8.8",
+    "react-slick": "^0.29.0",
+    "sass": "^1.63.6",
     "typescript": "5.1.3"
   }
 }
