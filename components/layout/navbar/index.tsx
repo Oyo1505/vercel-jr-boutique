@@ -6,11 +6,13 @@ import { Menu } from 'lib/shopify/types';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import MobileMenu from './mobile-menu';
+import styles from './navbar.module.scss';
+
 export default async function Navbar() {
   const menu = await getMenu('next-js-frontend-header-menu');
 
   return (
-    <nav className="relative flex items-center justify-between bg-white p-4 dark:bg-black lg:px-6">
+    <nav className={styles.container}>
       <div className="block w-1/3 md:hidden">
         <MobileMenu menu={menu} />
       </div>

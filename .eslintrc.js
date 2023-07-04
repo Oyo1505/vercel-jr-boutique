@@ -2,6 +2,11 @@ module.exports = {
   extends: ['next', 'prettier'],
   plugins: ['unicorn'],
   rules: {
+    'jsx-quotes': [2, 'prefer-single'],
+    'react/jsx-fragments': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'no-shadow': 'off',
+    'no-console': 'off',
     'no-unused-vars': [
       'error',
       {
@@ -17,6 +22,16 @@ module.exports = {
       'error',
       {
         case: 'kebabCase'
+      }
+    ],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never'
       }
     ]
   }

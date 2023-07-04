@@ -28,13 +28,14 @@
     "email-validator": "^2.0.4",
     "is-empty-iterable": "^3.0.0",
     "next": "13.4.6",
+    "path": "^0.12.7",
+    "postcss": "^8.4.24",
     "react": "18.2.0",
     "react-cookie": "^4.1.1",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.35.1",
-    "@tailwindcss/typography": "^0.5.9",
     "@types/node": "20.2.5",
     "@types/react": "18.2.8",
     "@types/react-dom": "18.2.4",
@@ -45,10 +46,10 @@
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-unicorn": "^47.0.0",
     "lint-staged": "^13.2.3",
-    "postcss": "^8.4.24",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-preset-env": "^9.0.0",
+    "sass": "^1.63.6",
     "prettier": "^2.8.8",
-    "prettier-plugin-tailwindcss": "^0.3.0",
-    "tailwindcss": "^3.3.2",
     "typescript": "5.1.3"
   }
 }
