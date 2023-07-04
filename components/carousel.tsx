@@ -5,7 +5,7 @@ import Link from 'next/link';
 export async function Carousel() {
   // Collections that start with `hidden-*` are hidden from the search page.
   const products = await getCollectionProducts({ collection: 'cheese' });
-  console.log(products);
+
   if (!products?.length) return null;
 
   return (

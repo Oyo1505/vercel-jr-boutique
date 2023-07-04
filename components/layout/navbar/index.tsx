@@ -1,13 +1,11 @@
-import Link from 'next/link';
-import { Suspense } from 'react';
-
 import Cart from 'components/cart';
 import CartIcon from 'components/icons/cart';
 import LogoIcon from 'components/icons/logo';
 import { getMenu } from 'lib/shopify';
 import { Menu } from 'lib/shopify/types';
+import Link from 'next/link';
+import { Suspense } from 'react';
 import MobileMenu from './mobile-menu';
-
 export default async function Navbar() {
   const menu = await getMenu('next-js-frontend-header-menu');
 

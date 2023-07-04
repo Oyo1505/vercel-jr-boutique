@@ -23,7 +23,7 @@ export function AddToCart({
   useEffect(() => {
     const variant = variants.find((variant: ProductVariant) =>
       variant.selectedOptions.every(
-        (option) => option.value === searchParams.get(option.name.toLowerCase())
+        (option) => option.value === searchParams?.get(option.name.toLowerCase())
       )
     );
 

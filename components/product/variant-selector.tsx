@@ -36,7 +36,7 @@ export function VariantSelector({
 
   // Discard any unexpected options or values from url and create params map.
   const paramsMap: ParamsMap = Object.fromEntries(
-    Array.from(currentParams.entries()).filter(([key, value]) =>
+    Array.from(currentParams!.entries()).filter(([key, value]) =>
       options.find((option) => option.name.toLowerCase() === key && option.values.includes(value))
     )
   );
@@ -76,8 +76,8 @@ export function VariantSelector({
     ) || optimizedVariants.find((variant) => variant.availableForSale);
 
   const selectedVariantParams = new URLSearchParams(selectedVariant?.params);
-  const currentUrl = createUrl(pathname, currentParams);
-  const selectedVariantUrl = createUrl(pathname, selectedVariantParams);
+  const currentUrl = createUrl(pathname!, currentParams!);
+  const selectedVariantUrl = createUrl(pathname!, selectedVariantParams);
 
   if (currentUrl !== selectedVariantUrl) {
     router.replace(selectedVariantUrl);
@@ -93,7 +93,7 @@ export function VariantSelector({
           // Update the params using the current option to reflect how the url would change.
           optionParams.set(option.name.toLowerCase(), value);
 
-          const optionUrl = createUrl(pathname, optionParams);
+          const optionUrl = createUrl(pathname!, optionParams);
 
           // The option is active if it in the url params.
           const isActive = selectedVariantParams.get(option.name.toLowerCase()) === value;

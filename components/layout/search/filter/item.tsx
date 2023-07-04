@@ -12,7 +12,7 @@ function PathFilterItem({ item }: { item: PathFilterItem }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [active, setActive] = useState(pathname === item.path);
-  const newParams = new URLSearchParams(searchParams.toString());
+  const newParams = new URLSearchParams(searchParams?.toString());
 
   newParams.delete('q');
 
@@ -38,17 +38,17 @@ function PathFilterItem({ item }: { item: PathFilterItem }) {
 function SortFilterItem({ item }: { item: SortFilterItem }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [active, setActive] = useState(searchParams.get('sort') === item.slug);
-  const q = searchParams.get('q');
+  const [active, setActive] = useState(searchParams?.get('sort') === item.slug);
+  const q = searchParams?.get('q');
 
   useEffect(() => {
-    setActive(searchParams.get('sort') === item.slug);
+    setActive(searchParams?.get('sort') === item.slug);
   }, [searchParams, item.slug]);
 
   const href =
     item.slug && item.slug.length
       ? createUrl(
-          pathname,
+          pathname!,
           new URLSearchParams({
             ...(q && { q }),
             sort: item.slug
@@ -60,7 +60,7 @@ function SortFilterItem({ item }: { item: SortFilterItem }) {
     <li className="mt-2 flex text-sm text-gray-400" key={item.title}>
       <Link
         prefetch={false}
-        href={href}
+        href={href!}
         className={clsx('w-full hover:text-gray-800 dark:hover:text-gray-100', {
           'text-gray-600 dark:text-gray-400': !active,
           'font-semibold text-black dark:text-white': active

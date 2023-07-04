@@ -20,8 +20,6 @@ export const metadata = {
 };
 
 export default async function HomePage() {
-  // const test = await getAllProducts({ reverse: false });
-  // console.log(test, 'test');
   return (
     <>
       <ThreeItemGrid />
