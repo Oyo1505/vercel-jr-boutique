@@ -1,0 +1,16 @@
+.closeButton {
+  @include square(20px);
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  color: $red;
+}
+
+.closeIcon {
+  @include square(20px);
+  color: $red;
+}

@@ -12,8 +12,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Fragment, useEffect, useRef, useState } from 'react';
 import { useCookies } from 'react-cookie';
-import DeleteItemButton from '../../delete-item-button';
 import EditItemQuantityButton from '../../edit-item-quantity-button';
+import DeleteItemButton from '../delete-item-button/delete-item-button';
 import styles from './modal.module.scss';
 
 type MerchandiseSearchParams = {
@@ -62,7 +62,7 @@ export default function CartModal({ cart, cartIdUpdated }: { cart: Cart; cartIdU
         <CartIcon quantity={cart.totalQuantity} />
       </button>
       <Transition show={isOpen}>
-        <Dialog onClose={closeCart} className="relative z-50" data-testid="cart">
+        <Dialog onClose={closeCart} className={styles.dialog} data-testid="cart">
           <Transition.Child
             as={Fragment}
             enter="transition-all ease-in-out duration-300"
@@ -72,7 +72,7 @@ export default function CartModal({ cart, cartIdUpdated }: { cart: Cart; cartIdU
             leaveFrom="opacity-100 backdrop-blur-[.5px]"
             leaveTo="opacity-0 backdrop-blur-none"
           >
-            <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
+            <div className={styles.childTransition} aria-hidden="true" />
           </Transition.Child>
           <Transition.Child
             as={Fragment}
@@ -83,16 +83,16 @@ export default function CartModal({ cart, cartIdUpdated }: { cart: Cart; cartIdU
             leaveFrom="translate-x-0"
             leaveTo="translate-x-full"
           >
-            <Dialog.Panel className="fixed bottom-0 right-0 top-0 flex h-full w-full flex-col bg-white p-6 text-black dark:bg-black dark:text-white md:w-3/5 lg:w-2/5">
-              <div className="flex items-center justify-between">
-                <p className="text-lg font-bold">My Cart</p>
+            <Dialog.Panel className={styles.dialogPanel}>
+              <div className={styles.dialogContainer}>
+                <p className={styles.title}>Mon Panier</p>
                 <button
                   aria-label="Close cart"
                   onClick={closeCart}
-                  className="text-black transition-colors hover:text-gray-500 dark:text-gray-100"
                   data-testid="close-cart"
+                  className={styles.closeButton}
                 >
-                  <CloseIcon className="h-7" />
+                  <CloseIcon className={styles.closeIcon} />
                 </button>
               </div>
 
@@ -119,15 +119,15 @@ export default function CartModal({ cart, cartIdUpdated }: { cart: Cart; cartIdU
                       );
 
                       return (
-                        <li key={i} data-testid="cart-item">
+                        <li key={i} data-testid="cart-item" className={styles.cartItem}>
                           <Link
-                            className="flex flex-row space-x-4 py-4"
+                            className={styles.itemRow}
                             href={merchandiseUrl}
                             onClick={closeCart}
                           >
-                            <div className="relative h-16 w-16 cursor-pointer overflow-hidden bg-white">
+                            <div className={styles.imageContainer}>
                               <Image
-                                className="h-full w-full object-cover"
+                                className={styles.imageModal}
                                 width={64}
                                 height={64}
                                 alt={
@@ -137,25 +137,20 @@ export default function CartModal({ cart, cartIdUpdated }: { cart: Cart; cartIdU
                                 src={item.merchandise.product.featuredImage.url}
                               />
                             </div>
-                            <div className="flex flex-1 flex-col text-base">
-                              <span className="font-semibold">
-                                {item.merchandise.product.title}
-                              </span>
+                            <div className={styles.titleProduct}>
+                              <span>{item.merchandise.product.title}</span>
                               {item.merchandise.title !== DEFAULT_OPTION ? (
-                                <p className="text-sm" data-testid="cart-product-variant">
-                                  {item.merchandise.title}
-                                </p>
+                                <p data-testid="cart-product-variant">{item.merchandise.title}</p>
                               ) : null}
                             </div>
                             <Price
-                              className="flex flex-col justify-between space-y-2 text-sm"
                               amount={item.cost.totalAmount.amount}
                               currencyCode={item.cost.totalAmount.currencyCode}
                             />
                           </Link>
-                          <div className="flex h-9 flex-row">
+                          <div className={styles.buttonRow}>
                             <DeleteItemButton item={item} />
-                            <p className="ml-2 flex w-full items-center justify-center border dark:border-gray-700">
+                            <p>
                               <span className="w-full px-2">{item.quantity}</span>
                             </p>
                             <EditItemQuantityButton item={item} type="minus" />
@@ -165,41 +160,25 @@ export default function CartModal({ cart, cartIdUpdated }: { cart: Cart; cartIdU
                       );
                     })}
                   </ul>
-                  <div className="border-t border-gray-200 pt-2 text-sm text-black dark:text-white">
-                    <div className="mb-2 flex items-center justify-between">
-                      <p>Subtotal</p>
+                  <div className={styles.totalShippingContainer}>
+                    <div className={styles.totalContainer}>
+                      <p className={styles.total}>Total produits :</p>
                       <Price
-                        className="text-right"
+                        className={styles.total}
                         amount={cart.cost.subtotalAmount.amount}
                         currencyCode={cart.cost.subtotalAmount.currencyCode}
                       />
                     </div>
-                    <div className="mb-2 flex items-center justify-between">
-                      <p>Taxes</p>
-                      <Price
-                        className="text-right"
-                        amount={cart.cost.totalTaxAmount.amount}
-                        currencyCode={cart.cost.totalTaxAmount.currencyCode}
-                      />
-                    </div>
-                    <div className="mb-2 flex items-center justify-between border-b border-gray-200 pb-2">
-                      <p>Shipping</p>
-                      <p className="text-right">Calculated at checkout</p>
-                    </div>
-                    <div className="mb-2 flex items-center justify-between font-bold">
-                      <p>Total</p>
-                      <Price
-                        className="text-right"
-                        amount={cart.cost.totalAmount.amount}
-                        currencyCode={cart.cost.totalAmount.currencyCode}
-                      />
+                    <div className={styles.totalContainer}>
+                      <p className={styles.total}>Frais de livraison :</p>
+                      <p className={styles.total}>14 €</p>
                     </div>
                   </div>
-                  <a
-                    href={cart.checkoutUrl}
-                    className="flex w-full items-center justify-center bg-black p-3 text-sm font-medium uppercase text-white opacity-90 hover:opacity-100 dark:bg-white dark:text-black"
-                  >
-                    <span>Proceed to Checkout</span>
+                  <a href={cart.checkoutUrl} className={styles.checkout}>
+                    <span>Procédé au paiement</span>
+                  </a>
+                  <a href={cart.checkoutUrl} className={styles.panier}>
+                    <span>Aller au panier</span>
                   </a>
                 </div>
               )}

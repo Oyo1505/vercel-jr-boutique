@@ -1,6 +1,6 @@
 'use client';
 import Grid from 'domains/grid/components/grid';
-import GridProductLabels from 'domains/grid/components/grid-product-labels/grid-product-labels';
+import GridProductLabels from 'domains/grid/components/grid_product-labels/grid-product-labels';
 import { GridTileImage } from 'domains/grid/components/title/tile';
 import { Product } from 'lib/shopify/types';
 import Link from 'next/link';

@@ -1,0 +1,17 @@
+.conatainer {
+  position: relative;
+}
+.quantity {
+  @include square(20px);
+  background-color: $yellow;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $red;
+  font-family: rubik-medium;
+  font-size: 12px;
+}

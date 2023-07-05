@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 import ShoppingBagIcon from '../../public/images/header/PanierMenu.png';
-
+import styles from './cart.module.scss';
 export default function CartIcon({
   className,
   quantity
@@ -10,13 +10,9 @@ export default function CartIcon({
   quantity?: number;
 }) {
   return (
-    <div className="relative">
+    <div className={styles.conatainer}>
       <Image src={ShoppingBagIcon} className={clsx(className)} alt="panier" />
-      {quantity ? (
-        <div className="absolute bottom-0 left-0 -mb-3 -ml-3 flex h-5 w-5 items-center justify-center rounded-full border-2 border-white bg-black text-xs text-white dark:border-black dark:bg-white dark:text-black">
-          {quantity}
-        </div>
-      ) : null}
+      {quantity ? <div className={styles.quantity}>{quantity}</div> : null}
     </div>
   );
 }
