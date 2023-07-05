@@ -1,4 +1,4 @@
-import AcceuilAvantages from 'components/page-accueuil/acceuil-avantages/acceuil-avantages';
+import AcceuilAvantages from 'domains/page-accueuil/acceuil-avantages/acceuil-avantages';
 import { getAllProducts } from 'lib/shopify';
 
 export const runtime = 'edge';

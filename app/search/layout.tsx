@@ -1,6 +1,6 @@
-import Footer from 'components/common/footer/footer';
-import Collections from 'components/layout/search/collections';
-import FilterList from 'components/layout/search/filter';
+import Footer from 'domains/common/footer/footer';
+import Collections from 'domains/layout/search/collections';
+import FilterList from 'domains/layout/search/filter';
 import { sorting } from 'lib/constants';
 import { Suspense } from 'react';
 

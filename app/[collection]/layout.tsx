@@ -1,13 +1,13 @@
 import { Suspense } from 'react';
-import Footer from '../../components/common/footer/footer';
-
+import Footer from '../../domains/common/footer/footer';
+import styles from './layout.module.scss';
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <Suspense>
-      <div>
+    <div className={styles.layout}>
+      <Suspense>
         <Suspense>{children}</Suspense>
-      </div>
-      <Footer />
-    </Suspense>
+        <Footer />
+      </Suspense>
+    </div>
   );
 }

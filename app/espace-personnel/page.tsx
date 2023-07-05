@@ -20,7 +20,7 @@ const Page = () => {
     <div className={styles.container}>
       <div>
         <p>Bienvenue sur votre page d&apos;acceuil.</p>
-        <p>Içi vous pouvez gérer vos informations personnelles ansi que vos commandes</p>
+        <p>Ici vous pouvez gérer vos informations personnelles ansi que vos commandes</p>
       </div>
       <div className={styles.containerTuiles}>
         <Tuile title={'Mes information'} path={'/mes-information'} />

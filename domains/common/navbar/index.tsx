@@ -1,6 +1,6 @@
-import Cart from 'components/cart';
-import CartIcon from 'components/icons/cart';
-import SearchIcon from 'components/icons/search';
+import Cart from 'domains/cart';
+import CartIcon from 'domains/icons/cart';
+import SearchIcon from 'domains/icons/search';
 import { getMenu } from 'lib/shopify';
 import Image from 'next/image';
 import Link from 'next/link';

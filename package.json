@@ -14,7 +14,8 @@
     "prettier": "prettier --write --ignore-unknown .",
     "prettier:check": "prettier --check --ignore-unknown .",
     "test": "pnpm lint && pnpm prettier:check",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "webhooks": "ngrok http 3000"
   },
   "git": {
     "pre-commit": "lint-staged"

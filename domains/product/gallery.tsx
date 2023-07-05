@@ -3,8 +3,8 @@
 import { useState } from 'react';
 
 import clsx from 'clsx';
-import { GridTileImage } from 'components/grid/tile';
-import ArrowLeftIcon from 'components/icons/arrow-left';
+import { GridTileImage } from 'domains/grid/components/title/tile';
+import ArrowLeftIcon from 'domains/icons/arrow-left';
 
 export function Gallery({
   title,
@@ -41,7 +41,6 @@ export function Gallery({
             height={600}
             isInteractive={false}
             priority={true}
-            background="purple"
             labels={{
               title,
               amount,
@@ -86,7 +85,6 @@ export function Gallery({
                   src={image.src}
                   width={600}
                   height={600}
-                  background="purple-dark"
                   active={isActive}
                 />
               </button>

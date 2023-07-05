@@ -151,8 +151,8 @@ const reshapeCollections = (collections: ShopifyCollection[]) => {
   return reshapedCollections;
 };
 
-const reshapeProduct = (product: ShopifyProduct, filterHiddenProducts: boolean = true) => {
-  if (!product || filterHiddenProducts) {
+const reshapeProduct = (product: ShopifyProduct) => {
+  if (!product) {
     return undefined;
   }
 
@@ -358,7 +358,7 @@ export async function getProduct(handle: string): Promise<Product | undefined> {
     }
   });
 
-  return reshapeProduct(res.body.data.product, false);
+  return reshapeProduct(res.body.data.product);
 }
 
 export async function getProductRecommendations(productId: string): Promise<Product[]> {

@@ -1,11 +1,11 @@
 'use client';
 
 import clsx from 'clsx';
-import { addItem } from 'components/cart/actions';
+import { addItem } from 'domains/cart/actions';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState, useTransition } from 'react';
 
-import LoadingDots from 'components/loading-dots';
+import LoadingDots from 'domains/loading-dots';
 import { ProductVariant } from 'lib/shopify/types';
 
 export function AddToCart({

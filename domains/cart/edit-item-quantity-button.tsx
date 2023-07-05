@@ -2,10 +2,10 @@ import { useRouter } from 'next/navigation';
 import { useTransition } from 'react';
 
 import clsx from 'clsx';
-import { removeItem, updateItemQuantity } from 'components/cart/actions';
-import MinusIcon from 'components/icons/minus';
-import PlusIcon from 'components/icons/plus';
-import LoadingDots from 'components/loading-dots';
+import { removeItem, updateItemQuantity } from 'domains/cart/actions';
+import MinusIcon from 'domains/icons/minus';
+import PlusIcon from 'domains/icons/plus';
+import LoadingDots from 'domains/loading-dots';
 import type { CartItem } from 'lib/shopify/types';
 
 export default function EditItemQuantityButton({

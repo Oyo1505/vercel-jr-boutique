@@ -1,10 +1,10 @@
 'use client';
 
 import { Dialog, Transition } from '@headlessui/react';
-import CartIcon from 'components/icons/cart';
-import CloseIcon from 'components/icons/close';
-import ShoppingBagIcon from 'components/icons/shopping-bag';
-import Price from 'components/price';
+import CartIcon from 'domains/icons/cart';
+import CloseIcon from 'domains/icons/close';
+import ShoppingBagIcon from 'domains/icons/shopping-bag';
+import Price from 'domains/price';
 import { DEFAULT_OPTION } from 'lib/constants';
 import type { Cart } from 'lib/shopify/types';
 import { createUrl } from 'lib/utils';
@@ -12,8 +12,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Fragment, useEffect, useRef, useState } from 'react';
 import { useCookies } from 'react-cookie';
-import DeleteItemButton from '../delete-item-button';
-import EditItemQuantityButton from '../edit-item-quantity-button';
+import DeleteItemButton from '../../delete-item-button';
+import EditItemQuantityButton from '../../edit-item-quantity-button';
 import styles from './modal.module.scss';
 
 type MerchandiseSearchParams = {

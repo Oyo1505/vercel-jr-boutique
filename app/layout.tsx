@@ -1,5 +1,5 @@
-import Navbar from 'components/common/navbar';
-import Container from 'components/ui/container/container';
+import Navbar from 'domains/common/navbar';
+import Container from 'domains/ui/container/container';
 import { Inter } from 'next/font/google';
 import { ReactNode, Suspense } from 'react';
 import '../styles/base.scss';

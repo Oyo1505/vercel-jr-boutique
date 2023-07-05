@@ -1,17 +1,9 @@
-import { GridTileImage } from 'components/grid/tile';
+import { GridTileImage } from 'domains/grid/components/title/tile';
 import { getCollectionProducts } from 'lib/shopify';
 import type { Product } from 'lib/shopify/types';
 import Link from 'next/link';
 import styles from './three-items.module.scss';
-function ThreeItemGridItem({
-  item,
-  size,
-  background
-}: {
-  item: Product;
-  size: 'full' | 'half';
-  background: 'white' | 'pink' | 'purple' | 'black';
-}) {
+function ThreeItemGridItem({ item, size }: { item: Product; size: 'full' | 'half' }) {
   return (
     <div
       className={size === 'full' ? 'lg:col-span-4 lg:row-span-2' : 'lg:col-span-2 lg:row-span-1'}
@@ -22,7 +14,6 @@ function ThreeItemGridItem({
           width={size === 'full' ? 1080 : 540}
           height={size === 'full' ? 1080 : 540}
           priority={true}
-          background={background}
           alt={item.title}
           labels={{
             title: item.title as string,
@@ -47,9 +38,9 @@ export async function ThreeItemGrid() {
 
   return (
     <section className={styles.items} data-testid="homepage-products">
-      <ThreeItemGridItem size="full" item={firstProduct} background="purple" />
-      <ThreeItemGridItem size="half" item={secondProduct} background="black" />
-      <ThreeItemGridItem size="half" item={thirdProduct} background="pink" />
+      <ThreeItemGridItem size="full" item={firstProduct} />
+      <ThreeItemGridItem size="half" item={secondProduct} />
+      <ThreeItemGridItem size="half" item={thirdProduct} />
     </section>
   );
 }
