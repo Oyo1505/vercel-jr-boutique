@@ -1,4 +1,4 @@
-import { HIDDEN_PRODUCT_TAG, SHOPIFY_GRAPHQL_API_ENDPOINT, TAGS } from 'lib/constants';
+import { SHOPIFY_GRAPHQL_API_ENDPOINT, TAGS } from 'lib/constants';
 import { isShopifyError } from 'lib/type-guards';
 import {
   addToCartMutation,
@@ -151,8 +151,8 @@ const reshapeCollections = (collections: ShopifyCollection[]) => {
   return reshapedCollections;
 };
 
-const reshapeProduct = (product: ShopifyProduct, filterHiddenProducts: boolean = true) => {
-  if (!product || (filterHiddenProducts && product.tags.includes(HIDDEN_PRODUCT_TAG))) {
+const reshapeProduct = (product: ShopifyProduct) => {
+  if (!product) {
     return undefined;
   }
 
@@ -318,7 +318,7 @@ export async function getCollections(): Promise<Collection[]> {
 export async function getMenu(handle: string): Promise<Menu[]> {
   const res = await shopifyFetch<ShopifyMenuOperation>({
     query: getMenuQuery,
-    tags: [TAGS.collections],
+    tags: [TAGS.collections, TAGS.pages],
     variables: {
       handle
     }
@@ -327,7 +327,7 @@ export async function getMenu(handle: string): Promise<Menu[]> {
   return (
     res.body?.data?.menu?.items.map((item: { title: string; url: string }) => ({
       title: item.title,
-      path: item.url.replace(domain, '').replace('/collections', '/search').replace('/pages', '')
+      path: item.url.replace(domain, '').replace('/collections', '').replace('/pages', '')
     })) || []
   );
 }
@@ -358,7 +358,7 @@ export async function getProduct(handle: string): Promise<Product | undefined> {
     }
   });
 
-  return reshapeProduct(res.body.data.product, false);
+  return reshapeProduct(res.body.data.product);
 }
 
 export async function getProductRecommendations(productId: string): Promise<Product[]> {

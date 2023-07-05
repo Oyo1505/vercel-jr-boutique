@@ -1,8 +1,5 @@
-import { Carousel } from 'components/carousel';
-import { ThreeItemGrid } from 'components/grid/three-items';
-import Footer from 'components/layout/footer';
+import AcceuilAvantages from 'domains/page-accueuil/acceuil-avantages/acceuil-avantages';
 import { getAllProducts } from 'lib/shopify';
-import { Suspense } from 'react';
 
 export const runtime = 'edge';
 
@@ -21,17 +18,11 @@ export const metadata = {
 };
 
 export default async function HomePage() {
-  const test = await getAllProducts({ reverse: false });
-  console.log(test, 'test');
+  const products = await getAllProducts({ sortKey: 'BEST_SELLING' });
+  console.log(products);
   return (
     <>
-      <ThreeItemGrid />
-      <Suspense>
-        <Carousel />
-        <Suspense>
-          <Footer />
-        </Suspense>
-      </Suspense>
+      <AcceuilAvantages />
     </>
   );
 }

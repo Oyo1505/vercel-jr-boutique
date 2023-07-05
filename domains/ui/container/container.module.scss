@@ -1,0 +1,8 @@
+.container {
+  width: $md-width;
+  margin: auto;
+  @include below-md {
+    padding: 0 10px;
+    width: 100%;
+  }
+}
