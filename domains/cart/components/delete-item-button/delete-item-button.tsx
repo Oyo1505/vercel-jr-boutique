@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { removeItem } from 'domains/cart/actions';
 import CloseIcon from 'domains/icons/close';
-import LoadingDots from 'domains/loading-dots';
+import LoadingDots from 'domains/ui/loading-dots/loading-dots';
 import type { CartItem } from 'lib/shopify/types';
 import { useRouter } from 'next/navigation';
 import { useTransition } from 'react';

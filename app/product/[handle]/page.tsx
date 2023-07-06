@@ -2,10 +2,10 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
 
-import { AddToCart } from 'domains/cart/add-to-cart';
+import { AddToCart } from 'domains/cart/components/add-to-cart/add-to-cart';
 import Footer from 'domains/common/footer/footer';
 import Grid from 'domains/grid/components/grid';
-import ProductGridItems from 'domains/layout/product-grid-items';
+import ProductGridItems from 'domains/layout/product-grid-items/product-grid-items';
 import { Gallery } from 'domains/product/gallery';
 import { VariantSelector } from 'domains/product/variant-selector';
 import Prose from 'domains/prose';

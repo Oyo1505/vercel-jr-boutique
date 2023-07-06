@@ -3,8 +3,8 @@
 import { Dialog, Transition } from '@headlessui/react';
 import CartIcon from 'domains/icons/cart';
 import CloseIcon from 'domains/icons/close';
-import ShoppingBagIcon from 'domains/icons/shopping-bag';
 import Price from 'domains/price';
+import Button from 'domains/ui/button/button';
 import { DEFAULT_OPTION } from 'lib/constants';
 import type { Cart } from 'lib/shopify/types';
 import { createUrl } from 'lib/utils';
@@ -12,8 +12,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Fragment, useEffect, useRef, useState } from 'react';
 import { useCookies } from 'react-cookie';
-import EditItemQuantityButton from '../../edit-item-quantity-button';
+import emptyPanier from '../../../../public/images/page-acceuil/Qualité.png';
 import DeleteItemButton from '../delete-item-button/delete-item-button';
+import EditItemQuantityButton from '../edit-item-quantity-button/edit-item-quantity-button';
 import styles from './modal.module.scss';
 
 type MerchandiseSearchParams = {
@@ -65,23 +66,23 @@ export default function CartModal({ cart, cartIdUpdated }: { cart: Cart; cartIdU
         <Dialog onClose={closeCart} className={styles.dialog} data-testid="cart">
           <Transition.Child
             as={Fragment}
-            enter="transition-all ease-in-out duration-300"
-            enterFrom="opacity-0 backdrop-blur-none"
-            enterTo="opacity-100 backdrop-blur-[.5px]"
-            leave="transition-all ease-in-out duration-200"
-            leaveFrom="opacity-100 backdrop-blur-[.5px]"
-            leaveTo="opacity-0 backdrop-blur-none"
+            enter={styles.transitionEnter}
+            enterFrom={styles.transitionEnterFrom}
+            enterTo={styles.transitionEnterTo}
+            leave={styles.leave}
+            leaveFrom={styles.transitionEnterTo}
+            leaveTo={styles.transitionEnterFrom}
           >
             <div className={styles.childTransition} aria-hidden="true" />
           </Transition.Child>
           <Transition.Child
             as={Fragment}
-            enter="transition-all ease-in-out duration-300"
-            enterFrom="translate-x-full"
-            enterTo="translate-x-0"
-            leave="transition-all ease-in-out duration-200"
-            leaveFrom="translate-x-0"
-            leaveTo="translate-x-full"
+            enter={styles.transitionEnter}
+            enterFrom={styles.enterFromSub}
+            enterTo={styles.enterToSub}
+            leave={styles.leaveSub}
+            leaveFrom={styles.leaveFromSub}
+            leaveTo={styles.leaveToSub}
           >
             <Dialog.Panel className={styles.dialogPanel}>
               <div className={styles.dialogContainer}>
@@ -97,13 +98,16 @@ export default function CartModal({ cart, cartIdUpdated }: { cart: Cart; cartIdU
               </div>
 
               {cart.lines.length === 0 ? (
-                <div className="mt-20 flex w-full flex-col items-center justify-center overflow-hidden">
-                  <ShoppingBagIcon className="h-16" />
-                  <p className="mt-6 text-center text-2xl font-bold">Your cart is empty.</p>
+                <div className={styles.emptyCart}>
+                  <p className={styles.phrase}>Votre panier est actuellement vide</p>
+                  <Image src={emptyPanier} alt="empty-apnier" />
+                  <Link href={'/'}>
+                    <Button text="Retour à la boutique" onClick={() => setIsOpen(false)} />
+                  </Link>
                 </div>
               ) : (
-                <div className="flex h-full flex-col justify-between overflow-hidden">
-                  <ul className="flex-grow overflow-auto p-6">
+                <div className={styles.containerItems}>
+                  <ul className={styles.subContainerItems}>
                     {cart.lines.map((item, i) => {
                       const merchandiseSearchParams = {} as MerchandiseSearchParams;
 
@@ -143,10 +147,12 @@ export default function CartModal({ cart, cartIdUpdated }: { cart: Cart; cartIdU
                                 <p data-testid="cart-product-variant">{item.merchandise.title}</p>
                               ) : null}
                             </div>
-                            <Price
-                              amount={item.cost.totalAmount.amount}
-                              currencyCode={item.cost.totalAmount.currencyCode}
-                            />
+                            <div className={styles.price}>
+                              <Price
+                                amount={item.cost.totalAmount.amount}
+                                currencyCode={item.cost.totalAmount.currencyCode}
+                              />
+                            </div>
                           </Link>
                           <div className={styles.buttonRow}>
                             <DeleteItemButton item={item} />
@@ -168,10 +174,6 @@ export default function CartModal({ cart, cartIdUpdated }: { cart: Cart; cartIdU
                         amount={cart.cost.subtotalAmount.amount}
                         currencyCode={cart.cost.subtotalAmount.currencyCode}
                       />
-                    </div>
-                    <div className={styles.totalContainer}>
-                      <p className={styles.total}>Frais de livraison :</p>
-                      <p className={styles.total}>14 €</p>
                     </div>
                   </div>
                   <a href={cart.checkoutUrl} className={styles.checkout}>

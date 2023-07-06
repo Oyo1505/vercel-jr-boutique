@@ -31,7 +31,7 @@
     bottom: 0;
     right: 0;
     height: 100%;
-    width: 60%;
+    width: 40%;
     flex-direction: column;
     background-color: $white;
     padding: 0 10px;
@@ -46,14 +46,40 @@
         font-family: rubik-medium;
         color: $black;
         margin-top: 15px;
+        background: url('../../../../public/images/page-acceuil/SurlignementAvantages.png');
+        font-family: courgette-regular;
+        color: $red;
+        margin: 0 auto;
+        margin-top: 40px;
+        font-size: $font-size-4;
       }
     }
+    .containerItems {
+      display: flex;
+      overflow: hidden;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
 
+      .subContainerItems {
+        overflow: auto;
+        padding: 1.5rem;
+        flex-grow: 1;
+      }
+      .price {
+        min-width: 60px;
+      }
+    }
     .cartItem {
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      gap: 10px;
+      border-top: 1px solid $yellow;
+      border-left: 1px solid $yellow;
+      border-right: 1px solid $yellow;
+      &:last-child {
+        border-bottom: 1px solid $yellow;
+      }
     }
 
     .imageContainer {
@@ -70,9 +96,11 @@
 
     .titleProduct {
       display: flex;
-      flex: 1;
-      flex-direction: column;
+      flex: 1 1;
+      flex-direction: row;
       min-width: 100px;
+      gap: 10px;
+      min-width: 250px;
     }
     .itemRow {
       display: flex;
@@ -151,4 +179,60 @@
   color: $red;
   cursor: pointer;
   padding: 10px;
+}
+
+.emptyCart {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+
+  .phrase {
+    color: $red;
+  }
+}
+
+.transitionEnter {
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.transitionEnterFrom {
+  opacity: 0;
+  backdrop-filter: blur(0);
+}
+
+.transitionEnterTo {
+  opacity: 1;
+  backdrop-filter: blur(0.5px);
+}
+
+.leave {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.enterFromSub {
+  --transform-translate-x: 100%;
+}
+
+.enterToSub {
+  --transform-translate-x: 0;
+}
+
+.leaveSub {
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.leaveFromSub {
+  --transform-translate-x: 0;
+}
+
+.leaveToSub {
+  --transform-translate-x: 100%;
 }

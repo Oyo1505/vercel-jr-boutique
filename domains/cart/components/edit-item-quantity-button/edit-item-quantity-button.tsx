@@ -1,12 +1,13 @@
-import { useRouter } from 'next/navigation';
-import { useTransition } from 'react';
-
 import clsx from 'clsx';
 import { removeItem, updateItemQuantity } from 'domains/cart/actions';
-import MinusIcon from 'domains/icons/minus';
-import PlusIcon from 'domains/icons/plus';
-import LoadingDots from 'domains/loading-dots';
+import LoadingDots from 'domains/ui/loading-dots/loading-dots';
 import type { CartItem } from 'lib/shopify/types';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { useTransition } from 'react';
+import PlusIcon from '../../../../public/images/diver/Fleche-Haut.jpg';
+import MinusIcon from '../../../../public/images/diver/Fleche-bas.jpg';
+import styles from './edit-item-quantity-button.module.scss';
 
 export default function EditItemQuantityButton({
   item,
@@ -36,25 +37,18 @@ export default function EditItemQuantityButton({
             alert(error);
             return;
           }
-
           router.refresh();
         });
       }}
       disabled={isPending}
-      className={clsx(
-        'ease flex min-w-[36px] max-w-[36px] items-center justify-center border px-2 transition-all duration-200 hover:border-gray-800 hover:bg-gray-100 dark:border-gray-700 dark:hover:border-gray-600 dark:hover:bg-gray-900',
-        {
-          'cursor-not-allowed': isPending,
-          'ml-auto': type === 'minus'
-        }
-      )}
+      className={clsx(styles.button, isPending && styles.isPending)}
     >
       {isPending ? (
-        <LoadingDots className="bg-black dark:bg-white" />
+        <LoadingDots className={styles.loadingDots} />
       ) : type === 'plus' ? (
-        <PlusIcon className="h-4 w-4" />
+        <Image src={PlusIcon} className={styles.plusIcon} alt="plus" />
       ) : (
-        <MinusIcon className="h-4 w-4" />
+        <Image src={MinusIcon} className={styles.minusIcon} alt="minus" />
       )}
     </button>
   );
