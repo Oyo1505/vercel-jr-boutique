@@ -23,18 +23,21 @@
     }
   }
 }
+
 .menuItems {
   display: flex;
   list-style: none;
   justify-content: center;
-  margin-bottom: 3px;
-  margin-top: 8px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+
   li {
     margin: 0 5px;
     span {
       color: $red;
     }
   }
+
   .slash {
     box-sizing: border-box;
     position: relative;
@@ -47,6 +50,7 @@
     border-radius: 3px;
   }
 }
+
 .asideContainer {
   position: absolute;
   right: 0;

@@ -142,25 +142,31 @@ export default function CartModal({ cart, cartIdUpdated }: { cart: Cart; cartIdU
                               />
                             </div>
                             <div className={styles.titleProduct}>
-                              <span>{item.merchandise.product.title}</span>
-                              {item.merchandise.title !== DEFAULT_OPTION ? (
-                                <p data-testid="cart-product-variant">{item.merchandise.title}</p>
-                              ) : null}
-                            </div>
-                            <div className={styles.price}>
-                              <Price
-                                amount={item.cost.totalAmount.amount}
-                                currencyCode={item.cost.totalAmount.currencyCode}
-                              />
+                              {item.merchandise.product.title}
                             </div>
                           </Link>
                           <div className={styles.buttonRow}>
                             <DeleteItemButton item={item} />
-                            <p>
-                              <span className="w-full px-2">{item.quantity}</span>
-                            </p>
-                            <EditItemQuantityButton item={item} type="minus" />
-                            <EditItemQuantityButton item={item} type="plus" />
+                            <div className={styles.variantItem}>
+                              {item.merchandise.title !== DEFAULT_OPTION ? (
+                                <p data-testid="cart-product-variant">{item.merchandise.title}</p>
+                              ) : null}
+                            </div>
+                            <div className={styles.quantity}>
+                              <span>X {item.quantity}</span>
+                            </div>
+                            <div className={styles.itemsQuantity}>
+                              <EditItemQuantityButton item={item} type="plus" />
+                              <EditItemQuantityButton item={item} type="minus" />
+                            </div>
+                          </div>
+                          <div className={styles.price}>
+                            <Price
+                              className={styles.amount}
+                              amount={item.cost.totalAmount.amount}
+                              currencyCode={item.cost.totalAmount.currencyCode}
+                            />
+                            <span className={styles.colorText}>TTC</span>
                           </div>
                         </li>
                       );
@@ -174,10 +180,11 @@ export default function CartModal({ cart, cartIdUpdated }: { cart: Cart; cartIdU
                         amount={cart.cost.subtotalAmount.amount}
                         currencyCode={cart.cost.subtotalAmount.currencyCode}
                       />
+                      <span className={styles.colorText}>TTC</span>
                     </div>
                   </div>
                   <a href={cart.checkoutUrl} className={styles.checkout}>
-                    <span>Procédé au paiement</span>
+                    <span>Valider ma commande</span>
                   </a>
                   <a href={cart.checkoutUrl} className={styles.panier}>
                     <span>Aller au panier</span>

@@ -23,9 +23,9 @@
   cursor: not-allowed;
 }
 .plusIcon {
-  @include square(16px);
+  @include square(20px);
 }
 
 .minusIcon {
-  @include square(16px);
+  @include square(20px);
 }

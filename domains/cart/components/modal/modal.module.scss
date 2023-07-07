@@ -12,13 +12,6 @@
   position: relative;
   z-index: 50;
 
-  .childTransition {
-    position: fixed;
-    inset: 0;
-    opacity: 100;
-    backdrop-filter: blur(0.5px);
-  }
-
   ul {
     list-style: none;
     margin: 0;
@@ -67,7 +60,22 @@
         flex-grow: 1;
       }
       .price {
-        min-width: 60px;
+        width: 110px;
+        text-align: right;
+        display: flex;
+        gap: 5px;
+        justify-content: flex-end;
+
+        .amount {
+          font-family: rubik-medium;
+          color: $red;
+          gap: 5px;
+        }
+      }
+
+      .itemsQuantity {
+        display: flex;
+        flex-direction: column;
       }
     }
     .cartItem {
@@ -77,6 +85,9 @@
       border-top: 1px solid $yellow;
       border-left: 1px solid $yellow;
       border-right: 1px solid $yellow;
+      justify-content: space-between;
+      padding-right: 25px;
+      font-size: $font-size-3;
       &:last-child {
         border-bottom: 1px solid $yellow;
       }
@@ -101,20 +112,36 @@
       min-width: 100px;
       gap: 10px;
       min-width: 250px;
+      color: $red;
     }
+
     .itemRow {
       display: flex;
       justify-content: flex-start;
       align-items: center;
       gap: 5px;
     }
+    .variantItem {
+      width: 50px;
+    }
     .buttonRow {
       display: flex;
-      gap: 5px;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .quantity {
+      min-width: 15px;
+      text-align: center;
+      font-family: rubik-medium;
     }
   }
 }
-
+.colorText {
+  color: $red;
+  font-family: rubik-regular;
+}
 .closeButton {
   @include square(20px);
   background: none;
@@ -161,7 +188,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: $font-size-2;
+  font-size: $font-size-3;
   background-color: $yellow;
   color: $red !important;
   margin: 0 auto;
@@ -207,7 +234,7 @@
 
 .transitionEnterTo {
   opacity: 1;
-  backdrop-filter: blur(0.5px);
+  backdrop-filter: blur(0.8px);
 }
 
 .leave {
@@ -235,4 +262,10 @@
 
 .leaveToSub {
   --transform-translate-x: 100%;
+}
+
+.childTransition {
+  position: fixed;
+  inset: 0;
+  opacity: 100;
 }

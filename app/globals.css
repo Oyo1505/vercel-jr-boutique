@@ -3,3 +3,7 @@
     clip-path: inset(0.6px);
   }
 }
+
+main {
+  margin-top: 50px;
+}
