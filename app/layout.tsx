@@ -42,6 +42,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             <main>{children}</main>
           </Suspense>
         </Container>
+        <div id="portal" />
       </body>
     </html>
   );

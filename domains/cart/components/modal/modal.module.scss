@@ -9,8 +9,23 @@
 }
 
 .dialog {
-  position: relative;
-  z-index: 50;
+  max-width: 30%;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  padding: 0 10px;
+  display: flex;
+  background: #ffff;
+  box-shadow: -7px 4px 15px -3px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+
+  @include below-md {
+    max-width: 50%;
+  }
+  @include below-sm {
+    max-width: 100%;
+  }
 
   ul {
     list-style: none;
@@ -20,17 +35,13 @@
 
   .dialogPanel {
     display: flex;
-    position: fixed;
-    bottom: 0;
-    right: 0;
     height: 100%;
-    width: 40%;
+    width: 100%;
     flex-direction: column;
     background-color: $white;
-    padding: 0 10px;
-    box-shadow: -7px 4px 15px -3px rgba(0, 0, 0, 0.1);
   }
 }
+
 .dialogContainer {
   display: flex;
   align-items: center;
@@ -44,10 +55,10 @@
     font-family: courgette-regular;
     color: $red;
     margin: 0 auto;
-    margin-top: 40px;
     font-size: $font-size-4;
   }
 }
+
 .containerItems {
   display: flex;
   overflow: hidden;
@@ -57,7 +68,7 @@
 
   .subContainerItems {
     overflow: auto;
-    padding: 1.5rem;
+    padding-top: 1.5rem;
     flex-grow: 1;
   }
   .price {
@@ -74,11 +85,12 @@
     }
   }
 
-  .itemsQuantity {
+  .itemsButtonsQuantity {
     display: flex;
     flex-direction: column;
   }
 }
+
 .cartItem {
   display: flex;
   justify-content: flex-start;
@@ -98,6 +110,7 @@
   position: relative;
   cursor: pointer;
   overflow: hidden;
+  @include square(64px);
 
   .imageModal {
     width: 100%;
@@ -112,7 +125,6 @@
   flex-direction: row;
   min-width: 100px;
   gap: 10px;
-  min-width: 250px;
   color: $red;
 }
 
@@ -122,9 +134,11 @@
   align-items: center;
   gap: 5px;
 }
+
 .variantItem {
   width: 50px;
 }
+
 .buttonRow {
   display: flex;
   align-items: center;
@@ -133,16 +147,18 @@
 }
 
 .quantity {
-  min-width: 15px;
+  min-width: 30px;
   text-align: center;
   font-family: rubik-medium;
 }
+
 .colorText {
   color: $red;
   font-family: rubik-regular;
 }
+
 .closeButton {
-  @include square(20px);
+  @include square(40px);
   background: none;
   color: inherit;
   border: none;
@@ -162,6 +178,7 @@
   justify-content: flex-end;
   margin-bottom: 30px;
 }
+
 .totalContainer {
   display: flex;
   align-items: center;
@@ -221,50 +238,10 @@
   }
 }
 
-.transitionEnter {
-  transition-property: all;
-  transition-duration: 300ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-.transitionEnterFrom {
-  opacity: 0;
-  backdrop-filter: blur(0);
-}
-
-.transitionEnterTo {
-  opacity: 1;
-  backdrop-filter: blur(0.8px);
-}
-
-.leave {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.enterFromSub {
-  --transform-translate-x: 100%;
-}
-
-.enterToSub {
-  --transform-translate-x: 0;
-}
-
-.leaveSub {
-  transition-property: all;
-  transition-duration: 200ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.leaveFromSub {
-  --transform-translate-x: 0;
-}
-
-.leaveToSub {
-  --transform-translate-x: 100%;
-}
-
 .childTransition {
   position: fixed;
   inset: 0;
   opacity: 100;
+  backdrop-filter: blur(0.6px);
+  z-index: 998;
 }
