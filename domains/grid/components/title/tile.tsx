@@ -22,7 +22,11 @@ export function GridTileImage({
     <div>
       {active !== undefined && active ? <span></span> : null}
       {props.src ? (
-        <Image className={clsx({ isInteractive })} {...props} alt={props.title || ''} />
+        <Image
+          className={clsx({ isInteractive }, styles.imageGridProduct)}
+          {...props}
+          alt={props.title || ''}
+        />
       ) : null}
       {labels ? (
         <div>

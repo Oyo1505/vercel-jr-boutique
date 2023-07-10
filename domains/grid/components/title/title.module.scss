@@ -18,3 +18,7 @@
   padding: 10px 20px;
   color: $red;
 }
+.imageGridProduct {
+  @include square(215px);
+  border: 2px solid $yellow;
+}
