@@ -1,3 +1,4 @@
+import Footer from 'domains/common/footer/footer';
 import Navbar from 'domains/common/navbar';
 import Container from 'domains/ui/container/container';
 import { Inter } from 'next/font/google';
@@ -54,6 +55,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           <Suspense>
             <main>{children}</main>
           </Suspense>
+          <Footer />
         </Container>
         <div id="portal" />
       </body>
