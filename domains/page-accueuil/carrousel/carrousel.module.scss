@@ -50,6 +50,11 @@
   position: absolute;
   padding: 0;
   text-align: center;
+  [class*='slick-active'] {
+    button {
+      background-color: $yellow;
+    }
+  }
 }
 
 .dots li {
