@@ -1,3 +1,5 @@
+'use client';
+import GridProductLabels from 'domains/grid/components/grid_product-labels/grid-product-labels';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
@@ -34,19 +36,21 @@ const Carrousel: FC<Props> = ({ title, products }) => {
         {products &&
           products?.map((product: any, index: number) => (
             <div key={`${product?.name}-${index}`} className={styles.lastProducts}>
-              <Link href={`product/${product?.slug}`}>
+              <Link href={`product/${product?.handle}`}>
                 <div className={styles.imageProduct}>
                   <Image
                     src={product?.images?.[0].url}
                     loading="lazy"
                     alt={product?.images?.[0].altText}
+                    width={250}
+                    height={250}
                   />
                 </div>
               </Link>
               <div>
                 <div>{product?.name}</div>
                 <div>{product?.description}</div>
-                {/* <PriceAndAddToCartButton product={product} /> */}
+                <GridProductLabels product={product} />
               </div>
             </div>
           ))}

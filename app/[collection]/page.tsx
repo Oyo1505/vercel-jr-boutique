@@ -39,7 +39,7 @@ export default async function CategoryPage({
   return (
     <section className={styles.container}>
       {products.length === 0 ? (
-        <p>{`No products found in this collection`}</p>
+        <p>{`Pas de produits disponible`}</p>
       ) : (
         <Grid className={styles.gridContainer}>
           <ProductGridItems products={products} />
