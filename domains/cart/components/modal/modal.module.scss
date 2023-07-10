@@ -29,114 +29,113 @@
     background-color: $white;
     padding: 0 10px;
     box-shadow: -7px 4px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+}
+.dialogContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    .dialogContainer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+  .title {
+    font-family: rubik-medium;
+    color: $black;
+    margin-top: 15px;
+    background: url('../../../../public/images/page-acceuil/SurlignementAvantages.png');
+    font-family: courgette-regular;
+    color: $red;
+    margin: 0 auto;
+    margin-top: 40px;
+    font-size: $font-size-4;
+  }
+}
+.containerItems {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 
-      .title {
-        font-family: rubik-medium;
-        color: $black;
-        margin-top: 15px;
-        background: url('../../../../public/images/page-acceuil/SurlignementAvantages.png');
-        font-family: courgette-regular;
-        color: $red;
-        margin: 0 auto;
-        margin-top: 40px;
-        font-size: $font-size-4;
-      }
-    }
-    .containerItems {
-      display: flex;
-      overflow: hidden;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
+  .subContainerItems {
+    overflow: auto;
+    padding: 1.5rem;
+    flex-grow: 1;
+  }
+  .price {
+    width: 110px;
+    text-align: right;
+    display: flex;
+    gap: 5px;
+    justify-content: flex-end;
 
-      .subContainerItems {
-        overflow: auto;
-        padding: 1.5rem;
-        flex-grow: 1;
-      }
-      .price {
-        width: 110px;
-        text-align: right;
-        display: flex;
-        gap: 5px;
-        justify-content: flex-end;
-
-        .amount {
-          font-family: rubik-medium;
-          color: $red;
-          gap: 5px;
-        }
-      }
-
-      .itemsQuantity {
-        display: flex;
-        flex-direction: column;
-      }
-    }
-    .cartItem {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      border-top: 1px solid $yellow;
-      border-left: 1px solid $yellow;
-      border-right: 1px solid $yellow;
-      justify-content: space-between;
-      padding-right: 25px;
-      font-size: $font-size-3;
-      &:last-child {
-        border-bottom: 1px solid $yellow;
-      }
-    }
-
-    .imageContainer {
-      position: relative;
-      cursor: pointer;
-      overflow: hidden;
-
-      .imageModal {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-
-    .titleProduct {
-      display: flex;
-      flex: 1 1;
-      flex-direction: row;
-      min-width: 100px;
-      gap: 10px;
-      min-width: 250px;
+    .amount {
+      font-family: rubik-medium;
       color: $red;
-    }
-
-    .itemRow {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
       gap: 5px;
     }
-    .variantItem {
-      width: 50px;
-    }
-    .buttonRow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    .quantity {
-      min-width: 15px;
-      text-align: center;
-      font-family: rubik-medium;
-    }
   }
+
+  .itemsQuantity {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.cartItem {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-top: 1px solid $yellow;
+  border-left: 1px solid $yellow;
+  border-right: 1px solid $yellow;
+  justify-content: space-between;
+  padding-right: 25px;
+  font-size: $font-size-3;
+  &:last-child {
+    border-bottom: 1px solid $yellow;
+  }
+}
+
+.imageContainer {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+
+  .imageModal {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.titleProduct {
+  display: flex;
+  flex: 1 1;
+  flex-direction: row;
+  min-width: 100px;
+  gap: 10px;
+  min-width: 250px;
+  color: $red;
+}
+
+.itemRow {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+}
+.variantItem {
+  width: 50px;
+}
+.buttonRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.quantity {
+  min-width: 15px;
+  text-align: center;
+  font-family: rubik-medium;
 }
 .colorText {
   color: $red;

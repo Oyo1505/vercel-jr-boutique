@@ -5,6 +5,8 @@ module.exports = {
     'jsx-quotes': [2, 'prefer-single'],
     'react/jsx-fragments': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'react/function-component-definition': 'off',
+    'react/jsx-closing-tag-location': 'off',
     'no-shadow': 'off',
     'no-console': 'off',
     'no-unused-vars': [
