@@ -1,5 +1,5 @@
 'use client';
-import { useOnClickOutside } from 'domains/common/hooks/useOnClickOutside';
+import { useOnClickOutside } from 'domains/common/hooks/use-on-click-outside';
 import CartIcon from 'domains/icons/cart';
 import CloseIcon from 'domains/icons/close';
 import Price from 'domains/price';
@@ -25,7 +25,7 @@ type MerchandiseSearchParams = {
 interface Props {
   children: ReactNode;
   openModal: boolean;
-  closeOnClickOutside: boolean;
+  closeOnClickOutside?: boolean;
   // eslint-disable-next-line no-unused-vars
   setIsOpen: (isOpen: boolean) => void;
 }
