@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import { ReactNode, Suspense } from 'react';
 import '../styles/base.scss';
 import './globals.css';
+
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 
 export const metadata = {
@@ -41,6 +42,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             <main>{children}</main>
           </Suspense>
         </Container>
+        <div id="portal" />
       </body>
     </html>
   );

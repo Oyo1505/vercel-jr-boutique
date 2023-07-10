@@ -5,7 +5,7 @@ import { addItem } from 'domains/cart/actions';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState, useTransition } from 'react';
 
-import LoadingDots from 'domains/loading-dots';
+import LoadingDots from 'domains/ui/loading-dots/loading-dots';
 import { ProductVariant } from 'lib/shopify/types';
 
 export function AddToCart({

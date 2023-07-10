@@ -1,4 +1,4 @@
-import Cart from 'domains/cart';
+import Cart from 'domains/cart/components/cart/cart';
 import CartIcon from 'domains/icons/cart';
 import SearchIcon from 'domains/icons/search';
 import { getMenu } from 'lib/shopify';
