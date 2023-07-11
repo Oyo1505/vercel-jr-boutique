@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
 
 import { AddToCart } from 'domains/cart/components/add-to-cart/add-to-cart';
-import Footer from 'domains/common/footer/footer';
 import Grid from 'domains/grid/components/grid';
 import ProductGridItems from 'domains/layout/product-grid-items/product-grid-items';
 import { Gallery } from 'domains/product/gallery';
@@ -83,8 +82,8 @@ export default async function ProductPage({ params }: { params: { handle: string
           __html: JSON.stringify(productJsonLd)
         }}
       />
-      <div className="lg:grid lg:grid-cols-6">
-        <div className="lg:col-span-4">
+      <div>
+        <div>
           <Gallery
             title={product.title}
             amount={product.priceRange.maxVariantPrice.amount}
@@ -96,21 +95,16 @@ export default async function ProductPage({ params }: { params: { handle: string
           />
         </div>
 
-        <div className="p-6 lg:col-span-2">
+        <div>
           <VariantSelector options={product.options} variants={product.variants} />
 
-          {product.descriptionHtml ? (
-            <Prose className="mb-6 text-sm leading-tight" html={product.descriptionHtml} />
-          ) : null}
+          {product.descriptionHtml ? <Prose html={product.descriptionHtml} /> : null}
 
           <AddToCart variants={product.variants} availableForSale={product.availableForSale} />
         </div>
       </div>
       <Suspense>
         <RelatedProducts id={product.id} />
-        <Suspense>
-          <Footer />
-        </Suspense>
       </Suspense>
     </div>
   );
@@ -122,9 +116,9 @@ async function RelatedProducts({ id }: { id: string }) {
   if (!relatedProducts.length) return null;
 
   return (
-    <div className="px-4 py-8">
-      <div className="mb-4 text-3xl font-bold">Related Products</div>
-      <Grid className="grid-cols-2 lg:grid-cols-5">
+    <div>
+      <div>Related Products</div>
+      <Grid>
         <ProductGridItems products={relatedProducts} />
       </Grid>
     </div>

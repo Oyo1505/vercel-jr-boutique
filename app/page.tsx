@@ -20,7 +20,7 @@ export const metadata = {
 
 export default async function HomePage() {
   const bestSellingProducts = await getAllProducts({ sortKey: 'BEST_SELLING' });
-  const newProducts = await getAllProducts({ sortKey: 'BEST_SELLING' });
+  const newProducts = await getAllProducts({ sortKey: 'CREATED_AT', reverse: true });
   return (
     <>
       <AcceuilAvantages />
