@@ -80,6 +80,13 @@ export type ProductVariant = {
     name: string;
     value: string;
   }[];
+  unitPriceMeasurement: {
+    quantityUnit: string;
+    referenceUnit: string;
+    referenceValue: number;
+    quantityValue: number;
+    measuredType: string;
+  };
   price: Money;
 };
 

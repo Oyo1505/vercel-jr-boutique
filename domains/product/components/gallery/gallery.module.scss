@@ -1,0 +1,10 @@
+.container {
+  margin-top: 75px;
+  width: $container-product;
+  height: 320px;
+  border: 2px $yellow solid;
+  margin: 0 auto;
+  img {
+    object-fit: contain;
+  }
+}

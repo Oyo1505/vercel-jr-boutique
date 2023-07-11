@@ -11,7 +11,7 @@ interface Props {
 
 const GridProductLabels: FC<Props> = ({ product }) => {
   const { addToCart } = useAddToCart(product?.variants?.[0]?.id);
-  console.log(product);
+
   return product ? (
     <div>
       <h3 data-testid="product-name" className={styles.title}>

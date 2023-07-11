@@ -1,0 +1,31 @@
+.loadingDots {
+  background-color: $red;
+}
+
+.button {
+  display: flex;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  transition-property: all;
+  transition-duration: 200ms;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.isPending {
+  cursor: not-allowed;
+}
+.plusIcon {
+  @include square(20px);
+}
+
+.minusIcon {
+  @include square(20px);
+}

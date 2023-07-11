@@ -1,18 +1,16 @@
-import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import { Suspense } from 'react';
-
-import { AddToCart } from 'domains/cart/components/add-to-cart/add-to-cart';
-import Footer from 'domains/common/footer/footer';
 import Grid from 'domains/grid/components/grid';
 import ProductGridItems from 'domains/layout/product-grid-items/product-grid-items';
-import { Gallery } from 'domains/product/gallery';
-import { VariantSelector } from 'domains/product/variant-selector';
+import { Gallery } from 'domains/product/components/gallery/gallery';
+import QuantityProduct from 'domains/product/components/quantity-product/quantity-product';
+import { VariantSelector } from 'domains/product/components/variant-selector/variant-selector';
 import Prose from 'domains/prose';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import { getProduct, getProductRecommendations } from 'lib/shopify';
 import { Image } from 'lib/shopify/types';
-
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { Suspense } from 'react';
+import styles from './page.module.scss';
 export const runtime = 'edge';
 
 export async function generateMetadata({
@@ -74,43 +72,51 @@ export default async function ProductPage({ params }: { params: { handle: string
       lowPrice: product.priceRange.minVariantPrice.amount
     }
   };
-
+  //console.log(product)
   return (
-    <div>
+    <div className={styles.container}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(productJsonLd)
         }}
       />
-      <div className="lg:grid lg:grid-cols-6">
-        <div className="lg:col-span-4">
-          <Gallery
-            title={product.title}
-            amount={product.priceRange.maxVariantPrice.amount}
-            currencyCode={product.priceRange.maxVariantPrice.currencyCode}
-            images={product.images.map((image: Image) => ({
-              src: image.url,
-              altText: image.altText
-            }))}
-          />
-        </div>
-
-        <div className="p-6 lg:col-span-2">
-          <VariantSelector options={product.options} variants={product.variants} />
-
+      <Gallery
+        title={product.title}
+        amount={product.priceRange.maxVariantPrice.amount}
+        currencyCode={product.priceRange.maxVariantPrice.currencyCode}
+        images={product.images.map((image: Image) => ({
+          src: image.url,
+          altText: image.altText
+        }))}
+      />
+      <div className={styles.infoProduct}>
+        <div className={styles.descriptionProduct}>
+          <h3 className={styles.title}>{product?.title}</h3>
           {product.descriptionHtml ? (
-            <Prose className="mb-6 text-sm leading-tight" html={product.descriptionHtml} />
+            <Prose html={product.descriptionHtml} className={styles.description} />
           ) : null}
-
-          <AddToCart variants={product.variants} availableForSale={product.availableForSale} />
         </div>
+        <div className={styles.price}>160 € / Kilo</div>
       </div>
+      <div className={styles.separateur}></div>
+      <div className={styles.variants}>
+        <VariantSelector options={product.options} variants={product.variants} />
+        {/* {product?.variants?.unitPriceMeasurement && <div><span>Poid total : </span>{product?.variants?.unitPriceMeasurement?.quantityValue} kg</div>} */}
+        <div className={styles.separateur} />
+        <div className={styles.priceVariant}>
+          {product?.variants?.length > 0 && (
+            <>
+              {product?.variants?.[0]?.price?.amount} € <span className={styles.ttc}>TTC</span>
+            </>
+          )}
+        </div>
+
+        <QuantityProduct product={product} />
+      </div>
+
       <Suspense>
         <RelatedProducts id={product.id} />
-        <Suspense>
-          <Footer />
-        </Suspense>
       </Suspense>
     </div>
   );
@@ -122,9 +128,9 @@ async function RelatedProducts({ id }: { id: string }) {
   if (!relatedProducts.length) return null;
 
   return (
-    <div className="px-4 py-8">
-      <div className="mb-4 text-3xl font-bold">Related Products</div>
-      <Grid className="grid-cols-2 lg:grid-cols-5">
+    <div>
+      <div>Related Products</div>
+      <Grid>
         <ProductGridItems products={relatedProducts} />
       </Grid>
     </div>

@@ -84,9 +84,8 @@ export function VariantSelector({
   }
 
   return options.map((option) => (
-    <dl className="mb-8" key={option.id}>
-      <dt className="mb-4 text-sm uppercase tracking-wide">{option.name}</dt>
-      <dd className="flex flex-wrap gap-3">
+    <dl key={option.id}>
+      <dd>
         {option.values.map((value) => {
           // Base option params on selected variant params.
           const optionParams = new URLSearchParams(selectedVariantParams);

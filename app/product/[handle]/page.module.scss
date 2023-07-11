@@ -1,0 +1,66 @@
+.container {
+  width: $container-product;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: auto;
+}
+
+.infoProduct {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.separateur {
+  width: 100%;
+  height: 3px;
+  margin-top: 20px;
+  background: url('../../../public/images/diver/SeparateurGauche.png') no-repeat;
+}
+.price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 50px;
+  padding: 5px;
+  background-color: $yellow;
+  color: $red;
+  min-width: 100px;
+  font-size: $font-size-3;
+  height: 50px;
+  font-family: rubik-medium;
+}
+.descriptionProduct {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  h3 {
+    margin: 0;
+  }
+}
+.title {
+  color: $red;
+  font-size: $font-size-5;
+}
+
+.description {
+  font-family: rubik-light-italic;
+  font-size: $font-size-2;
+}
+
+.variants {
+  width: 100%;
+
+  .priceVariant {
+    color: $red;
+    font-family: rubik-medium;
+    font-size: $font-size-4;
+    .ttc {
+      font-family: rubik-regular;
+      font-size: $font-size-4;
+    }
+  }
+}
