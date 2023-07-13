@@ -9,7 +9,6 @@ import { getProduct, getProductRecommendations } from 'lib/shopify';
 import { Image } from 'lib/shopify/types';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Suspense } from 'react';
 import styles from './page.module.scss';
 export const runtime = 'edge';
 
@@ -100,24 +99,32 @@ export default async function ProductPage({ params }: { params: { handle: string
         <div className={styles.price}>160 € / Kilo</div>
       </div>
       <div className={styles.separateur}></div>
-      <div className={styles.variants}>
-        <VariantSelector options={product.options} variants={product.variants} />
-        {/* {product?.variants?.unitPriceMeasurement && <div><span>Poid total : </span>{product?.variants?.unitPriceMeasurement?.quantityValue} kg</div>} */}
-        <div className={styles.separateur} />
-        <div className={styles.priceVariant}>
-          {product?.variants?.length > 0 && (
-            <>
-              {product?.variants?.[0]?.price?.amount} € <span className={styles.ttc}>TTC</span>
-            </>
-          )}
-        </div>
+      {product?.variants?.length > 1 && (
+        <>
+          <div className={styles.variants}>
+            <VariantSelector
+              options={product.options}
+              variants={product.variants}
+              optionName={product?.options?.[0]?.name}
+            />
+            {/* {product?.variants?.unitPriceMeasurement && <div><span>Poid total : </span>{product?.variants?.unitPriceMeasurement?.quantityValue} kg</div>} */}
+            <div className={styles.separateur} />
+          </div>
+        </>
+      )}
 
-        <QuantityProduct product={product} />
+      <div className={styles.priceVariant}>
+        {product?.variants?.length > 0 && (
+          <>
+            {product?.variants?.[0]?.price?.amount} € <span className={styles.ttc}>TTC</span>
+          </>
+        )}
       </div>
 
-      <Suspense>
+      <QuantityProduct product={product} />
+      {/* <Suspense>
         <RelatedProducts id={product.id} />
-      </Suspense>
+      </Suspense> */}
     </div>
   );
 }

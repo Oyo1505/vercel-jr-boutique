@@ -53,14 +53,15 @@
 
 .variants {
   width: 100%;
+}
+.priceVariant {
+  color: $red;
+  font-family: rubik-medium;
+  font-size: $font-size-4;
+  margin-top: 20px;
 
-  .priceVariant {
-    color: $red;
-    font-family: rubik-medium;
+  .ttc {
+    font-family: rubik-regular;
     font-size: $font-size-4;
-    .ttc {
-      font-family: rubik-regular;
-      font-size: $font-size-4;
-    }
   }
 }
