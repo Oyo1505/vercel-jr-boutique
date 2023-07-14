@@ -1,6 +1,8 @@
 import Grid from 'domains/grid/components/grid';
 import ProductGridItems from 'domains/layout/product-grid-items/product-grid-items';
 import { Gallery } from 'domains/product/components/gallery/gallery';
+import PriceProductPage from 'domains/product/components/price-product-page/price-product-page';
+import PriceBySize from 'domains/product/components/priceBySize/price-by-size';
 import QuantityProduct from 'domains/product/components/quantity-product/quantity-product';
 import { VariantSelector } from 'domains/product/components/variant-selector/variant-selector';
 import Prose from 'domains/prose';
@@ -71,7 +73,7 @@ export default async function ProductPage({ params }: { params: { handle: string
       lowPrice: product.priceRange.minVariantPrice.amount
     }
   };
-  //console.log(product)
+
   return (
     <div className={styles.container}>
       <script
@@ -96,7 +98,9 @@ export default async function ProductPage({ params }: { params: { handle: string
             <Prose html={product.descriptionHtml} className={styles.description} />
           ) : null}
         </div>
-        <div className={styles.price}>160 € / Kilo</div>
+        <div className={styles.price}>
+          <PriceBySize product={product} />
+        </div>
       </div>
       <div className={styles.separateur}></div>
       {product?.variants?.length > 1 && (
@@ -107,18 +111,14 @@ export default async function ProductPage({ params }: { params: { handle: string
               variants={product.variants}
               optionName={product?.options?.[0]?.name}
             />
-            {/* {product?.variants?.unitPriceMeasurement && <div><span>Poid total : </span>{product?.variants?.unitPriceMeasurement?.quantityValue} kg</div>} */}
+
             <div className={styles.separateur} />
           </div>
         </>
       )}
 
       <div className={styles.priceVariant}>
-        {product?.variants?.length > 0 && (
-          <>
-            {product?.variants?.[0]?.price?.amount} € <span className={styles.ttc}>TTC</span>
-          </>
-        )}
+        <PriceProductPage product={product} />
       </div>
 
       <QuantityProduct product={product} />

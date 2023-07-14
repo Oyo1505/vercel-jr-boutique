@@ -4,7 +4,7 @@ import { ProductOption, ProductVariant } from 'lib/shopify/types';
 import { createUrl } from 'lib/utils';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
-
+import styles from './variant-selector.module.scss';
 type ParamsMap = {
   [key: string]: string; // ie. { color: 'Red', size: 'Large', ... }
 };
@@ -23,7 +23,7 @@ export function VariantSelector({
 }: {
   options: ProductOption[];
   variants: ProductVariant[];
-  optionName: string;
+  optionName?: string;
 }) {
   const pathname = usePathname();
   const currentParams = useSearchParams();
@@ -34,7 +34,6 @@ export function VariantSelector({
   if (hasNoOptionsOrJustOneOption) {
     return null;
   }
-
   // Discard any unexpected options or values from url and create params map.
   const paramsMap: ParamsMap = Object.fromEntries(
     Array.from(currentParams!.entries()).filter(([key, value]) =>
@@ -89,6 +88,7 @@ export function VariantSelector({
   return options.map((option) => (
     <select
       key={option.id}
+      className={styles.select}
       onChange={(e) => {
         // Update the params using the current option to reflect how the url would change.
         optionParams.set(option.name.toLowerCase(), e.target.value);
@@ -96,8 +96,8 @@ export function VariantSelector({
         router.replace(optionUrl);
       }}
     >
-      {option.values.map((value) => (
-        <option key={value}>{value}</option>
+      {option.values.map((value, index) => (
+        <option key={value}>{value} </option>
       ))}
     </select>
   ));
