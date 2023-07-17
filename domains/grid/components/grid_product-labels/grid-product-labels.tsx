@@ -11,10 +11,10 @@ interface Props {
 
 const GridProductLabels: FC<Props> = ({ product }) => {
   const { addToCart } = useAddToCart(product?.variants?.[0]?.id);
-  console.log(product);
+
   return product ? (
     <div>
-      <h3 data-testid="product-name" className={styles.title}>
+      <h3 data-testid='product-name' className={styles.title}>
         {product.title}
       </h3>
       <div className={styles.containerPrice}>
@@ -23,7 +23,7 @@ const GridProductLabels: FC<Props> = ({ product }) => {
         </div>
         <button className={styles.buttonAddToCart} onClick={addToCart}>
           {' '}
-          <Image src={logo} alt="panier-ajout" />{' '}
+          <Image src={logo} alt='panier-ajout' />{' '}
         </button>
       </div>
     </div>

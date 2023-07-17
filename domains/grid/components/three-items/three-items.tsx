@@ -8,7 +8,7 @@ function ThreeItemGridItem({ item, size }: { item: Product; size: 'full' | 'half
     <div
       className={size === 'full' ? 'lg:col-span-4 lg:row-span-2' : 'lg:col-span-2 lg:row-span-1'}
     >
-      <Link className="block h-full" href={`/product/${item.handle}`}>
+      <Link className='block h-full' href={`/product/${item.handle}`}>
         <GridTileImage
           src={item.featuredImage.url}
           width={size === 'full' ? 1080 : 540}
@@ -37,10 +37,10 @@ export async function ThreeItemGrid() {
   const [firstProduct, secondProduct, thirdProduct] = homepageItems;
 
   return (
-    <section className={styles.items} data-testid="homepage-products">
-      <ThreeItemGridItem size="full" item={firstProduct} />
-      <ThreeItemGridItem size="half" item={secondProduct} />
-      <ThreeItemGridItem size="half" item={thirdProduct} />
+    <section className={styles.items} data-testid='homepage-products'>
+      <ThreeItemGridItem size='full' item={firstProduct} />
+      <ThreeItemGridItem size='half' item={secondProduct} />
+      <ThreeItemGridItem size='half' item={thirdProduct} />
     </section>
   );
 }

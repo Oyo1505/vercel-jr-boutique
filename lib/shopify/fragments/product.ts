@@ -38,6 +38,13 @@ const productFragment = /* GraphQL */ `
             amount
             currencyCode
           }
+          unitPriceMeasurement {
+            quantityUnit
+            referenceUnit
+            referenceValue
+            measuredType
+            quantityValue
+          }
         }
       }
     }

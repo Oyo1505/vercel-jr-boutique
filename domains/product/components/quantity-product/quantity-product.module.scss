@@ -1,0 +1,20 @@
+.container {
+  margin-top: 40px;
+  display: flex;
+  gap: 30px;
+  height: 40px;
+}
+.countEdit {
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  .count {
+    font-family: rubik-regular;
+    width: 20px;
+    padding: 9px 15px;
+    border-top: $yellow solid 2px;
+    border-left: $yellow solid 2px;
+    border-bottom: $yellow solid 2px;
+  }
+}

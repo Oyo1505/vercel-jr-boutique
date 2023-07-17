@@ -40,7 +40,7 @@ const Carrousel: FC<Props> = ({ title, products }) => {
                 <div className={styles.imageProduct}>
                   <Image
                     src={product?.images?.[0].url}
-                    loading="lazy"
+                    loading='lazy'
                     alt={product?.images?.[0].altText}
                     width={250}
                     height={250}

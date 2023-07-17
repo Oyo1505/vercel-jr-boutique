@@ -13,7 +13,7 @@ export default function DeleteItemButton({ item }: { item: CartItem }) {
 
   return (
     <button
-      aria-label="Remove cart item"
+      aria-label='Remove cart item'
       onClick={() => {
         startTransition(async () => {
           const error = await removeItem(item.id);
@@ -32,7 +32,7 @@ export default function DeleteItemButton({ item }: { item: CartItem }) {
       })}
     >
       {isPending ? (
-        <LoadingDots className="bg-black dark:bg-white" />
+        <LoadingDots className='bg-black dark:bg-white' />
       ) : (
         <CloseIcon className={styles.closeIcon} />
       )}

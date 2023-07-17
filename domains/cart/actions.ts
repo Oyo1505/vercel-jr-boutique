@@ -3,14 +3,17 @@
 import { addToCart, removeFromCart, updateCart } from 'lib/shopify';
 import { cookies } from 'next/headers';
 
-export const addItem = async (variantId: string | undefined): Promise<Error | undefined> => {
+export const addItem = async (
+  variantId: string | undefined,
+  quantity = 1
+): Promise<Error | undefined> => {
   const cartId = cookies().get('cartId')?.value;
 
   if (!cartId || !variantId) {
     return new Error('Missing cartId or variantId');
   }
   try {
-    await addToCart(cartId, [{ merchandiseId: variantId, quantity: 1 }]);
+    await addToCart(cartId, [{ merchandiseId: variantId, quantity }]);
   } catch (e) {
     return new Error('Error adding item', { cause: e });
   }

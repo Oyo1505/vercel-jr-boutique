@@ -30,7 +30,7 @@ export function GridTileImage({
       ) : null}
       {labels ? (
         <div>
-          <h3 data-testid="product-name" className={styles.title}>
+          <h3 data-testid='product-name' className={styles.title}>
             {labels.title}
           </h3>
           <div className={styles.containerPrice}>

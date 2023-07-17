@@ -21,7 +21,7 @@ function PathFilterItem({ item }: { item: PathFilterItem }) {
   }, [pathname, item.path]);
 
   return (
-    <li className="mt-2 flex text-sm text-gray-400" key={item.title}>
+    <li className='mt-2 flex text-sm text-gray-400' key={item.title}>
       <Link
         href={createUrl(item.path, newParams)}
         className={clsx('w-full hover:text-gray-800 dark:hover:text-gray-100', {
@@ -57,7 +57,7 @@ function SortFilterItem({ item }: { item: SortFilterItem }) {
       : pathname;
 
   return (
-    <li className="mt-2 flex text-sm text-gray-400" key={item.title}>
+    <li className='mt-2 flex text-sm text-gray-400' key={item.title}>
       <Link
         prefetch={false}
         href={href!}

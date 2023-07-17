@@ -34,7 +34,7 @@ export function AddToCart({
 
   return (
     <button
-      aria-label="Add item to cart"
+      aria-label='Add item to cart'
       disabled={isPending}
       onClick={() => {
         if (!availableForSale) return;
@@ -58,7 +58,7 @@ export function AddToCart({
       )}
     >
       <span>{availableForSale ? 'Add To Cart' : 'Out Of Stock'}</span>
-      {isPending ? <LoadingDots className="bg-white dark:bg-black" /> : null}
+      {isPending ? <LoadingDots className='bg-white dark:bg-black' /> : null}
     </button>
   );
 }

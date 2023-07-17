@@ -14,7 +14,7 @@ export async function Carousel() {
         {[...products, ...products].map((product, i) => (
           <Link key={`${product.handle}${i}`} href={`/product/${product.handle}`}>
             {product.featuredImage ? (
-              <Image alt={product.title} fill sizes="33vw" src={product.featuredImage.url} />
+              <Image alt={product.title} fill sizes='33vw' src={product.featuredImage.url} />
             ) : null}
             <div>
               <div>{product.title}</div>
