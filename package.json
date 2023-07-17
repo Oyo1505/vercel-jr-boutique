@@ -18,7 +18,7 @@
     "webhooks": "ngrok http 3000"
   },
   "git": {
-    "pre-commit": "lint-staged"
+    "pre-commit": "eslint \"***/**/*.{tsx,ts,js}\" --fix && stylelint \"***/**/*.scss\" --fix"
   },
   "lint-staged": {
     "*": "prettier --write --ignore-unknown"

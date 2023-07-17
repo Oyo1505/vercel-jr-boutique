@@ -1,8 +1,9 @@
 'use client';
 
-import { Product } from 'lib/shopify/types';
+import { Product, ProductVariant } from 'lib/shopify/types';
 import { useSearchParams } from 'next/navigation';
 import { FC } from 'react';
+import computePrice from 'shared/utilities/compute-price/compute-price';
 import styles from './price-product-page.module.scss';
 
 interface Props {
@@ -12,14 +13,13 @@ interface Props {
 const PriceProductPage: FC<Props> = ({ product }) => {
   const searchParams = useSearchParams().toString();
   const valueOption = searchParams.slice(searchParams.indexOf('=') + 1);
-  console.log(product?.variants?.[0]?.price.amount);
   const variant = product?.variants?.filter(
     (variant) => variant.selectedOptions?.[0]?.value === valueOption
-  ) as any;
+  ) as ProductVariant[];
 
   return (
     <>
-      {searchParams ? variant?.[0]?.price.amount : product?.variants?.[0]?.price.amount} €{' '}
+      {searchParams ? computePrice(Number(variant?.[0]?.price.amount)) : computePrice(Number(product?.variants?.[0]?.price?.amount))} €{' '}
       <span className={styles.ttc}>TTC</span>
     </>
   );

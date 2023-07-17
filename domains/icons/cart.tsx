@@ -11,7 +11,7 @@ export default function CartIcon({
 }) {
   return (
     <div className={styles.conatainer}>
-      <Image src={ShoppingBagIcon} className={clsx(className)} alt="panier" />
+      <Image src={ShoppingBagIcon} className={clsx(className)} alt='panier' />
       {quantity ? <div className={styles.quantity}>{quantity}</div> : null}
     </div>
   );

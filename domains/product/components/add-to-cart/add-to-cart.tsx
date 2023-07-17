@@ -57,13 +57,13 @@ export function AddToCart({
           <>
             {' '}
             <span>{'Ajout au panier'}</span>
-            <Image src={logoCart} width={20} height={20} alt="cart" />
+            <Image src={logoCart} width={20} height={20} alt='cart' />
           </>
         ) : (
           'Non disponible'
         )}
       </div>
-      {isPending ? <LoadingDots className="bg-white dark:bg-black" /> : null}
+      {isPending ? <LoadingDots className='bg-white dark:bg-black' /> : null}
     </button>
   );
 }

@@ -24,8 +24,8 @@ export default async function HomePage() {
   return (
     <>
       <AcceuilAvantages />
-      <Carrousel products={bestSellingProducts} title="Meilleurs Ventes" />
-      <Carrousel products={newProducts} title="Nouveautés" />
+      <Carrousel products={bestSellingProducts} title='Meilleurs Ventes' />
+      <Carrousel products={newProducts} title='Nouveautés' />
     </>
   );
 }

@@ -1,5 +1,3 @@
-import Grid from 'domains/grid/components/grid';
-import ProductGridItems from 'domains/layout/product-grid-items/product-grid-items';
 import { Gallery } from 'domains/product/components/gallery/gallery';
 import PriceProductPage from 'domains/product/components/price-product-page/price-product-page';
 import PriceBySize from 'domains/product/components/priceBySize/price-by-size';
@@ -7,7 +5,7 @@ import QuantityProduct from 'domains/product/components/quantity-product/quantit
 import { VariantSelector } from 'domains/product/components/variant-selector/variant-selector';
 import Prose from 'domains/prose';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
-import { getProduct, getProductRecommendations } from 'lib/shopify';
+import { getProduct } from 'lib/shopify';
 import { Image } from 'lib/shopify/types';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -77,7 +75,7 @@ export default async function ProductPage({ params }: { params: { handle: string
   return (
     <div className={styles.container}>
       <script
-        type="application/ld+json"
+        type='application/ld+json'
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(productJsonLd)
         }}
@@ -129,17 +127,17 @@ export default async function ProductPage({ params }: { params: { handle: string
   );
 }
 
-async function RelatedProducts({ id }: { id: string }) {
-  const relatedProducts = await getProductRecommendations(id);
+// async function RelatedProducts({ id }: { id: string }) {
+//   const relatedProducts = await getProductRecommendations(id);
 
-  if (!relatedProducts.length) return null;
+//   if (!relatedProducts.length) return null;
 
-  return (
-    <div>
-      <div>Related Products</div>
-      <Grid>
-        <ProductGridItems products={relatedProducts} />
-      </Grid>
-    </div>
-  );
+//   return (
+//     <div>
+//       <div>Related Products</div>
+//       <Grid>
+//         <ProductGridItems products={relatedProducts} />
+//       </Grid>
+//     </div>
+//   );
 }

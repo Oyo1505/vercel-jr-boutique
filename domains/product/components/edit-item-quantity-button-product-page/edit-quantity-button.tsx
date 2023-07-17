@@ -28,9 +28,9 @@ export default function EditItemQuantityButtonProductPage({
         className={clsx(styles.button)}
       >
         {type === 'plus' ? (
-          <Image src={PlusIcon} className={styles.plusIcon} alt="plus" />
+          <Image src={PlusIcon} className={styles.plusIcon} alt='plus' />
         ) : (
-          <Image src={MinusIcon} className={styles.minusIcon} alt="minus" />
+          <Image src={MinusIcon} className={styles.minusIcon} alt='minus' />
         )}
       </button>
     </>

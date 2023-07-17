@@ -11,7 +11,7 @@ const AcceuilAvantages: FC = () => (
     <div className={styles.title}>Les avantages JR Distribution</div>
     <div className={styles.cards}>
       <div className={styles.card}>
-        <Image src={logoFiabilite} alt="fiabilité" />
+        <Image src={logoFiabilite} alt='fiabilité' />
         <div className={styles.containerCard}>
           <h4 className={styles.titleCard}>Fiabilité</h4>
           <div className={styles.text}>
@@ -21,7 +21,7 @@ const AcceuilAvantages: FC = () => (
         </div>
       </div>
       <div className={cn(styles.card, styles.cardMiddle)}>
-        <Image src={logoQualite} alt="qualite" />
+        <Image src={logoQualite} alt='qualite' />
         <div className={styles.containerCard}>
           <h4 className={styles.titleCard}>Qualité</h4>
           <div className={styles.text}>
@@ -31,7 +31,7 @@ const AcceuilAvantages: FC = () => (
         </div>
       </div>
       <div className={styles.card}>
-        <Image src={logoFlexibilite} alt="flexibilite" />
+        <Image src={logoFlexibilite} alt='flexibilite' />
         <div className={styles.containerCard}>
           <h4 className={styles.titleCard}>Flexibilité</h4>
           <div className={styles.text}>

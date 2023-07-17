@@ -19,11 +19,10 @@ type OptimizedVariant = {
 export function VariantSelector({
   options,
   variants,
-  optionName
 }: {
   options: ProductOption[];
   variants: ProductVariant[];
-  optionName?: string;
+
 }) {
   const pathname = usePathname();
   const currentParams = useSearchParams();
@@ -96,7 +95,7 @@ export function VariantSelector({
         router.replace(optionUrl);
       }}
     >
-      {option.values.map((value, index) => (
+      {option.values.map((value) => (
         <option key={value}>{value} </option>
       ))}
     </select>
