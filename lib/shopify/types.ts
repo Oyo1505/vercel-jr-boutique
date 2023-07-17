@@ -46,7 +46,7 @@ export type Menu = {
 };
 
 export type Money = {
-  amount: string | undefined;
+  amount: string;
   currencyCode: string;
 };
 
