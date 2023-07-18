@@ -15,7 +15,8 @@
     "prettier:check": "prettier --check --ignore-unknown .",
     "test": "pnpm lint && pnpm prettier:check",
     "test:e2e": "playwright test",
-    "webhooks": "ngrok http 3000"
+    "webhooks": "ngrok http 3000",
+    "email": "email dev --port 4000"
   },
   "git": {
     "pre-commit": "lint-staged"
@@ -25,6 +26,8 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.15",
+    "@react-email/button": "0.0.9",
+    "@react-email/html": "0.0.4",
     "@react-email/render": "^0.0.7",
     "@react-spring/web": "^9.7.3",
     "@vercel/og": "^0.5.8",
@@ -43,9 +46,11 @@
     "react": "18.2.0",
     "react-cookie": "^4.1.1",
     "react-dom": "18.2.0",
+    "react-email": "1.9.4",
     "react-hook-form": "^7.45.1",
     "react-modal": "^3.16.1",
     "react-slick": "^0.29.0",
+    "resend": "^0.17.1",
     "sharp": "^0.32.1",
     "slick-carousel": "^1.8.1"
   },

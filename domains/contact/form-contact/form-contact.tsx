@@ -1,41 +1,9 @@
 'use client';
 
-import { render } from '@react-email/render';
 import clsx from 'clsx';
-import nodemailer from 'nodemailer';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import styles from './form-contact.module.scss';
-
-interface EmailProps {
-  url: string;
-}
-
-export const Email: React.FC<Readonly<EmailProps>> = ({ url }) => {
-  return (
-    <div lang="en">
-      <a href={url}>Click me</a>
-    </div>
-  );
-};
-
-const transporter = nodemailer.createTransport({
-  host: 'smtp.jr-boutique.fr',
-  port: 443,
-  secure: false,
-  auth: {
-    user: 'rh36637-ovh',
-    pass: 'Shagrath25'
-  }
-});
-const emailHtml = render(<Email url="https://example.com" />);
-const options = {
-  from: 'contact@jr-boutique.fr',
-  to: 'rigoulet.henri.pierre@gmail.com',
-  subject: 'hello world',
-  html: emailHtml
-};
-transporter.sendMail(options);
 
 interface IInputsForm {
   nom: string;
@@ -45,6 +13,7 @@ interface IInputsForm {
 }
 
 const FormContact: FC = () => {
+  const [, setLoading] = useState<string>();
   const {
     register,
     handleSubmit,
@@ -52,13 +21,23 @@ const FormContact: FC = () => {
     formState: { errors }
   } = useForm<IInputsForm>();
 
-  const onSubmit = (data) => {
-    transporter.sendMail(options);
+  const onSubmit = async (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    setLoading('loading');
+    await fetch('/api/email', {
+      method: 'POST',
+      body: JSON.stringify({
+        firstName: 'COMSE'
+      })
+    });
+    setTimeout(() => {
+      setLoading('ready');
+    }, 1500);
   };
 
   return (
     <div className={styles.container}>
-      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+      <form className={styles.form} onSubmit={(e) => handleSubmit(onSubmit(e))}>
         <input
           className={clsx(styles.input, errors.nom && styles.error)}
           placeholder={'Nom / Société (obligatoire)'}
@@ -67,7 +46,7 @@ const FormContact: FC = () => {
         <input
           className={clsx(styles.input, errors.nom && styles.error)}
           placeholder={'Email (obligatoire)'}
-          {...register('email', { required: true, maxLength: 20 })}
+          {...register('email', { required: true, maxLength: 60 })}
         />
         <input
           className={styles.input}
