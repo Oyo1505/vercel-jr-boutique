@@ -1,0 +1,41 @@
+.container {
+  width: 400px;
+  font-family: rubik-regular;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.input {
+  border: 2px solid $yellow;
+  color: $black;
+  padding: 20px 10px;
+}
+
+.error {
+  border: 2px solid $red;
+  color: $red;
+}
+
+.lineError {
+  color: $red;
+}
+
+.textarea {
+  height: 300px;
+  font-family: rubik-regular;
+}
+
+.button {
+  background-color: $yellow;
+  color: $red;
+  cursor: pointer;
+  outline: inherit;
+  font-family: courgette-regular;
+  font-size: $font-size-4;
+  padding: 5px 0;
+  border: none;
+}
