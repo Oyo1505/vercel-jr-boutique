@@ -21,5 +21,16 @@ module.exports = {
         pathname: '/s/files/**'
       }
     ]
+  },
+  webpack: (config) => {
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      net: false,
+      tls: false,
+      fs: false,
+      dns: false,
+      child_process: false
+    };
+    return config;
   }
 };

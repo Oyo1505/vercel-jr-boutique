@@ -3,9 +3,9 @@ import Navbar from 'domains/common/navbar';
 import Container from 'domains/ui/container/container';
 import { Inter } from 'next/font/google';
 import { ReactNode, Suspense } from 'react';
+import 'setimmediate';
 import '../styles/base.scss';
 import './globals.css';
-
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 
 export const metadata = {
@@ -35,18 +35,18 @@ const inter = Inter({
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang='fr' className={inter.variable}>
+    <html lang="fr" className={inter.variable}>
       <head>
         <link
-          rel='stylesheet'
-          type='text/css'
-          charSet='UTF-8'
-          href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css'
+          rel="stylesheet"
+          type="text/css"
+          charSet="UTF-8"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
         />
         <link
-          rel='stylesheet'
-          type='text/css'
-          href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css'
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
         />
       </head>
       <body>
@@ -57,7 +57,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           </Suspense>
           <Footer />
         </Container>
-        <div id='portal' />
+        <div id="portal" />
       </body>
     </html>
   );
