@@ -144,6 +144,9 @@
   align-items: center;
   justify-content: center;
   gap: 15px;
+  @include below-md {
+    gap: 5px;
+  }
 }
 
 .quantity {
