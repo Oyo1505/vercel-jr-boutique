@@ -14,7 +14,9 @@ interface Props {
 const GridProductLabels: FC<Props> = ({ product }) => {
   const { addToCart } = useAddToCart(product?.variants?.[0]?.id);
   const pathname = usePathname();
-  const isPromo = product?.tags?.find((tag) => tag === 'promotions') && pathname !== '/promotions';
+  const isPromo =
+    product?.tags?.find((tag: string): boolean => tag === 'promotions') &&
+    pathname !== '/promotions';
 
   return product ? (
     <div>

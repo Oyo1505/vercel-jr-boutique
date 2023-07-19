@@ -30,7 +30,7 @@ const FormContact: FC = () => {
 
   return (
     <div className={styles.container}>
-      <form className={styles.form} onSubmit={(e) => handleSubmit(onSubmit(e))}>
+      <form className={styles.form}>
         <input
           className={clsx(styles.input, errors.nom && styles.error)}
           placeholder={'Nom / Société (obligatoire)'}
