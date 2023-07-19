@@ -1,0 +1,10 @@
+.gridItem {
+  position: relative;
+
+  .promo {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    z-index: 10;
+  }
+}
