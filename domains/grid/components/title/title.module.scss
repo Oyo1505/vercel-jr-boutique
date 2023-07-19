@@ -22,3 +22,17 @@
   @include square(215px);
   border: 2px solid $yellow;
 }
+.image {
+  position: relative;
+}
+.indisponible {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  background-color: $yellow;
+  color: $red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 45%;
+}
