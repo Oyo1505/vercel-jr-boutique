@@ -11,7 +11,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
 
-export const runtime = 'edge';
+//export const runtime = 'edge';
 
 export async function generateMetadata({
   params
@@ -76,7 +76,7 @@ export default async function ProductPage({ params }: { params: { handle: string
   return (
     <div>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(productJsonLd)
         }}

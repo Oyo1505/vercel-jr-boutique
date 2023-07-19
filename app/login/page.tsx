@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import styles from './page.module.scss';
-export const runtime = 'edge';
+//export const runtime = 'edge';
 
 interface IIFormLogin {
   identifiant: string;
