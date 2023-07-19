@@ -5,13 +5,6 @@ import { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import styles from './form-contact.module.scss';
 
-interface IInputsForm {
-  nom: string;
-  email: string;
-  phone: number;
-  message: string;
-}
-
 const FormContact: FC = () => {
   const [, setLoading] = useState<string>();
   const {

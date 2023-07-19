@@ -5,16 +5,16 @@ import { getMenu } from 'lib/shopify';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
-import headerLogo from '../../../public/images/header/Header.png';
-import logoLogin from '../../../public/images/header/ProfilMenu.png';
+import headerLogo from '../../../../public/images/header/Header.png';
+import logoLogin from '../../../../public/images/header/ProfilMenu.png';
 import styles from './navbar.module.scss';
 const Navbar = async () => {
   const menu = await getMenu('next-js-frontend-header-menu');
 
   return (
     <nav className={styles.container}>
-      <Link href='/' className={styles.logo} aria-label='Logo'>
-        <Image src={headerLogo} alt='header-logo' />
+      <Link href="/" className={styles.logo} aria-label="Logo">
+        <Image src={headerLogo} alt="header-logo" />
       </Link>
       <div className={styles.navBarMenu}>
         {menu.length ? (
@@ -47,15 +47,15 @@ const Navbar = async () => {
       </div>
       <div className={styles.asideContainer}>
         <div className={styles.logoReseau}>
-          <a href='https://www.facebook.com/jrdistribution' />
-          <a href='https://www.instagram.com/jrdistribution.particuliers' />
+          <a href="https://www.facebook.com/jrdistribution" />
+          <a href="https://www.instagram.com/jrdistribution.particuliers" />
         </div>
         <div className={styles.menuProfil}>
           <Suspense fallback={<CartIcon />}>
             <Cart />
           </Suspense>
           <Link href={'/espace-personnel'}>
-            <Image src={logoLogin} alt='profil' />
+            <Image src={logoLogin} alt="profil" />
           </Link>
         </div>
       </div>

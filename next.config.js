@@ -24,12 +24,7 @@ module.exports = {
   },
   webpack: (config) => {
     config.resolve.fallback = {
-      ...config.resolve.fallback,
-      net: false,
-      tls: false,
-      fs: false,
-      dns: false,
-      child_process: false
+      ...config.resolve.fallback
     };
     return config;
   }
