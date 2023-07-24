@@ -6,7 +6,7 @@ import { Product } from 'lib/shopify/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import promo from '../../../public/images/diver/EnPromo.png';
+import promo from '../../../../public/images/diver/EnPromo.png';
 import styles from './product-grid-items.module.scss';
 export default function ProductGridItems({ products }: { products: Product[] }) {
   const pathname = usePathname();

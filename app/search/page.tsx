@@ -1,5 +1,5 @@
 import Grid from 'domains/grid/components/grid';
-import ProductGridItems from 'domains/layout/product-grid-items/product-grid-items';
+import ProductGridItems from 'domains/layout/components/product-grid-items/product-grid-items';
 import { defaultSort, sorting } from 'lib/constants';
 import { getProducts } from 'lib/shopify';
 
@@ -28,7 +28,7 @@ export default async function SearchPage({
           {products.length === 0
             ? 'There are no products that match '
             : `Showing ${products.length} ${resultsText} for `}
-          <span className='font-bold'>&quot;{searchValue}&quot;</span>
+          <span className="font-bold">&quot;{searchValue}&quot;</span>
         </p>
       ) : null}
       {products.length > 0 ? (

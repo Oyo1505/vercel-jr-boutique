@@ -1,11 +1,17 @@
 import Footer from 'domains/common/components/footer/footer';
 import Navbar from 'domains/common/components/navbar';
+
+import { useAppBridge } from '@shopify/app-bridge-react';
+import { authenticatedFetch } from '@shopify/app-bridge-utils';
+import { Redirect } from '@shopify/app-bridge/actions';
 import Container from 'domains/ui/container/container';
 import { Inter } from 'next/font/google';
 import { ReactNode, Suspense } from 'react';
 import 'setimmediate';
 import '../styles/base.scss';
 import './globals.css';
+import Layout from '../domains/layout/components/layout/layout';
+
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 
 export const metadata = {
@@ -33,6 +39,22 @@ const inter = Inter({
   variable: '--font-inter'
 });
 
+// function userLoggeddInFetch(app){
+//   const fetchFunction = authenticatedFetch(app);
+
+//   return async (uri, options) => {
+//     const response = await fetchFunction(uri, options)
+
+//     if(response.headers.get('X-Shopify-API-Request-Failure-Reauthorize') === '1'){
+//       const authUrlHeader = response.headers.get('X-Shopify-API-Request-Failure-Reauthorize-Url')
+//       const redirect = Redirect.create(app)
+//       redirect.dispatch(Redirect.Action.APP, authUrlHeader || '/auth')
+//       return null
+//     }
+//     return response
+//   }
+// }
+
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr" className={inter.variable}>
@@ -50,13 +72,15 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         />
       </head>
       <body>
-        <Container>
-          <Navbar />
-          <Suspense>
-            <main>{children}</main>
-          </Suspense>
-          <Footer />
-        </Container>
+        <Layout>
+          <Container>
+            <Navbar />
+            <Suspense>
+              <main>{children}</main>
+            </Suspense>
+            <Footer />
+          </Container>
+        </Layout>
         <div id="portal" />
       </body>
     </html>

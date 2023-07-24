@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const path = require('path');
+
 module.exports = {
   eslint: {
     // Disabling on production builds because we're running checks on PRs via GitHub Actions.

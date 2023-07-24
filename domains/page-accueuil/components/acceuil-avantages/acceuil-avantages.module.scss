@@ -7,7 +7,7 @@
     margin: auto;
     color: $red;
     text-align: center;
-    background: url('../../../public/images/page-acceuil/SurlignementAvantages.png') no-repeat
+    background: url('../../../../public/images/page-acceuil/SurlignementAvantages.png') no-repeat
       center;
     height: 50px;
     margin-bottom: 50px;
@@ -37,7 +37,7 @@
         align-items: center;
         gap: 10px;
         flex-direction: column;
-        background: url('../../../public/images/page-acceuil/CarréJaune.png') center no-repeat;
+        background: url('../../../../public/images/page-acceuil/CarréJaune.png') center no-repeat;
         padding: 0 30px 30px;
 
         .titleCard {

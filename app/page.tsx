@@ -1,5 +1,5 @@
-import AcceuilAvantages from 'domains/page-accueuil/acceuil-avantages/acceuil-avantages';
-import Carrousel from 'domains/page-accueuil/carrousel/carrousel';
+import AcceuilAvantages from 'domains/page-accueuil/components/acceuil-avantages/acceuil-avantages';
+import Carrousel from 'domains/page-accueuil/components/carrousel/carrousel';
 import { getAllProducts } from 'lib/shopify';
 
 export const runtime = 'edge';
@@ -24,8 +24,8 @@ export default async function HomePage() {
   return (
     <>
       <AcceuilAvantages />
-      <Carrousel products={bestSellingProducts} title='Meilleurs Ventes' />
-      <Carrousel products={newProducts} title='Nouveautés' />
+      <Carrousel products={bestSellingProducts} title="Meilleurs Ventes" />
+      <Carrousel products={newProducts} title="Nouveautés" />
     </>
   );
 }

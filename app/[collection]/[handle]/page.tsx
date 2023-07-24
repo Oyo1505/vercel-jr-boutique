@@ -1,6 +1,6 @@
 import { AddToCart } from 'domains/cart/components/add-to-cart/add-to-cart';
 import Grid from 'domains/grid/components/grid';
-import ProductGridItems from 'domains/layout/product-grid-items/product-grid-items';
+import ProductGridItems from 'domains/layout/components/product-grid-items/product-grid-items';
 import { Gallery } from 'domains/product/components/gallery/gallery';
 import { VariantSelector } from 'domains/product/components/variant-selector/variant-selector';
 import Prose from 'domains/prose';

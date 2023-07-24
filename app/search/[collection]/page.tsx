@@ -1,10 +1,9 @@
+import Grid from 'domains/grid/components/grid';
+import ProductGridItems from 'domains/layout/components/product-grid-items/product-grid-items';
+import { defaultSort, sorting } from 'lib/constants';
 import { getCollection, getCollectionProducts } from 'lib/shopify';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-
-import Grid from 'domains/grid/components/grid';
-import ProductGridItems from 'domains/layout/product-grid-items/product-grid-items';
-import { defaultSort, sorting } from 'lib/constants';
 
 //export const runtime = 'edge';
 

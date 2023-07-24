@@ -1,6 +1,6 @@
-const customerActivateMutation = /* GraphQL */ `
-  mutation customerActivate($id: ID!, $input: CustomerActivateInput!) {
-    customerActivate(id: $id, input: $input) {
+const customerReset = /* GraphQL */ `
+  mutation resetCustomerAccount($id: ID!, $input: CustomerResetInput!) {
+    customerReset(id: $id, input: $input) {
       customer {
         id
         email
@@ -20,4 +20,5 @@ const customerActivateMutation = /* GraphQL */ `
     }
   }
 `;
-export default customerActivateMutation;
+
+export default customerReset;
