@@ -13,8 +13,8 @@ const Navbar = async () => {
 
   return (
     <nav className={styles.container}>
-      <Link href="/" className={styles.logo} aria-label="Logo">
-        <Image src={headerLogo} alt="header-logo" />
+      <Link href='/' className={styles.logo} aria-label='Logo'>
+        <Image src={headerLogo} alt='header-logo' />
       </Link>
       <div className={styles.navBarMenu}>
         {menu.length ? (
@@ -47,16 +47,16 @@ const Navbar = async () => {
       </div>
       <div className={styles.asideContainer}>
         <div className={styles.logoReseau}>
-          <a href="https://www.facebook.com/jrdistribution" />
-          <a href="https://www.instagram.com/jrdistribution.particuliers" />
+          <a href='https://www.facebook.com/jrdistribution' />
+          <a href='https://www.instagram.com/jrdistribution.particuliers' />
         </div>
         <div className={styles.menuProfil}>
           <Suspense fallback={<CartIcon />}>
             <Cart />
           </Suspense>
-          <Link href={'/espace-personnel'}>
-            <Image src={logoLogin} alt="profil" />
-          </Link>
+          <a href={'https://shopify.com/71989100837/account'}>
+            <Image src={logoLogin} alt='profil' />
+          </a>
         </div>
       </div>
 

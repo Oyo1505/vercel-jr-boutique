@@ -1,16 +1,13 @@
 import Footer from 'domains/common/components/footer/footer';
 import Navbar from 'domains/common/components/navbar';
 
-import { useAppBridge } from '@shopify/app-bridge-react';
-import { authenticatedFetch } from '@shopify/app-bridge-utils';
-import { Redirect } from '@shopify/app-bridge/actions';
 import Container from 'domains/ui/container/container';
 import { Inter } from 'next/font/google';
 import { ReactNode, Suspense } from 'react';
 import 'setimmediate';
+import Layout from '../domains/layout/components/layout/layout';
 import '../styles/base.scss';
 import './globals.css';
-import Layout from '../domains/layout/components/layout/layout';
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 
@@ -57,18 +54,18 @@ const inter = Inter({
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="fr" className={inter.variable}>
+    <html lang='fr' className={inter.variable}>
       <head>
         <link
-          rel="stylesheet"
-          type="text/css"
-          charSet="UTF-8"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+          rel='stylesheet'
+          type='text/css'
+          charSet='UTF-8'
+          href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css'
         />
         <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+          rel='stylesheet'
+          type='text/css'
+          href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css'
         />
       </head>
       <body>
@@ -81,7 +78,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             <Footer />
           </Container>
         </Layout>
-        <div id="portal" />
+        <div id='portal' />
       </body>
     </html>
   );
