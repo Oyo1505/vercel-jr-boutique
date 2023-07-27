@@ -8,6 +8,7 @@ import { Suspense } from 'react';
 import headerLogo from '../../../../public/images/header/Header.png';
 import logoLogin from '../../../../public/images/header/ProfilMenu.png';
 import styles from './navbar.module.scss';
+import { m } from 'framer-motion';
 const Navbar = async () => {
   const menu = await getMenu('next-js-frontend-header-menu');
 
@@ -54,9 +55,9 @@ const Navbar = async () => {
           <Suspense fallback={<CartIcon />}>
             <Cart />
           </Suspense>
-          <Link href={'/espace-personnel'}>
+          <a href={'https://shopify.com/79699935512/account'}>
             <Image src={logoLogin} alt="profil" />
-          </Link>
+          </a>
         </div>
       </div>
 
