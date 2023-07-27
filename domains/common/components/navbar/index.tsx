@@ -1,3 +1,4 @@
+
 import Cart from 'domains/cart/components/cart/cart';
 import CartIcon from 'domains/icons/cart';
 import SearchIcon from 'domains/icons/search';
@@ -8,6 +9,7 @@ import { Suspense } from 'react';
 import headerLogo from '../../../../public/images/header/Header.png';
 import logoLogin from '../../../../public/images/header/ProfilMenu.png';
 import styles from './navbar.module.scss';
+
 const Navbar = async () => {
   const menu = await getMenu('next-js-frontend-header-menu');
 
