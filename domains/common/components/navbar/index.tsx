@@ -54,7 +54,7 @@ const Navbar = async () => {
           <Suspense fallback={<CartIcon />}>
             <Cart />
           </Suspense>
-          <a href={'https://shopify.com/71989100837/account'}>
+          <a href={'https://shopify.com/79699935512/account'}>
             <Image src={logoLogin} alt='profil' />
           </a>
         </div>
