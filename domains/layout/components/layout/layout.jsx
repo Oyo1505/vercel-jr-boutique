@@ -1,15 +1,15 @@
 'use client';
+import useObtainAccessToken from 'domains/auth/hooks/use-obtain-access-token';
+import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
-import styles from './layout.module.scss';
 
 const Layout = ({ children }) => {
-  return (
-    <div className={styles.layout}>
-      <Suspense>
-        <Suspense>{children}</Suspense>
-      </Suspense>
-    </div>
-  );
+  const searchParams = useSearchParams();
+  const code = searchParams.get('code');
+
+  //const {access_token} = useObtainAccessToken(code)
+
+  return <Suspense fallback={null}>{children}</Suspense>;
 };
 
 export default Layout;

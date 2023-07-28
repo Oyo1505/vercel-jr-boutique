@@ -6,6 +6,8 @@ import useAuthorizationRequest from 'domains/auth/hooks/use-authorization-reques
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import styles from './page.module.scss';
+import { generateState } from 'domains/common/utilites/generate-state/generate-state';
+import { useEffect, useState } from 'react';
 
 interface IIFormLogin {
   identifiant: string;
@@ -13,26 +15,28 @@ interface IIFormLogin {
 }
 
 export default function Page() {
+  const [state, setState] = useState();
   const {
     register,
     handleSubmit,
 
     formState: { errors }
   } = useForm<IIFormLogin>();
-
+  useEffect(() => {
+    const x = async () => {
+      const newState = await generateState();
+      setState(newState);
+    };
+    x();
+  }, []);
   const clientId = process.env.SHOPIFY_HEADLESS_CODE_CLIENT;
   const shopId = '79699935512';
   const redirectUri = 'https://jr-boutique-production.myshopify.com';
-  const state = '<state>';
   const nonce = '<nonce>';
 
-  const authorizationUrl = useAuthorizationRequest(
-    clientId,
-    shopId,
-    redirectUri,
-    state,
-    nonce
-  );
+  const authorizationUrl = useAuthorizationRequest(clientId, shopId, redirectUri, state, nonce);
+
+  console.log(state);
 
   const handleLogin = () => {
     // Redirigez l'utilisateur vers l'URL d'autorisation générée
@@ -56,11 +60,11 @@ export default function Page() {
         />
       </div>
       {(errors?.password || errors?.identifiant) && (
-        <span className={styles.lineError}>Identidiant incoonus.</span>
+        <span className={styles.lineError}>Identidiant inconus.</span>
       )}
-      <input type='submit' onClick={handleLogin} className={styles.button} value={'Se Connecter'} />
+      <input type="submit" onClick={handleLogin} className={styles.button} value={'Se Connecter'} />
 
-      <Link href='#' className={styles.forgetPassword}>
+      <Link href="#" className={styles.forgetPassword}>
         Mot de passe perdu ?
       </Link>
     </div>

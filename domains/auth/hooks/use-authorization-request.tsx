@@ -1,71 +1,39 @@
+import {
+  generateCodeChallenge,
+  generateCodeVerifier
+} from 'domains/common/utilites/generate-code-verifier/generate-code-verifier';
 import { useEffect, useState } from 'react';
 
 const useAuthorizationRequest = (clientId, shopId, redirectUri, state, nonce) => {
   const [authorizationUrl, setAuthorizationUrl] = useState('');
-  function dec2hex(dec) {
-    return ("0" + dec.toString(16)).substr(-2);
-  }
-function generateCodeVerifier() {
-  var array = new Uint32Array(56 / 2);
-  window.crypto.getRandomValues(array);
-  return Array.from(array, dec2hex).join("");
-}
-function sha256(plain) {
-  // returns promise ArrayBuffer
-  const encoder = new TextEncoder();
-  const data = encoder.encode(plain);
-  return window.crypto.subtle.digest("SHA-256", data);
-}
 
-function base64urlencode(a) {
-  var str = "";
-  var bytes = new Uint8Array(a);
-  var len = bytes.byteLength;
-  for (var i = 0; i < len; i++) {
-    str += String.fromCharCode(bytes[i]);
-  }
-  return btoa(str)
-    .replace(/\+/g, "-")
-    .replace(/\//g, "_")
-    .replace(/=+$/, "");
-}
+  const handleAuthorization = async () => {
+    const authorizationRequestUrl = new URL(`https://shopify.com/${shopId}/auth/oauth/authorize`);
+    authorizationRequestUrl.searchParams.append(
+      'scope',
+      `openid email openid email https://api.customers.com/auth/customer.graphql`
+    );
+    authorizationRequestUrl.searchParams.append(
+      'client_id',
+      'shp_89014235-8e2f-43a8-9484-9564d0b4cd97'
+    );
+    authorizationRequestUrl.searchParams.append('response_type', 'code');
+    authorizationRequestUrl.searchParams.append('redirect_uri', redirectUri);
+    authorizationRequestUrl.searchParams.append('state', state);
+    authorizationRequestUrl.searchParams.append('nonce', nonce);
 
-async function generateCodeChallenge(verifier) {
-  var hashed = await sha256(verifier);
-  var base64encoded = base64urlencode(hashed);
-  return base64encoded;
-}
+    // Public Client
+    const verifier = await generateCodeVerifier();
+    const challenge = await generateCodeChallenge(verifier);
+    localStorage.setItem('code-verifier', verifier);
+    authorizationRequestUrl.searchParams.append('code_challenge', challenge);
+    authorizationRequestUrl.searchParams.append('code_challenge_method', 'S256');
 
-const handleAuthorization = async () => {
-  const authorizationRequestUrl = new URL(
-    `https://shopify.com/${shopId}/auth/oauth/authorize`
-  );
-  authorizationRequestUrl.searchParams.append(
-    'scope',
-    `openid email openid email https://api.customers.com/auth/customer.graphql`
-  );
-  authorizationRequestUrl.searchParams.append('client_id', 'shp_8025ff0c-189e-47b2-83c2-0d6d556a275b');
-  authorizationRequestUrl.searchParams.append('response_type', 'code');
-  authorizationRequestUrl.searchParams.append('redirect_uri', redirectUri);
-  authorizationRequestUrl.searchParams.append('state', state);
-  authorizationRequestUrl.searchParams.append('nonce', nonce);
-
-  // Public Client
-  const verifier = await generateCodeVerifier();
-  const challenge = await generateCodeChallenge(verifier);
-  localStorage.setItem('code-verifier', verifier);
-  authorizationRequestUrl.searchParams.append('code_challenge', challenge);
-  authorizationRequestUrl.searchParams.append(
-    'code_challenge_method',
-    'S256'
-  );
-
-  setAuthorizationUrl(authorizationRequestUrl.toString());
-};
+    setAuthorizationUrl(authorizationRequestUrl.toString());
+    console.log(authorizationRequestUrl);
+  };
 
   useEffect(() => {
-   
-
     handleAuthorization();
   }, [clientId, shopId, redirectUri, state, nonce]);
 

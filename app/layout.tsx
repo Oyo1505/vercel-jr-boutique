@@ -36,36 +36,20 @@ const inter = Inter({
   variable: '--font-inter'
 });
 
-// function userLoggeddInFetch(app){
-//   const fetchFunction = authenticatedFetch(app);
-
-//   return async (uri, options) => {
-//     const response = await fetchFunction(uri, options)
-
-//     if(response.headers.get('X-Shopify-API-Request-Failure-Reauthorize') === '1'){
-//       const authUrlHeader = response.headers.get('X-Shopify-API-Request-Failure-Reauthorize-Url')
-//       const redirect = Redirect.create(app)
-//       redirect.dispatch(Redirect.Action.APP, authUrlHeader || '/auth')
-//       return null
-//     }
-//     return response
-//   }
-// }
-
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang='fr' className={inter.variable}>
+    <html lang="fr" className={inter.variable}>
       <head>
         <link
-          rel='stylesheet'
-          type='text/css'
-          charSet='UTF-8'
-          href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css'
+          rel="stylesheet"
+          type="text/css"
+          charSet="UTF-8"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
         />
         <link
-          rel='stylesheet'
-          type='text/css'
-          href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css'
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
         />
       </head>
       <body>
@@ -78,7 +62,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             <Footer />
           </Container>
         </Layout>
-        <div id='portal' />
+        <div id="portal" />
       </body>
     </html>
   );

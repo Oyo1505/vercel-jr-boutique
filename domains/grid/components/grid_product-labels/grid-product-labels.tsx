@@ -17,21 +17,22 @@ const GridProductLabels: FC<Props> = ({ product }) => {
   const isPromo =
     product?.tags?.find((tag: string): boolean => tag === 'promotions') &&
     pathname !== '/promotions';
-  console.log(product)
+
   return product ? (
     <div>
-      <h3 data-testid='product-name' className={styles.title}>
+      <h3 data-testid="product-name" className={styles.title}>
         {product.title}
       </h3>
       <div className={styles.containerPrice}>
         <div className={clsx(styles.price, isPromo && styles.promo)}>
           {parseFloat(product.priceRange.minVariantPrice.amount)} €
         </div>
-        {product?.availableForSale && 
-        <button className={styles.buttonAddToCart} onClick={addToCart}>
-          {' '}
-          <Image src={logo} alt='panier-ajout' />{' '}
-        </button>}
+        {product?.availableForSale && (
+          <button className={styles.buttonAddToCart} onClick={addToCart}>
+            {' '}
+            <Image src={logo} alt="panier-ajout" />{' '}
+          </button>
+        )}
       </div>
     </div>
   ) : null;
