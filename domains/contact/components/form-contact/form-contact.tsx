@@ -1,9 +1,16 @@
 'use client';
-
+import axios from 'axios';
 import clsx from 'clsx';
 import { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import styles from './form-contact.module.scss';
+
+interface IFormContact {
+  nom:string
+  phone:number
+  message:string
+  email:string
+}
 
 const FormContact: FC = () => {
   const [, setLoading] = useState<string>();
@@ -14,14 +21,18 @@ const FormContact: FC = () => {
     formState: { errors }
   } = useForm<IInputsForm>();
 
-  const onSubmit = async (e: React.SyntheticEvent) => {
-    e.preventDefault();
+  const onSubmit = async (data:IFormContact) => {
+  
+    const {email, message, nom} = data;
     setLoading('loading');
-    await fetch('/api/email', {
+    await axios({
+      url:'/api/email',
       method: 'POST',
-      body: JSON.stringify({
-        firstName: 'COMSE'
-      })
+      data: {
+        nom,
+        email,
+        message,
+      }
     });
     setTimeout(() => {
       setLoading('ready');
@@ -30,7 +41,7 @@ const FormContact: FC = () => {
 
   return (
     <div className={styles.container}>
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <input
           className={clsx(styles.input, errors.nom && styles.error)}
           placeholder={'Nom / Société (obligatoire)'}
@@ -55,7 +66,7 @@ const FormContact: FC = () => {
           <span className={styles.lineError}>Veuillez renseignez tous champs obligatoires.</span>
         )}
 
-        <input type="submit" className={styles.button} value={'Envoyer'} />
+        <input type='submit' className={styles.button} value={'Envoyer'} />
       </form>
     </div>
   );

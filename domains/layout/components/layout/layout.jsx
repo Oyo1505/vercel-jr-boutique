@@ -7,8 +7,8 @@ const Layout = ({ children }) => {
   const searchParams = useSearchParams();
   const code = searchParams.get('code');
 
-  //const {access_token} = useObtainAccessToken(code)
-
+  useObtainAccessToken(code)
+  //console.log(data)
   return <Suspense fallback={null}>{children}</Suspense>;
 };
 
