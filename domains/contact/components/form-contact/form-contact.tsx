@@ -19,6 +19,7 @@ const FormContact: FC = () => {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors }
   } = useForm<IInputsForm>();
 
@@ -40,6 +41,10 @@ const FormContact: FC = () => {
       });
       if(res.status === 200){
         console.log('message envoye')
+        setValue('nom', '', { shouldValidate: false })
+        setValue('email', '', { shouldValidate: false })
+        setValue('phone', 0, { shouldValidate: false })
+        setValue('message', '', { shouldValidate: false })
       }
       setTimeout(() => {
         setLoading('ready');
