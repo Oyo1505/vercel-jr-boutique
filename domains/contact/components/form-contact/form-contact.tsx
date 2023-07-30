@@ -1,10 +1,10 @@
 'use client';
 import axios from 'axios';
 import clsx from 'clsx';
-import { FC, useState } from 'react';
+import { FC, useRef, useState } from 'react';
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { useForm } from 'react-hook-form';
 import styles from './form-contact.module.scss';
-
 interface IFormContact {
   nom:string
   phone:number
@@ -14,29 +14,40 @@ interface IFormContact {
 
 const FormContact: FC = () => {
   const [, setLoading] = useState<string>();
+  const { executeRecaptcha } = useGoogleReCaptcha();
+  const recaptchaRef = useRef()
   const {
     register,
     handleSubmit,
-
     formState: { errors }
   } = useForm<IInputsForm>();
+
 
   const onSubmit = async (data:IFormContact) => {
   
     const {email, message, nom} = data;
     setLoading('loading');
-    await axios({
-      url:'/api/email',
-      method: 'POST',
-      data: {
-        nom,
-        email,
-        message,
+    try{
+      
+     const res =  await axios({
+        url:'/api/email',
+        method: 'POST',
+        data: {
+          nom,
+          email,
+          message,
+        }
+      });
+      if(res.status === 200){
+        console.log('message envoye')
       }
-    });
-    setTimeout(() => {
-      setLoading('ready');
-    }, 1500);
+      setTimeout(() => {
+        setLoading('ready');
+      }, 1500);
+    }catch(e){
+      console.log(e)
+    }
+
   };
 
   return (
@@ -65,7 +76,6 @@ const FormContact: FC = () => {
         {(errors?.nom || errors?.email || errors?.message) && (
           <span className={styles.lineError}>Veuillez renseignez tous champs obligatoires.</span>
         )}
-
         <input type='submit' className={styles.button} value={'Envoyer'} />
       </form>
     </div>

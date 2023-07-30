@@ -1,10 +1,24 @@
+import axios from 'axios';
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+
+const verifyRecaptcha = async (token:string) => {
+  const secretKey = process.env.RECAPTHA_SECRET_KEY;
+
+  var verificationUrl =
+    "https://www.google.com/recaptcha/api/siteverify?secret=" +
+    secretKey +
+    "&response=" +
+    token;
+
+  return await axios.post(verificationUrl);
+};
 
 export async function POST(req:NextRequest): Promise<Response> {
   if (req.method === 'POST') {
     
-    const {email, message, nom} = await req.json();
+    const {email, message, nom, token} = await req.json();
+    const response = await verifyRecaptcha(token);
     const transporter = nodemailer.createTransport({
       host: 'ssl0.ovh.net', 
       port:465,

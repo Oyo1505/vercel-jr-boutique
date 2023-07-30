@@ -57,6 +57,8 @@
     "react-cookie": "^4.1.1",
     "react-dom": "18.2.0",
     "react-email": "1.9.4",
+    "react-google-recaptcha": "^3.1.0",
+    "react-google-recaptcha-v3": "^1.10.1",
     "react-hook-form": "^7.45.2",
     "react-modal": "^3.16.1",
     "react-slick": "^0.29.0",

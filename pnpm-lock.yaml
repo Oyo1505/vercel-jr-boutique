@@ -51,6 +51,8 @@ specifiers:
   react-cookie: ^4.1.1
   react-dom: 18.2.0
   react-email: 1.9.4
+  react-google-recaptcha: ^3.1.0
+  react-google-recaptcha-v3: ^1.10.1
   react-hook-form: ^7.45.2
   react-modal: ^3.16.1
   react-slick: ^0.29.0
@@ -94,6 +96,8 @@ dependencies:
   react-cookie: 4.1.1_react@18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-email: 1.9.4
+  react-google-recaptcha: 3.1.0_react@18.2.0
+  react-google-recaptcha-v3: 1.10.1_biqbaboplfbrettd7655fr4n2y
   react-hook-form: 7.45.2_react@18.2.0
   react-modal: 3.16.1_biqbaboplfbrettd7655fr4n2y
   react-slick: 0.29.0_biqbaboplfbrettd7655fr4n2y
@@ -5138,6 +5142,16 @@ packages:
       strip-json-comments: 2.0.1
     dev: false
 
+  /react-async-script/1.2.0_react@18.2.0:
+    resolution: {integrity: sha512-bCpkbm9JiAuMGhkqoAiC0lLkb40DJ0HOEJIku+9JDjxX3Rcs+ztEOG13wbrOskt3n2DTrjshhaQ/iay+SnGg5Q==}
+    peerDependencies:
+      react: '>=16.4.1'
+    dependencies:
+      hoist-non-react-statics: 3.3.2
+      prop-types: 15.8.1
+      react: 18.2.0
+    dev: false
+
   /react-cookie/4.1.1_react@18.2.0:
     resolution: {integrity: sha512-ffn7Y7G4bXiFbnE+dKhHhbP+b8I34mH9jqnm8Llhj89zF4nPxPutxHT1suUqMeCEhLDBI7InYwf1tpaSoK5w8A==}
     peerDependencies:
@@ -5182,6 +5196,27 @@ packages:
       tree-node-cli: 1.6.0
     transitivePeerDependencies:
       - encoding
+    dev: false
+
+  /react-google-recaptcha-v3/1.10.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-K3AYzSE0SasTn+XvV2tq+6YaxM+zQypk9rbCgG4OVUt7Rh4ze9basIKefoBz9sC0CNslJj9N1uwTTgRMJQbQJQ==}
+    peerDependencies:
+      react: ^16.3 || ^17.0 || ^18.0
+      react-dom: ^17.0 || ^18.0
+    dependencies:
+      hoist-non-react-statics: 3.3.2
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /react-google-recaptcha/3.1.0_react@18.2.0:
+    resolution: {integrity: sha512-cYW2/DWas8nEKZGD7SCu9BSuVz8iOcOLHChHyi7upUuVhkpkhYG/6N3KDiTQ3XAiZ2UAZkfvYKMfAHOzBOcGEg==}
+    peerDependencies:
+      react: '>=16.4.1'
+    dependencies:
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-async-script: 1.2.0_react@18.2.0
     dev: false
 
   /react-hook-form/7.45.2_react@18.2.0:
