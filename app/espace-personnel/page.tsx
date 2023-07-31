@@ -1,4 +1,4 @@
-import RestrictedPage from 'domains/auth/restricted-page/restricted-page';
+import RestrictedPage from 'domains/auth/components/restricted-page/restricted-page';
 import Link from 'next/link';
 import { FC } from 'react';
 import styles from './page.module.scss';
@@ -28,7 +28,6 @@ const Page = () => {
           <Tuile title={'Mes information'} path={'/mes-information'} />
           <Tuile title={'Mes adresses'} path={'/mes-adresses'} />
           <Tuile title={'Mes Commandes'} path={'/mes-commandes'} />
-          <Tuile title={'Mes Alertes'} path={'/mes-alertes'} />
         </div>
       </div>
     </RestrictedPage>

@@ -136,7 +136,7 @@
 }
 
 .variantItem {
-  width: 50px;
+  width: 30px;
 }
 
 .buttonRow {
@@ -144,6 +144,9 @@
   align-items: center;
   justify-content: center;
   gap: 15px;
+  @include below-md {
+    gap: 5px;
+  }
 }
 
 .quantity {

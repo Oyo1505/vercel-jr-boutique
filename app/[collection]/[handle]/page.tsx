@@ -1,6 +1,6 @@
 import { AddToCart } from 'domains/cart/components/add-to-cart/add-to-cart';
 import Grid from 'domains/grid/components/grid';
-import ProductGridItems from 'domains/layout/product-grid-items/product-grid-items';
+import ProductGridItems from 'domains/layout/components/product-grid-items/product-grid-items';
 import { Gallery } from 'domains/product/components/gallery/gallery';
 import { VariantSelector } from 'domains/product/components/variant-selector/variant-selector';
 import Prose from 'domains/prose';
@@ -11,7 +11,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
 
-export const runtime = 'edge';
+//export const runtime = 'edge';
 
 export async function generateMetadata({
   params
@@ -76,7 +76,7 @@ export default async function ProductPage({ params }: { params: { handle: string
   return (
     <div>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(productJsonLd)
         }}

@@ -1,5 +1,5 @@
-import FormContact from 'domains/contact/form-contact/form-contact';
-import Map from 'domains/contact/map/map';
+import FormContact from 'domains/contact/components/form-contact/form-contact';
+import Map from 'domains/contact/components/map/map';
 import Image from 'next/image';
 import logo from '../../public/images/page-acceuil/Fiabilité.png';
 import styles from './page.module.scss';
