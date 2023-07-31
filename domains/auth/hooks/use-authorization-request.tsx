@@ -34,6 +34,7 @@ const useAuthorizationRequest = (clientId, shopId, redirectUri, state, nonce) =>
 
   useEffect(() => {
     handleAuthorization();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [clientId, shopId, redirectUri, state, nonce]);
 
   return authorizationUrl;

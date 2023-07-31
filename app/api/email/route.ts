@@ -15,6 +15,7 @@ export async function POST(req: NextRequest): Promise<Response> {
   if (req.method === 'POST') {
     const { email, message, nom, phone, token } = await req.json();
     const response = await verifyRecaptcha(token);
+    console.log(response);
     const transporter = nodemailer.createTransport({
       host: 'ssl0.ovh.net',
       port: 465,
@@ -34,7 +35,7 @@ export async function POST(req: NextRequest): Promise<Response> {
     };
 
     try {
-      await transporter.sendMail(mailOptions);
+      // await transporter.sendMail(mailOptions);
       return NextResponse.json({ msg: 'Email envoyer', status: 200 });
     } catch (error) {
       console.log(error);

@@ -1,21 +1,30 @@
 'use client';
 import axios from 'axios';
 import clsx from 'clsx';
-import { FC, useRef, useState } from 'react';
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { FC, useCallback, useRef, useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { ReCaptcha, useReCaptcha } from 'next-recaptcha-v3';
+
 import { useForm } from 'react-hook-form';
 import styles from './form-contact.module.scss';
+
 interface IFormContact {
-  nom:string
-  phone:number
-  message:string
-  email:string
+  nom: string;
+  phone: string;
+  message: string;
+  email: string;
 }
 
 const FormContact: FC = () => {
   const [, setLoading] = useState<string>();
-  const { executeRecaptcha } = useGoogleReCaptcha();
-  const recaptchaRef = useRef()
+  const [token, setToken] = useState('');
+
+  const { executeRecaptcha } = useReCaptcha();
+
+  const verifyRecaptchaCallback = useCallback((token: string) => {
+    setToken(token);
+  }, []);
+
   const {
     register,
     handleSubmit,
@@ -23,37 +32,60 @@ const FormContact: FC = () => {
     formState: { errors }
   } = useForm<IInputsForm>();
 
+  const toastConfig = {
+    duration: 4000,
+    position: 'top-right',
 
-  const onSubmit = async (data:IFormContact) => {
-  
-    const {email, message, nom} = data;
-    setLoading('loading');
-    try{
-      
-     const res =  await axios({
-        url:'/api/email',
-        method: 'POST',
-        data: {
-          nom,
-          email,
-          message,
-        }
-      });
-      if(res.status === 200){
-        console.log('message envoye')
-        setValue('nom', '', { shouldValidate: false })
-        setValue('email', '', { shouldValidate: false })
-        setValue('phone', 0, { shouldValidate: false })
-        setValue('message', '', { shouldValidate: false })
-      }
-      setTimeout(() => {
-        setLoading('ready');
-      }, 1500);
-    }catch(e){
-      console.log(e)
+    // Styling
+    className: styles.toaster,
+    // Change colors of success/error/loading icon
+    iconTheme: {
+      primary: '#cd1619'
+    },
+
+    // Aria
+    ariaProps: {
+      role: 'status',
+      'aria-live': 'polite'
     }
-
   };
+
+  const onSubmit = useCallback(
+    async (data: IFormContact) => {
+      const { email, message, nom } = data;
+      // Generate ReCaptcha token
+      const token = await executeRecaptcha('form_submit');
+
+      setLoading('loading');
+      try {
+        const res = await axios({
+          url: '/api/email',
+          method: 'POST',
+          data: {
+            nom,
+            email,
+            message,
+            token
+          }
+        });
+        if (res.status === 200) {
+          toast.success('Votre message à bien été envoyé', toastConfig);
+          setValue('nom', '', { shouldValidate: false });
+          setValue('email', '', { shouldValidate: false });
+          setValue('phone', '', { shouldValidate: false });
+          setValue('message', '', { shouldValidate: false });
+        }
+        setTimeout(() => {
+          setLoading('ready');
+        }, 1500);
+      } catch (e) {
+        console.log(e);
+      }
+
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    },
+    [executeRecaptcha, handleSubmit]
+  );
 
   return (
     <div className={styles.container}>
@@ -81,7 +113,8 @@ const FormContact: FC = () => {
         {(errors?.nom || errors?.email || errors?.message) && (
           <span className={styles.lineError}>Veuillez renseignez tous champs obligatoires.</span>
         )}
-        <input type='submit' className={styles.button} value={'Envoyer'} />
+        <ReCaptcha onValidate={setToken} action="page_view" />
+        <input type="submit" className={styles.button} value={'Envoyer'} />
       </form>
     </div>
   );
