@@ -15,7 +15,7 @@ const useAuthorizationRequest = (clientId, shopId, redirectUri, state, nonce) =>
     );
     authorizationRequestUrl.searchParams.append(
       'client_id',
-      'shp_89014235-8e2f-43a8-9484-9564d0b4cd97'
+      'shp_b3b29fa1-ef9e-4431-8e8b-1dbb95ec30c3'
     );
     authorizationRequestUrl.searchParams.append('response_type', 'code');
     authorizationRequestUrl.searchParams.append('redirect_uri', redirectUri);
@@ -30,7 +30,6 @@ const useAuthorizationRequest = (clientId, shopId, redirectUri, state, nonce) =>
     authorizationRequestUrl.searchParams.append('code_challenge_method', 'S256');
 
     setAuthorizationUrl(authorizationRequestUrl.toString());
-    console.log(authorizationRequestUrl);
   };
 
   useEffect(() => {

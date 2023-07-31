@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 interface AccessTokenResponse {
   access_token: string;
@@ -5,41 +6,27 @@ interface AccessTokenResponse {
   id_token: string;
   refresh_token: string;
 }
-const useObtainAccessToken =  (code: string) => {
-  const [data, setData] = useState<AccessTokenResponse>()
-  const clientId = 'shp_89014235-8e2f-43a8-9484-9564d0b4cd97';
+const useObtainAccessToken = (code: string) => {
+  const [data, setData] = useState<AccessTokenResponse>();
 
-  useEffect(()=> {
-   const x = async () => {
-    const body = new URLSearchParams();
+  useEffect(() => {
+    const x = async () => {
+      // Public Client
+      const code_verifier = localStorage.getItem('code-verifier');
+      const response = await axios({
+        url: `/api/auth`,
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        data: { code_verifier, code }
+      });
+      const data = await response.json();
 
-    body.append('grant_type', 'authorization_code');
-    body.append('client_id', clientId);
-    body.append('redirect_uri', `https://8e72-86-246-133-16.ngrok-free.app`);
-    body.append('code', code);
-  
-    // Public Client
-    const codeVerifier = localStorage.getItem('code-verifier');
-    
-    body.append('code_verifier', codeVerifier ?? '');
-  
-    const headers = {
-      'content-type': 'application/x-www-form-urlencoded',
-      'Access-Control-Allow-Origin': '*'
+      setData(data);
     };
-    const response = await fetch(`https://shopify.com/79699935512/auth/oauth/token`, {
-      method: 'POST',
-      headers: headers,
-      body
-    });
-    const data = await response.json();
-    console.log(code)
-    setData(data)
-   }
- 
-    if(code?.length > 0) x()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    if (code?.length > 0) x();
+  }, [code]);
 
   return {
     data
