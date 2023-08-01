@@ -20,16 +20,16 @@ export const metadata = {
 };
 
 export default async function HomePage() {
-  const bestSellingProducts = await getAllProducts({ sortKey: 'BEST_SELLING' });
-  const newProducts = await getAllProducts({ sortKey: 'CREATED_AT', reverse: true });
+  const bestSellingProducts = await getAllProducts({ sortKey: 'BEST_SELLING', first:12 });
+  const newProducts = await getAllProducts({ sortKey: 'CREATED_AT', reverse: true, first:12 });
   return (
     <>
       <AcceuilAvantages />
       <Suspense>
-        <Carrousel products={bestSellingProducts} title="Meilleurs Ventes" />
+        <Carrousel products={bestSellingProducts} title='Meilleurs Ventes' />
       </Suspense>
       <Suspense>
-        <Carrousel products={newProducts} title="Nouveautés" />
+        <Carrousel products={newProducts} title='Nouveautés' />
       </Suspense>
     </>
   );

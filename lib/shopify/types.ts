@@ -210,6 +210,7 @@ export type ShopifyCollectionProductsOperation = {
     handle: string;
     reverse?: boolean;
     sortKey?: string;
+    first?:number;
   };
 };
 
@@ -268,5 +269,6 @@ export type ShopifyProductsOperation = {
     query?: string;
     reverse?: boolean;
     sortKey?: string;
+    first?:number;
   };
 };
