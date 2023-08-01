@@ -1,9 +1,7 @@
 'use client';
-import useObtainAccessToken from 'domains/auth/hooks/use-obtain-access-token';
+import { ReCaptchaProvider } from 'next-recaptcha-v3';
 import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
-import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
-import { ReCaptchaProvider } from 'next-recaptcha-v3';
 
 const Layout = ({ children }) => {
   const searchParams = useSearchParams();

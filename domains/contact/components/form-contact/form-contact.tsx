@@ -1,11 +1,11 @@
 'use client';
 import axios from 'axios';
 import clsx from 'clsx';
-import { FC, useCallback, useRef, useState } from 'react';
-import { toast } from 'react-hot-toast';
+import { isValidPhoneNumber } from 'libphonenumber-js/min';
 import { ReCaptcha, useReCaptcha } from 'next-recaptcha-v3';
-
+import { FC, useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import styles from './form-contact.module.scss';
 
 interface IFormContact {
@@ -17,18 +17,15 @@ interface IFormContact {
 
 const FormContact: FC = () => {
   const [, setLoading] = useState<string>();
-  const [token, setToken] = useState('');
+  const [, setToken] = useState('');
 
   const { executeRecaptcha } = useReCaptcha();
-
-  const verifyRecaptchaCallback = useCallback((token: string) => {
-    setToken(token);
-  }, []);
 
   const {
     register,
     handleSubmit,
     setValue,
+    setError,
     formState: { errors }
   } = useForm<IInputsForm>();
 
@@ -52,7 +49,10 @@ const FormContact: FC = () => {
 
   const onSubmit = useCallback(
     async (data: IFormContact) => {
-      const { email, message, nom } = data;
+      const { email, message, nom, phone } = data;
+     
+      if(phone && !isValidPhoneNumber(phone, 'FR')) return setError('phone', { type: 'custom', message: 'Veuillez renseignez un numéro de téléphone correct.' });
+
       // Generate ReCaptcha token
       const token = await executeRecaptcha('form_submit');
 
@@ -64,6 +64,7 @@ const FormContact: FC = () => {
           data: {
             nom,
             email,
+            phone,
             message,
             token
           }
@@ -79,11 +80,11 @@ const FormContact: FC = () => {
           setLoading('ready');
         }, 1500);
       } catch (e) {
+        toast.error('Erreur lors de l\'envoi du message', toastConfig);
         console.log(e);
       }
-
-      // eslint-disable-next-line react-hooks/exhaustive-deps
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [executeRecaptcha, handleSubmit]
   );
 
@@ -98,10 +99,16 @@ const FormContact: FC = () => {
         <input
           className={clsx(styles.input, errors.nom && styles.error)}
           placeholder={'Email (obligatoire)'}
-          {...register('email', { required: true, maxLength: 60 })}
+          {...register('email', { required: true,  validate: {
+            maxLength: (v) =>
+              v.length <= 50 || "The email should have at most 50 characters",
+            matchPattern: (v) =>
+              /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
+              "L'email est incorrect.",
+          }, })}
         />
         <input
-          className={styles.input}
+         className={clsx(styles.input, errors.phone && styles.error)}
           placeholder={'Téléphone'}
           {...register('phone', { maxLength: 10 })}
         />
@@ -111,10 +118,13 @@ const FormContact: FC = () => {
           {...register('message', { required: true })}
         />
         {(errors?.nom || errors?.email || errors?.message) && (
-          <span className={styles.lineError}>Veuillez renseignez tous champs obligatoires.</span>
+          <span className={styles.lineError}>{errors?.email?.message ? errors?.email?.message :  'Veuillez renseignez tous champs obligatoires.'}</span>
         )}
-        <ReCaptcha onValidate={setToken} action="page_view" />
-        <input type="submit" className={styles.button} value={'Envoyer'} />
+         {(errors?.phone) && (
+          <span className={styles.lineError}>{errors?.phone?.message}</span>
+        )}
+        <ReCaptcha onValidate={setToken} action='page_view' />
+        <input type='submit' className={styles.button} value={'Envoyer'} />
       </form>
     </div>
   );
