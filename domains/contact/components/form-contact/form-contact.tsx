@@ -2,7 +2,7 @@
 import axios from 'axios';
 import clsx from 'clsx';
 import { isValidPhoneNumber } from 'libphonenumber-js/min';
-import { ReCaptcha, useReCaptcha } from 'next-recaptcha-v3';
+import { useReCaptcha } from 'next-recaptcha-v3';
 import { FC, useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
@@ -17,7 +17,6 @@ interface IFormContact {
 
 const FormContact: FC = () => {
   const [, setLoading] = useState<string>();
-  const [, setToken] = useState('');
 
   const { executeRecaptcha } = useReCaptcha();
 
@@ -123,7 +122,7 @@ const FormContact: FC = () => {
          {(errors?.phone) && (
           <span className={styles.lineError}>{errors?.phone?.message}</span>
         )}
-        <ReCaptcha onValidate={setToken} action='page_view' />
+
         <input type='submit' className={styles.button} value={'Envoyer'} />
       </form>
     </div>
