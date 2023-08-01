@@ -4,7 +4,7 @@ import {
 } from 'domains/common/utilites/generate-code-verifier/generate-code-verifier';
 import { useEffect, useState } from 'react';
 
-const useAuthorizationRequest = (clientId, shopId, redirectUri, state, nonce) => {
+const useAuthorizationRequest = (clientId:string, shopId:string, redirectUri:string, state:string, nonce:string) => {
   const [authorizationUrl, setAuthorizationUrl] = useState('');
 
   const handleAuthorization = async () => {
