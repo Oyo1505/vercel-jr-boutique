@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest } from 'next/server';
 
 // We always need to respond with a 200 status code to Shopify,
 // otherwise it will continue to retry the request.
@@ -32,9 +32,9 @@ export async function POST(req: NextRequest): Promise<Response> {
       data: body
     }
   );
-  const { access_token, expires_in, id_token, refresh_token } = await response.json();
-  return NextResponse.json({
-    msg: { access_token, expires_in, id_token, refresh_token },
-    status: 200
-  });
+  // const { access_token, expires_in, id_token, refresh_token } = await response.json();
+  // return NextResponse.json({
+  //   msg: { access_token, expires_in, id_token, refresh_token },
+  //   status: 200
+  // });
 }
