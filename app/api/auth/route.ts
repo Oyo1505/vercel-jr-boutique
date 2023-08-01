@@ -33,8 +33,8 @@ export async function POST(req: NextRequest): Promise<Response> {
     }
   );
   // const { access_token, expires_in, id_token, refresh_token } = await response.json();
-  // return NextResponse.json({
-  //   msg: { access_token, expires_in, id_token, refresh_token },
-  //   status: 200
-  // });
+  return NextResponse.json({
+    msg: " access_token, expires_in, id_token, refresh_token",
+    status: 200
+  });
 }
