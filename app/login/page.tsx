@@ -3,11 +3,11 @@
 'use client';
 import clsx from 'clsx';
 import useAuthorizationRequest from 'domains/auth/hooks/use-authorization-request';
+import { generateState } from 'domains/common/utilites/generate-state/generate-state';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import styles from './page.module.scss';
-import { generateState } from 'domains/common/utilites/generate-state/generate-state';
-import { useEffect, useState } from 'react';
 
 interface IIFormLogin {
   identifiant: string;
@@ -15,7 +15,7 @@ interface IIFormLogin {
 }
 
 export default function Page() {
-  const [state, setState] = useState<string>();
+  const [state, setState] = useState<string | undefined>();
   const {
     register,
     handleSubmit,
@@ -60,9 +60,9 @@ export default function Page() {
       {(errors?.password || errors?.identifiant) && (
         <span className={styles.lineError}>Identidiant inconus.</span>
       )}
-      <input type="submit" onClick={handleLogin} className={styles.button} value={'Se Connecter'} />
+      <input type='submit' onClick={handleLogin} className={styles.button} value={'Se Connecter'} />
 
-      <Link href="#" className={styles.forgetPassword}>
+      <Link href='#' className={styles.forgetPassword}>
         Mot de passe perdu ?
       </Link>
     </div>
