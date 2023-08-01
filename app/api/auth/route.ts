@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 // We always need to respond with a 200 status code to Shopify,
 // otherwise it will continue to retry the request.
