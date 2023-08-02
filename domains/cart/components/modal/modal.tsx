@@ -1,62 +1,23 @@
 'use client';
-import { useOnClickOutside } from 'domains/common/hooks/use-on-click-outside';
 import CartIcon from 'domains/icons/cart';
 import CloseIcon from 'domains/icons/close';
 import Price from 'domains/price';
 import Button from 'domains/ui/button/button';
-import { motion } from 'framer-motion';
 import { DEFAULT_OPTION } from 'lib/constants';
 import type { Cart } from 'lib/shopify/types';
 import { createUrl } from 'lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FC, MutableRefObject, ReactNode, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useCookies } from 'react-cookie';
-import { createPortal } from 'react-dom';
 import emptyPanier from '../../../../public/images/page-acceuil/Qualité.png';
 import DeleteItemButton from '../delete-item-button/delete-item-button';
 import EditItemQuantityButton from '../edit-item-quantity-button/edit-item-quantity-button';
 import styles from './modal.module.scss';
+import CustomModal from 'domains/common/components/custom-modal/custom-modal';
 
 type MerchandiseSearchParams = {
   [key: string]: string;
-};
-
-interface Props {
-  children: ReactNode;
-  openModal: boolean;
-  closeOnClickOutside?: boolean;
-  // eslint-disable-next-line no-unused-vars
-  setIsOpen: (isOpen: boolean) => void;
-}
-
-const CustomModal: FC<Props> = ({ children, openModal, closeOnClickOutside = true, setIsOpen }) => {
-  const ref = useRef<Element | null>(null);
-  const modalRef = useRef() as MutableRefObject<HTMLDivElement>;
-  const [mounted, setMounted] = useState(false);
-
-  useOnClickOutside(modalRef, () => {
-    if (closeOnClickOutside) setIsOpen(false);
-  });
-  useEffect(() => {
-    ref.current = document.querySelector<HTMLElement>('#portal');
-    setMounted(true);
-  }, []);
-
-  return mounted && ref.current
-    ? createPortal(
-        <motion.div
-          ref={modalRef}
-          transition={{ duration: 0.2, delay: 0.1 }}
-          initial={{ opacity: 0 }}
-          animate={{ right: openModal ? 0 : -700, opacity: openModal ? 1 : 0 }}
-          className={styles.dialog}
-        >
-          {children}
-        </motion.div>,
-        ref.current
-      )
-    : null;
 };
 
 export default function CartModal({ cart, cartIdUpdated }: { cart: Cart; cartIdUpdated: boolean }) {
@@ -93,21 +54,21 @@ export default function CartModal({ cart, cartIdUpdated }: { cart: Cart; cartIdU
   return (
     <>
       <button
-        aria-label='Open cart'
+        aria-label="Open cart"
         onClick={openCart}
         className={styles.button}
-        data-testid='open-cart'
+        data-testid="open-cart"
       >
         <CartIcon quantity={cart.totalQuantity} />
       </button>
-      <CustomModal openModal={isOpen} setIsOpen={setIsOpen}>
-        <div className={styles.dialogPanel} data-testid='cart'>
+      <CustomModal openModal={isOpen} setIsOpen={setIsOpen} direction="right">
+        <div className={styles.dialogPanel} data-testid="cart">
           <div className={styles.dialogContainer}>
             <p className={styles.title}>Mon Panier</p>
             <button
-              aria-label='Close cart'
+              aria-label="Close cart"
               onClick={() => setIsOpen(!isOpen)}
-              data-testid='close-cart'
+              data-testid="close-cart"
               className={styles.closeButton}
             >
               <CloseIcon className={styles.closeIcon} />
@@ -117,9 +78,9 @@ export default function CartModal({ cart, cartIdUpdated }: { cart: Cart; cartIdU
           {cart.lines.length === 0 ? (
             <div className={styles.emptyCart}>
               <p className={styles.phrase}>Votre panier est actuellement vide</p>
-              <Image src={emptyPanier} alt='empty-apnier' />
+              <Image src={emptyPanier} alt="empty-apnier" />
               <Link href={'/'}>
-                <Button text='Retour à la boutique' onClick={() => setIsOpen(false)} />
+                <Button text="Retour à la boutique" onClick={() => setIsOpen(false)} />
               </Link>
             </div>
           ) : (
@@ -140,7 +101,7 @@ export default function CartModal({ cart, cartIdUpdated }: { cart: Cart; cartIdU
                   );
 
                   return (
-                    <li key={i} data-testid='cart-item' className={styles.cartItem}>
+                    <li key={i} data-testid="cart-item" className={styles.cartItem}>
                       <Link className={styles.itemRow} href={merchandiseUrl} onClick={closeCart}>
                         <div className={styles.imageContainer}>
                           <Image
@@ -160,15 +121,15 @@ export default function CartModal({ cart, cartIdUpdated }: { cart: Cart; cartIdU
                         <DeleteItemButton item={item} />
                         <div className={styles.variantItem}>
                           {item.merchandise.title !== DEFAULT_OPTION ? (
-                            <p data-testid='cart-product-variant'>{item.merchandise.title}</p>
+                            <p data-testid="cart-product-variant">{item.merchandise.title}</p>
                           ) : null}
                         </div>
                         <div className={styles.quantity}>
                           <span>X {item.quantity}</span>
                         </div>
                         <div className={styles.itemsButtonsQuantity}>
-                          <EditItemQuantityButton item={item} type='plus' />
-                          <EditItemQuantityButton item={item} type='minus' />
+                          <EditItemQuantityButton item={item} type="plus" />
+                          <EditItemQuantityButton item={item} type="minus" />
                         </div>
                       </div>
                       <div className={styles.price}>

@@ -1,0 +1,8 @@
+.OpenButton {
+  @include square(24px);
+}
+
+.listItems {
+  list-style: none;
+  padding: 0;
+}
