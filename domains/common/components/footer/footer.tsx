@@ -19,9 +19,9 @@ export default async function Footer() {
         </div>
       </div>
       <div className={styles.pages}>
-        <Link href="#">Mention légales / </Link>
-        <Link href="#">Conditions Générales de Ventes / </Link>
-        <Link href="#">Politique de Confidentialité</Link>
+        {/* <Link href='/mention-legales'>Mention légales / </Link>
+        <Link href='#'>Conditions Générales de Ventes / </Link>
+        <Link href='#'>Politique de Confidentialité</Link> */}
       </div>
     </footer>
   );
