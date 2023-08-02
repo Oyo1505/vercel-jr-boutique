@@ -11,16 +11,18 @@ interface Props {
 }
 
 const PriceProductPage: FC<Props> = ({ product }) => {
-  const searchParams = useSearchParams().toString();
-  const valueOption = searchParams.slice(searchParams.indexOf('=') + 1);
+  const searchParams = useSearchParams();
+  const valueOption = searchParams.get('taille');
   const variant = product?.variants?.filter(
     (variant) => variant.selectedOptions?.[0]?.value === valueOption
   ) as ProductVariant[];
 
   return (
     <>
-      {searchParams ? computePrice(Number(variant?.[0]?.price.amount)) : computePrice(Number(product?.variants?.[0]?.price?.amount))} €{' '}
-      <span className={styles.ttc}>TTC</span>
+      {valueOption
+        ? computePrice(Number(variant?.[0]?.price.amount))
+        : computePrice(Number(product?.variants?.[0]?.price?.amount))}{' '}
+      € <span className={styles.ttc}>TTC</span>
     </>
   );
 };

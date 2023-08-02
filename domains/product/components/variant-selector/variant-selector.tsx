@@ -5,6 +5,7 @@ import { createUrl } from 'lib/utils';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 import styles from './variant-selector.module.scss';
+import computeWeight from 'shared/utilities/compute-weight/compute-weight';
 type ParamsMap = {
   [key: string]: string; // ie. { color: 'Red', size: 'Large', ... }
 };
@@ -18,11 +19,10 @@ type OptimizedVariant = {
 
 export function VariantSelector({
   options,
-  variants,
+  variants
 }: {
   options: ProductOption[];
   variants: ProductVariant[];
-
 }) {
   const pathname = usePathname();
   const currentParams = useSearchParams();
@@ -96,7 +96,11 @@ export function VariantSelector({
       }}
     >
       {option.values.map((value) => (
-        <option key={value}>{value} </option>
+        <option key={value} value={value}>
+          {option?.name === 'Taille' && variants?.[0]?.unitPriceMeasurement?.quantityUnit
+            ? computeWeight(variants?.[0]?.unitPriceMeasurement?.quantityUnit, Number(value))
+            : value}
+        </option>
       ))}
     </select>
   ));
