@@ -21,11 +21,12 @@ const useObtainAccessToken = (code: string) => {
         method: 'POST',
         data: { code_verifier, code }
       });
-      const data = await response.json();
+      //const data = await response.json();
 
       setData(data);
     };
     if (code?.length > 0) x();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [code]);
 
   return {

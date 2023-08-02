@@ -21,7 +21,7 @@ const Carrousel: FC<Props> = ({ title, products }) => {
     infinite: false,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 1,
+    slidesToScroll: 4,
     draggable: true,
     autoplay: true,
     autoplaySpeed: 6000
@@ -40,7 +40,7 @@ const Carrousel: FC<Props> = ({ title, products }) => {
                 <div className={styles.imageProduct}>
                   <Image
                     src={product?.images?.[0].url}
-                    loading="lazy"
+                    loading='lazy'
                     alt={product?.images?.[0].altText}
                     width={250}
                     height={250}

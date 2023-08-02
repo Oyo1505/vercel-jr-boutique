@@ -11,23 +11,19 @@ interface Props {
 }
 
 const PriceBySize: FC<Props> = ({ product }) => {
-  const searchParams = useSearchParams().toString();
-  const valueOption = searchParams.slice(searchParams.indexOf('=') + 1);
+  const searchParams = useSearchParams();
+  const valueOption = searchParams.get('taille');
   const variant = product?.variants?.filter(
     (variant) => variant.selectedOptions?.[0]?.value === valueOption
   ) as any;
-  const referenceWeight = searchParams
+  const referenceWeight = valueOption
     ? variant?.[0]?.price.amount /
       (Number(variant?.[0]?.selectedOptions?.[0]?.value) /
         Number(variant?.[0]?.unitPriceMeasurement?.referenceValue))
     : (product?.priceRange?.minVariantPrice?.amount as any) /
       (Number(product?.variants?.[0]?.unitPriceMeasurement?.quantityValue) /
         Number(product?.variants?.[0]?.unitPriceMeasurement?.referenceValue));
-  console.log(
-    variant?.[0]?.price.amount,
-    variant?.[0]?.selectedOptions?.[0]?.value,
-    variant?.[0]?.unitPriceMeasurement?.referenceValue
-  );
+
   return (
     <>
       {computePrice(referenceWeight)}€/

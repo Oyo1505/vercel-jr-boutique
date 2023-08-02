@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponseHeaders } from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { useEffect, useState } from 'react';
 import HttpStatus from '../constant/httpStatus';
 
@@ -10,7 +10,7 @@ export interface IUseGetParameters<TData, TOnFinishGetParameters = void>
   dependencies? : any[],
   /// TODO: il aurait fallu que onSuccess et onError prennent un objet en paramètre
   // eslint-disable-next-line no-unused-vars
-  onSuccess? : (data : TData, parameters?: TOnFinishGetParameters, status?: HttpStatus, headers?: AxiosResponseHeaders) => void,
+  onSuccess? : (data : TData, parameters?: TOnFinishGetParameters, status?: HttpStatus, headers?: any) => void,
 
   // eslint-disable-next-line no-unused-vars
   onError? : (error : any, parameters?: TOnFinishGetParameters, status?: HttpStatus) => void,
@@ -41,7 +41,7 @@ export interface IRefetchParameters<TData, TOnFinishGetParameters = void> {
   refetchConfig? : AxiosRequestConfig
   callbacksParameters?: TOnFinishGetParameters // paramètres applicable à onSuccess, onError, onBeforeGet
   // eslint-disable-next-line no-unused-vars
-  onSuccess? : (data : TData, parameters?: TOnFinishGetParameters, status?: HttpStatus, headers?: AxiosResponseHeaders) => void,
+  onSuccess? : (data : TData, parameters?: TOnFinishGetParameters, status?: HttpStatus, headers?: any) => void,
 
   // eslint-disable-next-line no-unused-vars
   onError? : (error : any, parameters?: TOnFinishGetParameters, status?: HttpStatus) => void,

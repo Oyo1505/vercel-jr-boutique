@@ -3,13 +3,15 @@ export type SortFilterItem = {
   slug: string | null;
   sortKey: 'RELEVANCE' | 'BEST_SELLING' | 'CREATED_AT' | 'PRICE';
   reverse: boolean;
+  first?:number
 };
 
 export const defaultSort: SortFilterItem = {
   title: 'Relevance',
   slug: null,
   sortKey: 'RELEVANCE',
-  reverse: false
+  reverse: false,
+  first:100
 };
 
 export const sorting: SortFilterItem[] = [

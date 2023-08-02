@@ -10,7 +10,7 @@ import styles from './form-contact.module.scss';
 
 interface IFormContact {
   nom: string;
-  phone: string;
+  phone: number;
   message: string;
   email: string;
 }
@@ -44,13 +44,13 @@ const FormContact: FC = () => {
       role: 'status',
       'aria-live': 'polite'
     }
-  };
+  } as any;
 
   const onSubmit = useCallback(
     async (data: IFormContact) => {
       const { email, message, nom, phone } = data;
      
-      if(phone && !isValidPhoneNumber(phone, 'FR')) return setError('phone', { type: 'custom', message: 'Veuillez renseignez un numéro de téléphone correct.' });
+      if(phone && !isValidPhoneNumber(String(phone), 'FR')) return setError('phone', { type: 'custom', message: 'Veuillez renseignez un numéro de téléphone correct.' });
 
       // Generate ReCaptcha token
       const token = await executeRecaptcha('form_submit');
@@ -72,7 +72,7 @@ const FormContact: FC = () => {
           toast.success('Votre message à bien été envoyé', toastConfig);
           setValue('nom', '', { shouldValidate: false });
           setValue('email', '', { shouldValidate: false });
-          setValue('phone', '', { shouldValidate: false });
+          setValue('phone',0 , { shouldValidate: false });
           setValue('message', '', { shouldValidate: false });
         }
         setTimeout(() => {
