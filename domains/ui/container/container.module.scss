@@ -3,6 +3,6 @@
   margin: auto;
   @include below-md {
     padding: 0 10px;
-    width: 100%;
+    min-width: 100%;
   }
 }

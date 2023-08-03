@@ -39,6 +39,7 @@
   h3 {
     margin: 0;
   }
+
 }
 .title {
   color: $red;
@@ -48,6 +49,12 @@
 .description {
   font-family: rubik-light-italic;
   font-size: $font-size-2;
+  line-height: 22px;
+
+  p{
+    font-family: rubik-light-italic;
+    font-size: $font-size-2;
+  }
 }
 
 .variants {

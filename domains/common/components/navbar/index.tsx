@@ -1,3 +1,4 @@
+
 import Cart from 'domains/cart/components/cart/cart';
 import CartIcon from 'domains/icons/cart';
 import { getMenu } from 'lib/shopify';
@@ -8,13 +9,15 @@ import { isDesktop } from 'react-device-detect';
 import headerLogo from '../../../../public/images/header/Header.png';
 import logoLogin from '../../../../public/images/header/ProfilMenu.png';
 import headerLogoSmall from '../../../../public/images/page-acceuil/miniLogo.png';
+import Menu from './menu';
 import MobileMenu from './mobile-menu';
 import styles from './navbar.module.scss';
 
 const Navbar = async () => {
   const menu = await getMenu('next-js-frontend-header-menu');
+  // eslint-disable-next-line react-hooks/rules-of-hooks
 
-  return isDesktop ? (
+  return !isDesktop ? (
     <>
       <MobileMenu menu={menu} />
       <nav className={styles.container}>
@@ -26,37 +29,11 @@ const Navbar = async () => {
   ) : (
     <>
       <nav className={styles.container}>
-        <Link href='/' className={styles.logo} aria-label='Logo'>
-          <Image src={headerLogo} alt='header-logo' />
+      <Link href='/' className={styles.logo} aria-label='Logo'>
+          <Image src={headerLogo}  alt='header-logo' />
         </Link>
         <div className={styles.navBarMenu}>
-          {menu.length ? (
-            <>
-              <ul className={styles.menuItems}>
-                {menu.map((l: any) => (
-                  <>
-                    <li>
-                      <Link href={l.path} key={l.path} className={styles.link}>
-                        {l.title}
-                      </Link>
-                      <span className={styles.slash}> </span>
-                    </li>
-                  </>
-                ))}
-                <li>
-                  <Link className={styles.link} href={'contact'}>
-                    Contact
-                  </Link>
-                </li>
-                {/* <li>
-                <button className={styles.button}>
-                  {' '}
-                  <SearchIcon className={styles.loupe} />
-                </button>
-              </li> */}
-              </ul>
-            </>
-          ) : null}
+         <Menu menu={menu} />
         </div>
         <div className={styles.asideContainer}>
           <div className={styles.logoReseau}>
