@@ -1,8 +1,8 @@
-import { FC, MutableRefObject, ReactNode, useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
-import styles from './custom-modal.module.scss';
 import { useOnClickOutside } from 'domains/common/hooks/use-on-click-outside';
+import { motion } from 'framer-motion';
+import { FC, MutableRefObject, ReactNode, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
+import styles from './custom-modal.module.scss';
 interface Props {
   children: ReactNode;
   openModal: boolean;
@@ -19,7 +19,6 @@ const CustomModal: FC<Props> = ({
   closeOnClickOutside = true,
   setIsOpen,
   direction = 'right',
-  maxWidth = '30%'
 }) => {
   const ref = useRef<Element | null>(null);
   const modalRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -44,6 +43,7 @@ const CustomModal: FC<Props> = ({
             left: direction === 'left' && openModal ? 0 : direction === 'right' ? 'inherit' : -700,
             opacity: openModal ? 1 : 0
           }}
+          style={{boxShadow : direction === 'right' ? '-7px 4px 15px -3px rgba(0, 0, 0, 0.1)' :'7px 4px 15px -3px rgba(0, 0, 0, 0.1)'}}
           className={styles.dialog}
         >
           {children}

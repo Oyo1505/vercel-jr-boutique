@@ -2,7 +2,7 @@
 import { ReCaptchaProvider } from 'next-recaptcha-v3';
 import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
-import CookieConsent, { Cookies } from 'react-cookie-consent';
+import CookieConsent from 'react-cookie-consent';
 const Layout = ({ children }) => {
   const searchParams = useSearchParams();
   const code = searchParams.get('code');
@@ -14,11 +14,11 @@ const Layout = ({ children }) => {
       <Suspense fallback={null}>
         {children}
         <CookieConsent
-          cookieName="CookieConsent"
+          cookieName='CookieConsent'
           flipButtons
           expires={365}
           buttonText="J'accepte"
-          declineButtonText="Je refuse"
+          declineButtonText='Je refuse'
           enableDeclineButton
         >
           Ce site web utilise des cookies pour améliorer l'expérience utilisateur.

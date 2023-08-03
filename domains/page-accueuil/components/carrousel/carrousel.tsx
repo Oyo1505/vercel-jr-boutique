@@ -39,9 +39,9 @@ const Carrousel: FC<Props> = ({ title, products }) => {
               <Link href={`product/${product?.handle}`}>
                 <div className={styles.imageProduct}>
                   <Image
-                    src={product?.images?.[0].url}
+                    src={product?.images?.[0]?.url}
                     loading='lazy'
-                    alt={product?.images?.[0].altText}
+                    alt={product?.images?.[0]?.altText}
                     width={250}
                     height={250}
                   />
