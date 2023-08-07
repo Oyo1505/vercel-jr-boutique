@@ -4,7 +4,13 @@
   height: 320px;
   border: 2px $yellow solid;
   margin: 0 auto;
+  @include below-sm {
+    width: 100%;
+  }
   img {
+    @include below-sm {
+      width: 100%;
+    }
     object-fit: contain;
   }
 }

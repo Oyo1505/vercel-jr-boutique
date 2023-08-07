@@ -23,7 +23,6 @@ type MerchandiseSearchParams = {
 
 export default function CartModal({ cart, cartIdUpdated }: { cart: Cart; cartIdUpdated: boolean }) {
   const pathname = usePathname();
-  console.log(pathname);
   const [, setCookie] = useCookies(['cartId']);
   const [isOpen, setIsOpen] = useState(false);
   const quantityRef = useRef(cart.totalQuantity);

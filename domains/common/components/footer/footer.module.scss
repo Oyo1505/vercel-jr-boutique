@@ -9,7 +9,9 @@
   justify-content: center;
   margin: 50px 0;
   gap: 25px;
-
+  @include below-sm {
+    flex-direction: inherit;
+  }
   .pages {
     color: $gray;
   }
@@ -22,19 +24,26 @@
   width: 100%;
   gap: 40px;
   justify-content: center;
-
+  @include below-md {
+    flex-direction: column;
+  }
   .logoColissimo {
     display: inline-block;
     height: 100%;
     padding-right: 40px;
     border-right: 2px solid #ffed00;
+    @include below-sm {
+      border-right: none;
+    }
   }
 
   .logoStripe {
     display: flex;
     justify-content: center;
     align-items: center;
-
+    @include below-sm {
+      justify-content: flex-start;
+    }
     .logo {
       margin-left: 5px;
     }

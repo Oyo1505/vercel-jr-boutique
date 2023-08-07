@@ -1,6 +1,10 @@
 .container {
   width: $md-width;
-  // [class*="slick-slider"]{margin-top: 40px;}
+
+  @include below-md {
+    width: 100%;
+  }
+
   [class*='slick-track'] {
     display: flex;
     flex-direction: row;
