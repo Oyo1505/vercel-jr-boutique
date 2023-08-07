@@ -58,6 +58,7 @@
     "react-hook-form": "^7.45.2",
     "react-hot-toast": "^2.4.1",
     "react-modal": "^3.16.1",
+    "react-responsive": "^9.0.2",
     "react-slick": "^0.29.0",
     "resend": "^0.17.1",
     "sharp": "^0.32.4",

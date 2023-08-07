@@ -4,18 +4,17 @@ import { getMenu } from 'lib/shopify';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
-import { isMobile } from 'react-device-detect';
 import headerLogo from '../../../../public/images/header/Header.png';
 import logoLogin from '../../../../public/images/header/ProfilMenu.png';
 import headerLogoSmall from '../../../../public/images/page-acceuil/miniLogo.png';
 import Menu from './menu';
 import MobileMenu from './mobile-menu';
 import styles from './navbar.module.scss';
-
+import { useMediaQuery } from 'react-responsive';
 const Navbar = async () => {
   const menu = await getMenu('next-js-frontend-header-menu');
   // eslint-disable-next-line react-hooks/rules-of-hooks
-
+  const isMobile = false;
   return isMobile ? (
     <>
       <MobileMenu menu={menu} />
