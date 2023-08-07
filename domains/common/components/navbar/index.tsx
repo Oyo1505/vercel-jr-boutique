@@ -15,8 +15,8 @@ import styles from './navbar.module.scss';
 const Navbar = async () => {
   const menu = await getMenu('next-js-frontend-header-menu');
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  console.log(isMobile);
-  return !isMobile ? (
+
+  return isMobile ? (
     <>
       <MobileMenu menu={menu} />
       <nav className={styles.container}>
