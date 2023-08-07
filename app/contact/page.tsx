@@ -7,7 +7,7 @@ export default async function Page() {
   return (
     <div className={styles.container}>
       <div className={styles.description}>
-        <Image src={logo} alt="home" />
+        <Image src={logo} alt='home' />
         <h2>JR Distribution</h2>
         <div className={styles.line}>25 chemin du sanatorium</div>
         <div className={styles.line}>25 000 Besançon</div>

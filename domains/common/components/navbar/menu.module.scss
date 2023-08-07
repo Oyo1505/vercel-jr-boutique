@@ -1,0 +1,38 @@
+.menuItems {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  font-family: rubik-regular;
+  li {
+    margin: 0 5px;
+    span {
+      color: $red;
+    }
+  }
+
+  .slash {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    transform: rotate(25deg) scale(var(--ggs, 1.2));
+    width: 2px;
+    height: 14px;
+    margin-left: 10px;
+    background: currentColor;
+    border-radius: 3px;
+  }
+}
+
+.link {
+  font-family: rubik-medium;
+  text-transform: uppercase;
+  color: $black;
+  font-size: $font-size-3;
+  text-decoration: none;
+}
+
+.isActive{
+  color:$red;
+}

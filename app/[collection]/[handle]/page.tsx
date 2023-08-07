@@ -76,7 +76,7 @@ export default async function ProductPage({ params }: { params: { handle: string
   return (
     <div>
       <script
-        type="application/ld+json"
+        type='application/ld+json'
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(productJsonLd)
         }}

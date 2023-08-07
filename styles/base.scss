@@ -4,6 +4,9 @@ html {
 }
 body {
   margin: 0;
+  @include below-md {
+    padding: 0 10px;
+  }
 }
 p {
   margin-block-start: 0;

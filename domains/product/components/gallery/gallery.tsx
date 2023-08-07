@@ -1,7 +1,7 @@
 'use client';
-
 import clsx from 'clsx';
 import ArrowLeftIcon from 'domains/icons/arrow-left';
+import { isMobile } from 'react-device-detect';
 import Image from 'next/image';
 import { useState } from 'react';
 import styles from './gallery.module.scss';
@@ -32,7 +32,7 @@ export function Gallery({
         <Image
           src={images[currentImage]?.src as string}
           alt={images[currentImage]?.altText as string}
-          width={720}
+          width={isMobile ? 200 : 720}
           height={320}
           priority={true}
         />
@@ -40,11 +40,11 @@ export function Gallery({
 
       {images.length > 1 ? (
         <div>
-          <button aria-label='Previous product image' onClick={() => handleNavigate('previous')}>
-            <ArrowLeftIcon className='h-6' />
+          <button aria-label="Previous product image" onClick={() => handleNavigate('previous')}>
+            <ArrowLeftIcon className="h-6" />
           </button>
           <button
-            aria-label='Next product image'
+            aria-label="Next product image"
             className={clsx(buttonClassName)}
             onClick={() => handleNavigate('next')}
           >
@@ -58,7 +58,7 @@ export function Gallery({
           {images.map((image, index) => {
             return (
               <button
-                aria-label='Enlarge product image'
+                aria-label="Enlarge product image"
                 key={image.src}
                 onClick={() => setCurrentImage(index)}
               >

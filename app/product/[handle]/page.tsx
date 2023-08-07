@@ -75,7 +75,7 @@ export default async function ProductPage({ params }: { params: { handle: string
   return (
     <div className={styles.container}>
       <script
-        type="application/ld+json"
+        type='application/ld+json'
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(productJsonLd)
         }}
@@ -105,7 +105,6 @@ export default async function ProductPage({ params }: { params: { handle: string
         <>
           <div className={styles.variants}>
             <VariantSelector options={product.options} variants={product.variants} />
-
             <div className={styles.separateur} />
           </div>
         </>

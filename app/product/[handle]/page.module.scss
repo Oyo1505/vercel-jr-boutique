@@ -5,6 +5,10 @@
   flex-direction: column;
   align-items: flex-start;
   margin: auto;
+
+  @include below-md {
+    width: 100%;
+  }
 }
 
 .infoProduct {
@@ -48,11 +52,18 @@
 .description {
   font-family: rubik-light-italic;
   font-size: $font-size-2;
+  line-height: 22px;
+
+  p {
+    font-family: rubik-light-italic;
+    font-size: $font-size-2;
+  }
 }
 
 .variants {
   width: 100%;
 }
+
 .priceVariant {
   color: $red;
   font-family: rubik-medium;

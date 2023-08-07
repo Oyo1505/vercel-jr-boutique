@@ -1,0 +1,19 @@
+.dialog {
+  max-width: 20%;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  padding: 0 10px;
+  display: flex;
+  background: #ffff;
+
+  z-index: 999;
+
+  @include below-md {
+    max-width: 30%;
+  }
+  @include below-sm {
+    max-width: 100%;
+  }
+}
