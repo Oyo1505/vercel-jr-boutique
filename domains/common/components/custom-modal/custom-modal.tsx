@@ -10,7 +10,6 @@ interface Props {
   // eslint-disable-next-line no-unused-vars
   setIsOpen: (isOpen: boolean) => void;
   direction: string;
-  maxWidth?: string;
 }
 
 const CustomModal: FC<Props> = ({
@@ -18,7 +17,7 @@ const CustomModal: FC<Props> = ({
   openModal,
   closeOnClickOutside = true,
   setIsOpen,
-  direction = 'right',
+  direction = 'right'
 }) => {
   const ref = useRef<Element | null>(null);
   const modalRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -43,7 +42,12 @@ const CustomModal: FC<Props> = ({
             left: direction === 'left' && openModal ? 0 : direction === 'right' ? 'inherit' : -700,
             opacity: openModal ? 1 : 0
           }}
-          style={{boxShadow : direction === 'right' ? '-7px 4px 15px -3px rgba(0, 0, 0, 0.1)' :'7px 4px 15px -3px rgba(0, 0, 0, 0.1)'}}
+          style={{
+            boxShadow:
+              direction === 'right'
+                ? '-7px 4px 15px -3px rgba(0, 0, 0, 0.1)'
+                : '7px 4px 15px -3px rgba(0, 0, 0, 0.1)'
+          }}
           className={styles.dialog}
         >
           {children}

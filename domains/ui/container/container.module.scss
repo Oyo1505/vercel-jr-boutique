@@ -2,7 +2,6 @@
   width: $md-width;
   margin: auto;
   @include below-md {
-    padding: 0 10px;
-    min-width: 100%;
+    width: 100%;
   }
 }

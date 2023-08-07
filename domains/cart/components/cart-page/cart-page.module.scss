@@ -1,0 +1,222 @@
+.container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+}
+
+.emptyCart {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+
+  .phrase {
+    color: $red;
+  }
+}
+
+.imageContainer {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  @include square(134px);
+
+  border-right: 2px solid $yellow;
+
+  @include below-md {
+    @include square(64px);
+  }
+
+  .imageItem {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.containerItems {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  margin: 0 auto;
+  height: 100%;
+  width: 900px;
+  justify-content: center;
+
+  @include below-md {
+    width: 100%;
+  }
+
+  .subContainerItems {
+    overflow: auto;
+    padding-top: 1.5rem;
+    flex-grow: 1;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .price {
+    width: 110px;
+    text-align: right;
+    display: flex;
+    gap: 5px;
+    justify-content: flex-end;
+
+    .amount {
+      font-family: rubik-medium;
+      color: $red;
+      gap: 5px;
+    }
+  }
+
+  .itemsButtonsQuantity {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.cartItem {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-top: 2px solid $yellow;
+  border-left: 2px solid $yellow;
+  border-right: 2px solid $yellow;
+  justify-content: space-between;
+  padding-right: 25px;
+  font-size: $font-size-3;
+  &:last-child {
+    border-bottom: 1px solid $yellow;
+  }
+}
+
+.titleProduct {
+  display: flex;
+  flex: 1 1;
+  flex-direction: row;
+  min-width: 120px;
+  gap: 10px;
+  color: $red;
+}
+.link {
+  min-width: 230px;
+  height: 50px;
+  background-color: $yellow;
+  color: $red !important;
+  display: flex;
+  justify-self: unset;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+.itemRow {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  width: 350px;
+  height: 134px;
+  @include below-md {
+    height: 64px;
+  }
+}
+
+.variantItem {
+  min-width: 100px;
+  text-align: center;
+}
+
+.buttonRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  @include below-md {
+    gap: 5px;
+  }
+}
+
+.quantity {
+  min-width: 30px;
+  text-align: center;
+  font-family: rubik-medium;
+}
+
+.colorText {
+  color: $red;
+  font-family: rubik-regular;
+}
+
+.closeButton {
+  @include square(40px);
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  border-radius: 50%;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.totalShippingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin: 30px 0;
+}
+
+.totalContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+
+  .total {
+    color: $red;
+    font-family: rubik-medium;
+    font-size: $font-size-3;
+  }
+}
+
+.closeIcon {
+  border-radius: 50%;
+  @include square(20px);
+  background-color: $yellow;
+  color: $red;
+  padding: 5px;
+}
+.checkout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-3;
+  background-color: $yellow;
+  color: $red !important;
+  margin: 0 auto;
+  cursor: pointer;
+  padding: 10px;
+  max-width: 200px;
+}
+
+.panier {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-2;
+  text-decoration: underline;
+  color: $red;
+  cursor: pointer;
+  padding: 10px;
+}

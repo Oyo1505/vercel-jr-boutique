@@ -1,25 +1,29 @@
-import CartPage from 'domains/cart/components/cart-page/cart-page';
 import { createCart, getCart } from 'lib/shopify';
 import { cookies } from 'next/headers';
 
-const PanierPage = async () => {
+const useGetPanier = async () => {
   const cartId = cookies().get('cartId')?.value;
   let cartIdUpdated = false;
   let cart;
 
-  if (cartId) {
+  const getCartFromShopify = async (cartId: string) => {
     cart = await getCart(cartId);
+  };
+  if (cartId) {
+    await getCartFromShopify(cartId);
   }
-
   // If the `cartId` from the cookie is not set or the cart is empty
   // (old carts becomes `null` when you checkout), then get a new `cartId`
   //  and re-fetch the cart.
-  if (!cartId || !cart) {
+  const createCartFromShopify = async () => {
     cart = await createCart();
     cartIdUpdated = true;
+  };
+  if (!cartId || !cart) {
+    await createCartFromShopify();
   }
 
-  return <CartPage cart={cart} cartIdUpdated={cartIdUpdated} />;
+  return { cart, cartIdUpdated };
 };
 
-export default PanierPage;
+export default useGetPanier;

@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import logoColissimo from '../../../../public/images/diver/799px-Colissimo_Logo.svg_.png';
 import logoStripe from '../../../../public/images/diver/Stripe.png';
 import styles from './footer.module.scss';

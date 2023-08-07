@@ -2,12 +2,7 @@ import { createCart, getCart } from 'lib/shopify';
 import { cookies } from 'next/headers';
 import CartModal from '../modal/modal';
 
-interface Props{
-  pathname? : string
-}
-
-export default async function Cart({pathname}:Props) {
-  
+export default async function Cart() {
   const cartId = cookies().get('cartId')?.value;
   let cartIdUpdated = false;
   let cart;
@@ -24,5 +19,5 @@ export default async function Cart({pathname}:Props) {
     cartIdUpdated = true;
   }
 
-  return pathname ? 'COUCOUs' : <CartModal cart={cart} cartIdUpdated={cartIdUpdated} />;
+  return <CartModal cart={cart} cartIdUpdated={cartIdUpdated} />;
 }
