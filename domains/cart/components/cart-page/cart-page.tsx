@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { useCookies } from 'react-cookie';
+import type { Cart } from 'lib/shopify/types';
 import styles from './cart-page.module.scss';
 import emptyPanier from '../../../../public/images/page-acceuil/Qualité.png';
 import Price from 'domains/price';
@@ -15,7 +16,7 @@ type MerchandiseSearchParams = {
   [key: string]: string;
 };
 
-const CartPage = ({ cart, cartIdUpdated }) => {
+const CartPage = ({ cart, cartIdUpdated }: { cart: Cart; cartIdUpdated: boolean }) => {
   const [, setCookie] = useCookies(['cartId']);
 
   useEffect(() => {
