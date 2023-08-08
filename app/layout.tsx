@@ -7,9 +7,9 @@ import { ReactNode, Suspense } from 'react';
 import { Toaster } from 'react-hot-toast';
 import 'setimmediate';
 import Layout from '../domains/layout/components/layout/layout';
+import favicon from '../public/images/header/favicon.ico';
 import '../styles/base.scss';
 import './globals.css';
-
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 
 export const metadata = {
@@ -53,6 +53,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           type='text/css'
           href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css'
         />
+        <link rel='icon' href={favicon.src} type='image/x-icon' sizes='any'></link>
       </head>
       <body>
         <Layout>
