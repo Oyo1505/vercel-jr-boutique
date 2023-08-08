@@ -10,22 +10,23 @@ const Menu = ({ menu }: any) => {
   return menu.length ? (
     <>
       <ul className={styles.menuItems}>
-        {menu.map((l: any) => (
+        {menu.map((l: any, i:number) => (
           <>
             <li
+              key={`${l.path}-${i}`}
               className={clsx(
                 l.title.toLocaleLowerCase().replace(' ', '_') === pathname.substring(1) &&
                   styles.isActive
               )}
             >
-              <Link href={l.path} key={l.path} className={styles.link}>
+              <Link href={l.path}  className={styles.link}>
                 {l.title}
               </Link>
               <span className={styles.slash}> </span>
             </li>
           </>
         ))}
-        <li className={clsx(styles.link, pathname.substring(1) === 'contact' && styles.isActive)}>
+        <li key={'contact'} className={clsx(styles.link, pathname.substring(1) === 'contact' && styles.isActive)}>
           <Link href={'/contact'}>Contact</Link>
         </li>
         {/* <li>

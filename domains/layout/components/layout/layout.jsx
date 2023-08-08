@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
           declineButtonText='Je refuse'
           enableDeclineButton
         >
-          Ce site web utilise des cookies pour améliorer l'expérience utilisateur.
+          Ce site web utilise des cookies pour améliorer l&aposexpérience utilisateur.
         </CookieConsent>
       </Suspense>
     </ReCaptchaProvider>

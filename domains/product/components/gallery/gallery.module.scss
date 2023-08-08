@@ -4,6 +4,8 @@
   height: 320px;
   border: 2px $yellow solid;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
   @include below-sm {
     width: 100%;
   }

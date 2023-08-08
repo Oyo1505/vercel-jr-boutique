@@ -6,17 +6,18 @@ import { Product } from 'lib/shopify/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { Suspense } from 'react';
 import promo from '../../../../public/images/diver/EnPromo.png';
 import styles from './product-grid-items.module.scss';
 export default function ProductGridItems({ products }: { products: Product[] }) {
   const pathname = usePathname();
 
   return (
-    <>
+    <Suspense>
       {products.map((product) => (
         <Grid.Item key={product.handle} className={styles.gridItem}>
           {product?.tags?.find((tag) => tag === 'promotions') && pathname !== '/promotions' && (
-            <Image src={promo} alt="promo" className={styles.promo} />
+            <Image src={promo} alt='promo' className={styles.promo} unoptimized={true} />
           )}
           <Link href={`/product/${product.handle}`}>
             <GridTileImage
@@ -30,6 +31,6 @@ export default function ProductGridItems({ products }: { products: Product[] }) 
           <GridProductLabels product={product} />
         </Grid.Item>
       ))}
-    </>
+    </Suspense>
   );
 }

@@ -1,3 +1,4 @@
+
 import Footer from 'domains/common/components/footer/footer';
 import Navbar from 'domains/common/components/navbar';
 import Container from 'domains/ui/container/container';
@@ -37,7 +38,7 @@ const inter = Inter({
 });
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
-  
+
   return (
     <html lang='fr' className={inter.variable}>
       <head>
