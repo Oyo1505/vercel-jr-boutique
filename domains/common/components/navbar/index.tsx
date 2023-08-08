@@ -16,6 +16,7 @@ const Navbar = async () => {
   const menu = await getMenu('next-js-frontend-header-menu');
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const headersList = headers();
+  
   const userAgent = headersList.get('user-agent');
   const isMobileView = userAgent!.match(
     /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
