@@ -12,6 +12,10 @@
   grid-row-gap: 40px;
   grid-column-gap: 40px;
 
+  @include below-md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   @include below-sm {
     grid-template-columns: repeat(1, 1fr);
   }

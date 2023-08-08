@@ -1,6 +1,7 @@
 .title {
   color: $red;
   text-align: center;
+
 }
 
 .containerPrice {
@@ -24,6 +25,10 @@
 }
 .image {
   position: relative;
+  @include below-md{
+    display: flex;
+    justify-content: center;
+  }
 }
 .indisponible {
   position: absolute;

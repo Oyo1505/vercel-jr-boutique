@@ -3,6 +3,11 @@
   display: flex;
   gap: 30px;
   height: 40px;
+
+  @include below-md{
+    width: 100%;
+    justify-content: space-between;
+  }
 }
 .countEdit {
   display: flex;
