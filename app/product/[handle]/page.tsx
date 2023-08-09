@@ -10,6 +10,8 @@ import { Image } from 'lib/shopify/types';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import styles from './page.module.scss';
+import Loading from '../../../domains/ui/loading/loading';
+
 export const runtime = 'edge';
 
 export async function generateMetadata({
@@ -72,10 +74,10 @@ export default async function ProductPage({ params }: { params: { handle: string
     }
   };
 
-  return (
+  return product ? (
     <div className={styles.container}>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(productJsonLd)
         }}
@@ -119,6 +121,8 @@ export default async function ProductPage({ params }: { params: { handle: string
         <RelatedProducts id={product.id} />
       </Suspense> */}
     </div>
+  ) : (
+    <Loading />
   );
 }
 

@@ -16,42 +16,41 @@ const Navbar = async () => {
   const menu = await getMenu('next-js-frontend-header-menu');
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const headersList = headers();
-  
+
   const userAgent = headersList.get('user-agent');
   const isMobileView = userAgent!.match(
     /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
   );
 
-  
   return isMobileView ? (
     <>
       <MobileMenu menu={menu} />
       <nav className={styles.container}>
-        <Link href='/' className={styles.logo} aria-label='Logo'>
-          <Image src={headerLogoSmall} alt='header-logo' />
+        <Link href="/" className={styles.logo} aria-label="Logo">
+          <Image src={headerLogoSmall} alt="header-logo" priority />
         </Link>
       </nav>
     </>
   ) : (
     <>
       <nav className={styles.container}>
-        <Link href='/' className={styles.logo} aria-label='Logo'>
-          <Image src={headerLogo} alt='header-logo' />
+        <Link href="/" className={styles.logo} aria-label="Logo">
+          <Image src={headerLogo} alt="header-logo" priority />
         </Link>
         <div className={styles.navBarMenu}>
           <Menu menu={menu} />
         </div>
         <div className={styles.asideContainer}>
           <div className={styles.logoReseau}>
-            <a href='https://www.facebook.com/jrdistribution' />
-            <a href='https://www.instagram.com/jrdistribution.particuliers' />
+            <a href="https://www.facebook.com/jrdistribution" />
+            <a href="https://www.instagram.com/jrdistribution.particuliers" />
           </div>
           <div className={styles.menuProfil}>
             <Suspense fallback={<CartIcon />}>
               <Cart />
             </Suspense>
             <a href={'https://shopify.com/79699935512/account'}>
-              <Image src={logoLogin} alt='profil' />
+              <Image src={logoLogin} alt="profil" />
             </a>
           </div>
         </div>

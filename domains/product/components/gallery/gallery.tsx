@@ -39,11 +39,11 @@ export function Gallery({
 
       {images.length > 1 ? (
         <div>
-          <button aria-label='Previous product image' onClick={() => handleNavigate('previous')}>
-            <ArrowLeftIcon className='h-6' />
+          <button aria-label="Previous product image" onClick={() => handleNavigate('previous')}>
+            <ArrowLeftIcon className="h-6" />
           </button>
           <button
-            aria-label='Next product image'
+            aria-label="Next product image"
             className={clsx(buttonClassName)}
             onClick={() => handleNavigate('next')}
           >
@@ -57,11 +57,21 @@ export function Gallery({
           {images.map((image, index) => {
             return (
               <button
-                aria-label='Enlarge product image'
+                aria-label="Enlarge product image"
                 key={image.src}
                 onClick={() => setCurrentImage(index)}
               >
-                <Image alt={image?.altText} src={image.src} width={725} height={320} />
+                <Image
+                  alt={image?.altText}
+                  src={image.src}
+                  width={725}
+                  height={320}
+                  loading="lazy"
+                  quality={90}
+                  placeholder="empty"
+                  onLoad={(e) => console.log(e)}
+                  onError={(e) => console.log(e)}
+                />
               </button>
             );
           })}

@@ -24,9 +24,11 @@
   width: 100%;
   gap: 40px;
   justify-content: center;
+
   @include below-md {
     flex-direction: column;
   }
+
   .logoColissimo {
     display: inline-block;
     height: 100%;
@@ -41,9 +43,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     @include below-sm {
       justify-content: flex-start;
     }
+
     .logo {
       margin-left: 5px;
     }
