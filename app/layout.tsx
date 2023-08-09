@@ -1,4 +1,3 @@
-
 import Footer from 'domains/common/components/footer/footer';
 import Navbar from 'domains/common/components/navbar';
 import Container from 'domains/ui/container/container';
@@ -10,6 +9,7 @@ import Layout from '../domains/layout/components/layout/layout';
 import favicon from '../public/images/header/favicon.ico';
 import '../styles/base.scss';
 import './globals.css';
+import Analytics from 'domains/common/components/analytics/analytics';
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 
 export const metadata = {
@@ -38,25 +38,25 @@ const inter = Inter({
 });
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
-
   return (
-    <html lang='fr' className={inter.variable}>
+    <html lang="fr" className={inter.variable}>
       <head>
         <link
-          rel='stylesheet'
-          type='text/css'
-          charSet='UTF-8'
-          href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css'
+          rel="stylesheet"
+          type="text/css"
+          charSet="UTF-8"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
         />
         <link
-          rel='stylesheet'
-          type='text/css'
-          href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css'
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
         />
-        <link rel='icon' href={favicon.src} type='image/x-icon' sizes='any'></link>
+        <link rel="icon" href={favicon.src} type="image/x-icon" sizes="any"></link>
       </head>
       <body>
         <Layout>
+          <Analytics />
           <Toaster />
           <Container>
             <Navbar />
@@ -66,7 +66,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             <Footer />
           </Container>
         </Layout>
-        <div id='portal' />
+        <div id="portal" />
       </body>
     </html>
   );

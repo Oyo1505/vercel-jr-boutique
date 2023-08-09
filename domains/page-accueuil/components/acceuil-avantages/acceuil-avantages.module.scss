@@ -12,6 +12,7 @@
     height: 50px;
     margin-bottom: 50px;
     font-size: $font-size-6;
+
     @include below-md {
       font-size: $font-size-4;
       width: 100%;
@@ -23,9 +24,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     @include below-md {
       flex-direction: column;
     }
+
     .card {
       text-align: center;
 

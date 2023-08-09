@@ -28,6 +28,7 @@ const Carrousel: FC<Props> = ({ title, products }) => {
   };
 
   if (!products?.length) return null;
+
   return (
     <div className={styles.container}>
       <h4 className={styles.title}>{title}</h4>
@@ -40,10 +41,12 @@ const Carrousel: FC<Props> = ({ title, products }) => {
                 <div className={styles.imageProduct}>
                   <Image
                     src={product?.images?.[0]?.url}
-                    loading='lazy'
-                    alt={product?.images?.[0]?.altText}
+                    loading="lazy"
+                    alt={product?.handle}
                     width={250}
                     height={250}
+                    quality={90}
+                    placeholder="blur"
                   />
                 </div>
               </Link>
