@@ -46,7 +46,6 @@ const Carrousel: FC<Props> = ({ title, products }) => {
                     width={250}
                     height={250}
                     quality={90}
-                    placeholder="blur"
                   />
                 </div>
               </Link>
