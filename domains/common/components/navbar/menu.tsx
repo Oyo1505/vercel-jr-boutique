@@ -5,28 +5,28 @@ import { usePathname } from 'next/navigation';
 import styles from './menu.module.scss';
 const Menu = ({ menu }: any) => {
   const pathname = usePathname();
-  //const {belowSm} = useBreakpoints()
 
   return menu.length ? (
     <>
       <ul className={styles.menuItems}>
-        {menu.map((l: any, i:number) => (
-          <>
-            <li
-              key={`${l.path}-${i}`}
-              className={clsx(
-                l.title.toLocaleLowerCase().replace(' ', '_') === pathname.substring(1) &&
-                  styles.isActive
-              )}
-            >
-              <Link href={l.path}  className={styles.link}>
-                {l.title}
-              </Link>
-              <span className={styles.slash}> </span>
-            </li>
-          </>
+        {menu.map((l: any, i: number) => (
+          <li
+            key={`list-${l.path}-${i}`}
+            className={clsx(
+              l.title.toLocaleLowerCase().replace(' ', '_') === pathname.substring(1) &&
+                styles.isActive
+            )}
+          >
+            <Link href={l.path} className={styles.link}>
+              {l.title}
+            </Link>
+            <span className={styles.slash}> </span>
+          </li>
         ))}
-        <li key={'contact'} className={clsx(styles.link, pathname.substring(1) === 'contact' && styles.isActive)}>
+        <li
+          key={'contact'}
+          className={clsx(styles.link, pathname.substring(1) === 'contact' && styles.isActive)}
+        >
           <Link href={'/contact'}>Contact</Link>
         </li>
         {/* <li>
