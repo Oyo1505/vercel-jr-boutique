@@ -1,5 +1,5 @@
 'use client';
-import { pageview } from 'lib/gmt';
+import { GTM_ID, pageview } from 'lib/gmt';
 import { usePathname, useSearchParams } from 'next/navigation';
 import Script from 'next/script';
 import { useEffect } from 'react';
