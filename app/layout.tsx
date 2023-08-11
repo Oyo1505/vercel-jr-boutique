@@ -1,3 +1,4 @@
+import Analytics from 'domains/common/components/analytics/analytics';
 import Footer from 'domains/common/components/footer/footer';
 import Navbar from 'domains/common/components/navbar';
 import Container from 'domains/ui/container/container';
@@ -9,7 +10,6 @@ import Layout from '../domains/layout/components/layout/layout';
 import favicon from '../public/images/header/favicon.ico';
 import '../styles/base.scss';
 import './globals.css';
-import Analytics from 'domains/common/components/analytics/analytics';
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 
 export const metadata = {

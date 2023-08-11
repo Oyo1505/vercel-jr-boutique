@@ -8,7 +8,7 @@ import styles from './acceuil-avantages.module.scss';
 
 const AcceuilAvantages: FC = () => (
   <div className={styles.container}>
-    <div className={styles.title}>Les avantages JR Distribution</div>
+    <h1 className={styles.title}>Les avantages JR Distribution</h1>
     <div className={styles.cards}>
       <div className={styles.card}>
         <Image src={logoFiabilite} alt="fiabilité" loading="lazy" />

@@ -3,8 +3,8 @@
 export default function Error({ reset }: { reset: () => void }) {
   return (
     <div>
-      <h2>Something went wrong.</h2>
-      <button onClick={() => reset()}>Try again</button>
+      <h2>Erreur</h2>
+      <button onClick={() => reset()}>Rééssayer</button>
     </div>
   );
 }

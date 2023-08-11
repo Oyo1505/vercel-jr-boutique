@@ -56,7 +56,7 @@ export default async function ProductPage({ params }: { params: { handle: string
   const product = await getProduct(params.handle);
 
   if (!product) return notFound();
-  console.log(product?.vendor);
+
   const productJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -93,8 +93,8 @@ export default async function ProductPage({ params }: { params: { handle: string
       />
       <div className={styles.infoProduct}>
         <div className={styles.descriptionProduct}>
-          <h3 className={styles.title}>{product?.title}</h3>
-          <div className={styles.fournisseur}>{product?.vendor}</div>
+          <h1 className={styles.title}>{product?.title}</h1>
+          <h2 className={styles.fournisseur}>{product?.vendor}</h2>
           {product.descriptionHtml ? (
             <Prose html={product.descriptionHtml} className={styles.description} />
           ) : null}
