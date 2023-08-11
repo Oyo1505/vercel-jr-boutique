@@ -64,7 +64,7 @@
     margin: 0;
     padding: 0;
   }
-  
+
   .price {
     width: 110px;
     text-align: right;
@@ -96,7 +96,7 @@
   padding-right: 25px;
   font-size: $font-size-3;
   &:last-child {
-    border-bottom: 1px solid $yellow;
+    border-bottom: 2px solid $yellow;
   }
 
   @include below-sm {

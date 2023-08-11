@@ -6,7 +6,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import styles from './page.module.scss';
 
-//export const runtime = 'edge';
+export const runtime = 'edge';
 
 export async function generateMetadata({
   params

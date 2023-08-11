@@ -122,6 +122,7 @@ export type ShopifyProduct = {
   title: string;
   description: string;
   descriptionHtml: string;
+  vendor: string;
   options: ProductOption[];
   priceRange: {
     maxVariantPrice: Money;
@@ -210,7 +211,7 @@ export type ShopifyCollectionProductsOperation = {
     handle: string;
     reverse?: boolean;
     sortKey?: string;
-    first?:number;
+    first?: number;
   };
 };
 
@@ -269,6 +270,6 @@ export type ShopifyProductsOperation = {
     query?: string;
     reverse?: boolean;
     sortKey?: string;
-    first?:number;
+    first?: number;
   };
 };
