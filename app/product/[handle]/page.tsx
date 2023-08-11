@@ -9,8 +9,8 @@ import { getProduct } from 'lib/shopify';
 import { Image } from 'lib/shopify/types';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import styles from './page.module.scss';
 import Loading from '../../../domains/ui/loading/loading';
+import styles from './page.module.scss';
 
 export const runtime = 'edge';
 
@@ -56,7 +56,7 @@ export default async function ProductPage({ params }: { params: { handle: string
   const product = await getProduct(params.handle);
 
   if (!product) return notFound();
-
+  console.log(product?.vendor);
   const productJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -94,6 +94,7 @@ export default async function ProductPage({ params }: { params: { handle: string
       <div className={styles.infoProduct}>
         <div className={styles.descriptionProduct}>
           <h3 className={styles.title}>{product?.title}</h3>
+          <div className={styles.fournisseur}>{product?.vendor}</div>
           {product.descriptionHtml ? (
             <Prose html={product.descriptionHtml} className={styles.description} />
           ) : null}

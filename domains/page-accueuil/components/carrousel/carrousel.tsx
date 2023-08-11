@@ -49,11 +49,7 @@ const Carrousel: FC<Props> = ({ title, products }) => {
                   />
                 </div>
               </Link>
-              <div>
-                <div>{product?.name}</div>
-                <div>{product?.description}</div>
-                <GridProductLabels product={product} />
-              </div>
+              <GridProductLabels product={product} />
             </div>
           ))}
       </Slider>
