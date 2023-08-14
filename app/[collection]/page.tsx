@@ -4,6 +4,7 @@ import { defaultSort, sorting } from 'lib/constants';
 import { getCollection, getCollectionProducts } from 'lib/shopify';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { capitalizeFirstLetter } from 'shared/utilities/capitalize-first-letter/capitaliaze-first-letter';
 import styles from './page.module.scss';
 
 export const runtime = 'edge';
@@ -18,7 +19,7 @@ export async function generateMetadata({
   if (!collection) return notFound();
 
   return {
-    title: collection.seo?.title || collection.title,
+    title: capitalizeFirstLetter(collection.seo?.title || collection.title).replace('_', ' '),
     description:
       collection.seo?.description || collection.description || `${collection.title} products`
   };

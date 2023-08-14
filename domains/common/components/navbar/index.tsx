@@ -42,8 +42,11 @@ const Navbar = async () => {
         </div>
         <div className={styles.asideContainer}>
           <div className={styles.logoReseau}>
-            <a href="https://www.facebook.com/jrdistribution" />
-            <a href="https://www.instagram.com/jrdistribution.particuliers" />
+            <a href="https://www.facebook.com/jrdistribution" aria-label="Facebook" />
+            <a
+              href="https://www.instagram.com/jrdistribution.particuliers"
+              aria-label="instagram"
+            />
           </div>
           <div className={styles.menuProfil}>
             <Suspense fallback={<CartIcon />}>
