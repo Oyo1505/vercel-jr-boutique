@@ -8,4 +8,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &:focus,
+  &:active {
+    border: $yellow solid 2px;
+    outline: 0 !important;
+  }
 }

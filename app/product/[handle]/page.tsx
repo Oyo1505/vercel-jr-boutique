@@ -9,6 +9,7 @@ import { getProduct } from 'lib/shopify';
 import { Image } from 'lib/shopify/types';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { capitalizeFirstLetter } from 'shared/utilities/capitalize-first-letter/capitaliaze-first-letter';
 import Loading from '../../../domains/ui/loading/loading';
 import styles from './page.module.scss';
 
@@ -27,7 +28,7 @@ export async function generateMetadata({
   const hide = !product.tags.includes(HIDDEN_PRODUCT_TAG);
 
   return {
-    title: product.seo.title || product.title,
+    title: capitalizeFirstLetter(product.seo.title || product.title).replace('_', ' '),
     description: product.seo.description || product.description,
     robots: {
       index: hide,
