@@ -75,3 +75,21 @@
     font-size: $font-size-4;
   }
 }
+
+.produitRelatedTitle{
+  font-size: $font-size-4;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  color: $red;
+}
+.produitRelated{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 0;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}

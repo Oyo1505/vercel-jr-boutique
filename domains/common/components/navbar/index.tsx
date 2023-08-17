@@ -8,20 +8,22 @@ import { Suspense } from 'react';
 import headerLogo from '../../../../public/images/header/Header.png';
 import logoLogin from '../../../../public/images/header/ProfilMenu.png';
 import headerLogoSmall from '../../../../public/images/page-acceuil/miniLogo.png';
+import SearchNavbarButton from '../search-navbar-button/search-navbar-button';
 import Menu from './menu';
 import MobileMenu from './mobile-menu';
 import styles from './navbar.module.scss';
+import Search from './search';
 
 const Navbar = async () => {
   const menu = await getMenu('next-js-frontend-header-menu');
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const headersList = headers();
-  
+
   const userAgent = headersList.get('user-agent');
   const isMobileView = userAgent!.match(
     /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
   );
-
+  
   
   return isMobileView ? (
     <>
@@ -52,10 +54,12 @@ const Navbar = async () => {
             </Suspense>
             <a href={'https://shopify.com/79699935512/account'}>
               <Image src={logoLogin} alt='profil' />
-            </a>
+            </a>         
+            <SearchNavbarButton />
           </div>
         </div>
       </nav>
+      <Search />
     </>
   );
 };

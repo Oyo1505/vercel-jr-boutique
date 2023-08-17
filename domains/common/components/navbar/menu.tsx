@@ -29,12 +29,7 @@ const Menu = ({ menu }: any) => {
         <li key={'contact'} className={clsx(styles.link, pathname.substring(1) === 'contact' && styles.isActive)}>
           <Link href={'/contact'}>Contact</Link>
         </li>
-        {/* <li>
-                <button className={styles.button}>
-                  {' '}
-                  <SearchIcon className={styles.loupe} />
-                </button>
-              </li> */}
+
       </ul>
     </>
   ) : null;

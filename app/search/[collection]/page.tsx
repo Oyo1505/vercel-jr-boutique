@@ -36,10 +36,8 @@ export default async function CategoryPage({
 
   return (
     <section>
-      {products.length === 0 ? (
-        <p className="py-3 text-lg">{`No products found in this collection`}</p>
-      ) : (
-        <Grid className="grid-cols-2 lg:grid-cols-3">
+      {products.length > 0 &&  (
+        <Grid >
           <ProductGridItems products={products} />
         </Grid>
       )}
