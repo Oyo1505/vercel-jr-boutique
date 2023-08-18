@@ -36,9 +36,9 @@ export default async function CategoryPage({
 
   return (
     <section>
-      {products.length > 0 &&  (
-        <Grid >
-          <ProductGridItems products={products} />
+      {products.length > 0 && (
+        <Grid>
+          <ProductGridItems products={products} limit={100} />
         </Grid>
       )}
     </section>

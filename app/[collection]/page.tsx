@@ -42,7 +42,7 @@ export default async function CategoryPage({
         <p>{`Pas de produits disponible`}</p>
       ) : (
         <Grid className={styles.gridContainer}>
-          <ProductGridItems products={products} />
+          <ProductGridItems products={products} limit={100} />
         </Grid>
       )}
     </section>

@@ -8,7 +8,7 @@ import styles from './search.module.scss';
 export default function Search() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const {isShowSearchBar} = useSearchbarContext()
+  const { isShowSearchBar } = useSearchbarContext();
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
@@ -26,26 +26,26 @@ export default function Search() {
   }
 
   return (
-    isShowSearchBar && 
-    <motion.form
-      transition={{ duration: 0.3 }}
-      initial={{ opacity: 0, height :0 }}
-      animate={{
-        height : isShowSearchBar ? 20 : 0,
-        opacity: isShowSearchBar ? 1 : 0
-      }}
-      
-      onSubmit={onSubmit}
-      className={styles.search}
-    >
-      <input
-        type='text'
-        name='search'
-        placeholder='Tapez votre recheche'
-        autoComplete='off'
-        defaultValue={searchParams?.get('q') || ''}
-        className={styles.searchInput}
-      />
-    </motion.form>
+    isShowSearchBar && (
+      <motion.form
+        transition={{ duration: 0.3 }}
+        initial={{ opacity: 0, height: 0 }}
+        animate={{
+          height: isShowSearchBar ? 25 : 0,
+          opacity: isShowSearchBar ? 1 : 0
+        }}
+        onSubmit={onSubmit}
+        className={styles.search}
+      >
+        <input
+          type="text"
+          name="search"
+          placeholder="Tapez votre recheche"
+          autoComplete="off"
+          defaultValue={searchParams?.get('q') || ''}
+          className={styles.searchInput}
+        />
+      </motion.form>
+    )
   );
 }
