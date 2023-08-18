@@ -11,10 +11,13 @@ export interface ISearchbarContext {
 const initialRechercheFiltersContext: ISearchbarContext = {
   isShowSearchBar: false
 };
+interface SearchbarContextProviderProps {
+  children: React.ReactNode; 
+}
 
 export const SearchbarContext = createContext<ISearchbarContext>(initialRechercheFiltersContext);
 
-const SearchbarContextContextProvider: FC = ({ children }) => {
+const SearchbarContextContextProvider: FC<SearchbarContextProviderProps> = ({ children }) => {
   const [isShowSearchBar, setIsShowSearchBar] = useState(false);
   const pathname = usePathname();
 

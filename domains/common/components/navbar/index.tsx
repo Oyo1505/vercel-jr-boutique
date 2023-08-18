@@ -19,6 +19,7 @@ const Navbar = async () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const headersList = headers();
 
+
   const userAgent = headersList.get('user-agent');
   const isMobileView = userAgent!.match(
     /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
@@ -30,7 +31,7 @@ const Navbar = async () => {
       <MobileMenu menu={menu} />
       <nav className={styles.container}>
         <Link href='/' className={styles.logo} aria-label='Logo'>
-          <Image src={headerLogoSmall} alt='header-logo' />
+          <Image src={headerLogoSmall} alt='header-logo' priority />
         </Link>
       </nav>
     </>
@@ -38,15 +39,18 @@ const Navbar = async () => {
     <>
       <nav className={styles.container}>
         <Link href='/' className={styles.logo} aria-label='Logo'>
-          <Image src={headerLogo} alt='header-logo' />
+          <Image src={headerLogo} alt='header-logo' priority />
         </Link>
         <div className={styles.navBarMenu}>
           <Menu menu={menu} />
         </div>
         <div className={styles.asideContainer}>
           <div className={styles.logoReseau}>
-            <a href='https://www.facebook.com/jrdistribution' />
-            <a href='https://www.instagram.com/jrdistribution.particuliers' />
+            <a href='https://www.facebook.com/jrdistribution' aria-label='Facebook' />
+            <a
+              href='https://www.instagram.com/jrdistribution.particuliers'
+              aria-label='instagram'
+            />
           </div>
           <div className={styles.menuProfil}>
             <Suspense fallback={<CartIcon />}>

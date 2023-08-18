@@ -1,14 +1,17 @@
 'use client';
 
+import clsx from 'clsx';
 import { useSearchbarContext } from 'domains/common/context/search-bar-context';
 import { motion } from 'framer-motion';
 import { createUrl } from 'lib/utils';
 import { useRouter, useSearchParams } from 'next/navigation';
 import styles from './search.module.scss';
+
 export default function Search() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { isShowSearchBar } = useSearchbarContext();
+  
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
@@ -35,13 +38,13 @@ export default function Search() {
           opacity: isShowSearchBar ? 1 : 0
         }}
         onSubmit={onSubmit}
-        className={styles.search}
+        className={clsx(styles.search, searchParams && styles.isNotEmpty)}
       >
         <input
-          type="text"
-          name="search"
-          placeholder="Tapez votre recheche"
-          autoComplete="off"
+          type='text'
+          name='search'
+          placeholder='Tapez votre recheche'
+          autoComplete='off'
           defaultValue={searchParams?.get('q') || ''}
           className={styles.searchInput}
         />

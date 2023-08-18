@@ -1,6 +1,10 @@
 .title {
   color: $red;
   text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .containerPrice {
@@ -17,6 +21,12 @@
   background-color: $yellow;
   padding: 10px 20px;
   color: $red;
+}
+.vendor {
+  font-family: rubik-regular;
+  font-size: $font-size-1;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .buttonAddToCart {

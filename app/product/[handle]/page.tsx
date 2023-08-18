@@ -11,7 +11,10 @@ import { Image } from 'lib/shopify/types';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
+import { capitalizeFirstLetter } from 'shared/utilities/capitalize-first-letter/capitaliaze-first-letter';
+import Loading from '../../../domains/ui/loading/loading';
 import styles from './page.module.scss';
+
 export const runtime = 'edge';
 
 export async function generateMetadata({
@@ -27,7 +30,7 @@ export async function generateMetadata({
   const hide = !product.tags.includes(HIDDEN_PRODUCT_TAG);
 
   return {
-    title: product.seo.title || product.title,
+    title: capitalizeFirstLetter(product.seo.title || product.title).replace('_', ' '),
     description: product.seo.description || product.description,
     robots: {
       index: hide,
@@ -74,7 +77,7 @@ export default async function ProductPage({ params }: { params: { handle: string
     }
   };
 
-  return (
+  return product ? (
     <div className={styles.container}>
       <script
         type='application/ld+json'
@@ -93,7 +96,8 @@ export default async function ProductPage({ params }: { params: { handle: string
       />
       <div className={styles.infoProduct}>
         <div className={styles.descriptionProduct}>
-          <h3 className={styles.title}>{product?.title}</h3>
+          <h1 className={styles.title}>{product?.title}</h1>
+          <h2 className={styles.fournisseur}>{product?.vendor}</h2>
           {product.descriptionHtml ? (
             <Prose html={product.descriptionHtml} className={styles.description} />
           ) : null}
@@ -121,6 +125,8 @@ export default async function ProductPage({ params }: { params: { handle: string
         <RelatedProducts id={product.id} />
       </Suspense>
     </div>
+  ) : (
+    <Loading />
   );
 }
 
@@ -138,3 +144,4 @@ async function RelatedProducts({ id }: { id: string }) {
     </div>
   );
 }
+
