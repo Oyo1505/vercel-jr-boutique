@@ -5,13 +5,20 @@ import { useSearchbarContext } from 'domains/common/context/search-bar-context';
 import { motion } from 'framer-motion';
 import { createUrl } from 'lib/utils';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useRef, useState } from 'react';
 import styles from './search.module.scss';
 
 export default function Search() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { isShowSearchBar } = useSearchbarContext();
+  const [valueSearchBar, setValueSearchBar] = useState<string>()
+  const  inputSearch = useRef(null)
   
+  useEffect(() => {
+
+  }, [] )
+
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
@@ -21,6 +28,7 @@ export default function Search() {
 
     if (search.value) {
       newParams.set('q', search.value);
+      
     } else {
       newParams.delete('q');
     }
@@ -28,6 +36,9 @@ export default function Search() {
     router.push(createUrl('/search', newParams));
   }
 
+  function handleChange (event: React.FormEvent<HTMLFormElement>) {
+    setValueSearchBar(() => event.target.value);
+  }
   return (
     isShowSearchBar && (
       <motion.form
@@ -38,15 +49,17 @@ export default function Search() {
           opacity: isShowSearchBar ? 1 : 0
         }}
         onSubmit={onSubmit}
-        className={clsx(styles.search, searchParams && styles.isNotEmpty)}
+        className={styles.search}
       >
         <input
           type='text'
           name='search'
           placeholder='Tapez votre recheche'
           autoComplete='off'
+          ref={inputSearch}
           defaultValue={searchParams?.get('q') || ''}
-          className={styles.searchInput}
+          className={clsx(styles.searchInput , valueSearchBar && styles.isNotEmpty)}
+          onChange={handleChange}
         />
       </motion.form>
     )
