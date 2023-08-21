@@ -1,18 +1,19 @@
 'use client';
-import { usePathname } from 'next/navigation';
-import { createContext, FC, useContext, useState } from 'react';
+import { usePathname, useSearchParams } from 'next/navigation';
 
+import { createContext, FC, useContext, useState } from 'react';
 export interface ISearchbarContext {
   isShowSearchBar?: boolean;
   onClickSearBar?: () => void;
   pathname?: string;
+  valueSearch?: string | null;
 }
 
 const initialRechercheFiltersContext: ISearchbarContext = {
   isShowSearchBar: false
 };
 interface SearchbarContextProviderProps {
-  children: React.ReactNode; 
+  children: React.ReactNode;
 }
 
 export const SearchbarContext = createContext<ISearchbarContext>(initialRechercheFiltersContext);
@@ -20,6 +21,8 @@ export const SearchbarContext = createContext<ISearchbarContext>(initialRecherch
 const SearchbarContextContextProvider: FC<SearchbarContextProviderProps> = ({ children }) => {
   const [isShowSearchBar, setIsShowSearchBar] = useState(false);
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const valueSearch = searchParams.get('q');
 
   const onClickSearBar = () => {
     setIsShowSearchBar(!isShowSearchBar);
@@ -30,7 +33,8 @@ const SearchbarContextContextProvider: FC<SearchbarContextProviderProps> = ({ ch
       value={{
         isShowSearchBar,
         onClickSearBar,
-        pathname
+        pathname,
+        valueSearch
       }}
     >
       {children}
