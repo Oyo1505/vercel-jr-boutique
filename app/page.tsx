@@ -27,10 +27,10 @@ export default async function HomePage() {
     <>
       <AcceuilAvantages />
       <Suspense>
-        <Carrousel products={bestSellingProducts} title="Meilleurs Ventes" />
+        <Carrousel products={bestSellingProducts} title='Meilleurs Ventes' />
       </Suspense>
       <Suspense>
-        <Carrousel products={newProducts} title="Nouveautés" />
+        <Carrousel products={newProducts} title='Nouveautés' />
       </Suspense>
     </>
   );

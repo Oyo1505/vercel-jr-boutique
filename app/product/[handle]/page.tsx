@@ -1,3 +1,4 @@
+import ProductGridItems from 'domains/layout/components/product-grid-items/product-grid-items';
 import { Gallery } from 'domains/product/components/gallery/gallery';
 import PriceProductPage from 'domains/product/components/price-product-page/price-product-page';
 import PriceBySize from 'domains/product/components/priceBySize/price-by-size';
@@ -5,10 +6,11 @@ import QuantityProduct from 'domains/product/components/quantity-product/quantit
 import { VariantSelector } from 'domains/product/components/variant-selector/variant-selector';
 import Prose from 'domains/prose';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
-import { getProduct } from 'lib/shopify';
+import { getProduct, getProductRecommendations } from 'lib/shopify';
 import { Image } from 'lib/shopify/types';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { Suspense } from 'react';
 import { capitalizeFirstLetter } from 'shared/utilities/capitalize-first-letter/capitaliaze-first-letter';
 import Loading from '../../../domains/ui/loading/loading';
 import styles from './page.module.scss';
@@ -78,7 +80,7 @@ export default async function ProductPage({ params }: { params: { handle: string
   return product ? (
     <div className={styles.container}>
       <script
-        type="application/ld+json"
+        type='application/ld+json'
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(productJsonLd)
         }}
@@ -119,26 +121,27 @@ export default async function ProductPage({ params }: { params: { handle: string
       </div>
 
       <QuantityProduct product={product} />
-      {/* <Suspense>
+      <Suspense>
         <RelatedProducts id={product.id} />
-      </Suspense> */}
+      </Suspense>
     </div>
   ) : (
     <Loading />
   );
 }
 
-// async function RelatedProducts({ id }: { id: string }) {
-//   const relatedProducts = await getProductRecommendations(id);
+async function RelatedProducts({ id }: { id: string }) {
+  const relatedProducts = await getProductRecommendations(id);
 
-//   if (!relatedProducts.length) return null;
+  if (!relatedProducts.length) return null;
 
-//   return (
-//     <div>
-//       <div>Related Products</div>
-//       <Grid>
-//         <ProductGridItems products={relatedProducts} />
-//       </Grid>
-//     </div>
-//   );
-//}
+  return (
+    <div>
+      <div className={styles.produitRelatedTitle}>Produits associés</div>
+      <ul className={styles.produitRelated}>
+        <ProductGridItems products={relatedProducts} limit={2}/>
+      </ul>
+    </div>
+  );
+}
+

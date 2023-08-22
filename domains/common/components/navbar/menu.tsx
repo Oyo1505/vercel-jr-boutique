@@ -29,12 +29,7 @@ const Menu = ({ menu }: any) => {
         >
           <Link href={'/contact'}>Contact</Link>
         </li>
-        {/* <li>
-                <button className={styles.button}>
-                  {' '}
-                  <SearchIcon className={styles.loupe} />
-                </button>
-              </li> */}
+
       </ul>
     </>
   ) : null;

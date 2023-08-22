@@ -1,12 +1,27 @@
 'use client';
 
-import { useRouter, useSearchParams } from 'next/navigation';
-
+import clsx from 'clsx';
+import { useSearchbarContext } from 'domains/common/context/search-bar-context';
+import { AnimatePresence, motion } from 'framer-motion';
 import { createUrl } from 'lib/utils';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useRef, useState } from 'react';
+import styles from './search.module.scss';
 
 export default function Search() {
   const router = useRouter();
+
   const searchParams = useSearchParams();
+  const { isShowSearchBar, valueSearch, pathname } = useSearchbarContext();
+  const [valueSearchBar, setValueSearchBar] = useState<string>();
+  const inputSearch = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (pathname !== '/search' && inputSearch.current && inputSearch.current.value) {
+      setValueSearchBar(() => '');
+      inputSearch.current.value = '';
+    }
+  }, [pathname]);
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -24,22 +39,41 @@ export default function Search() {
     router.push(createUrl('/search', newParams));
   }
 
+  function handleChange(event: React.FormEvent<HTMLInputElement>) {
+    const newValue = event.currentTarget.value;
+    setValueSearchBar(() => newValue);
+  }
+
   return (
-    <form
-      onSubmit={onSubmit}
-      className="relative m-0 flex w-full items-center border border-gray-200 bg-transparent p-0 dark:border-gray-500"
-    >
-      <input
-        type="text"
-        name="search"
-        placeholder="Search for products..."
-        autoComplete="off"
-        defaultValue={searchParams?.get('q') || ''}
-        className="w-full px-4 py-2 text-black dark:bg-black dark:text-gray-100"
-      />
-      <div className="absolute right-0 top-0 mr-3 flex h-full items-center">
-        {/* <SearchIcon className='h-5' /> */}
-      </div>
-    </form>
+    <AnimatePresence>
+      {isShowSearchBar && (
+        <motion.form
+          transition={{ duration: 0.3 }}
+          initial={{ opacity: 0, height: 0, marginTop: 0 }}
+          animate={{
+            height: 25,
+            opacity: 1,
+            marginTop: 20
+          }}
+          exit={{ opacity: 0, height: 0, marginTop: 0 }}
+          onSubmit={onSubmit}
+          className={styles.search}
+        >
+          <input
+            type='text'
+            name='search'
+            placeholder='Tapez votre recheche'
+            autoComplete='off'
+            ref={inputSearch}
+            defaultValue={valueSearch || ''}
+            className={clsx(
+              styles.searchInput,
+              (valueSearchBar || valueSearch) && styles.isNotEmpty
+            )}
+            onChange={handleChange}
+          />
+        </motion.form>
+      )}
+    </AnimatePresence>
   );
 }

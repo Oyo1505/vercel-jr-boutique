@@ -1,12 +1,12 @@
 import Grid from 'domains/grid/components/grid';
-
+import styles from './loading.module.scss';
 export default function Loading() {
   return (
-    <Grid className='grid-cols-2 lg:grid-cols-3'>
+    <Grid className={styles.grid}>
       {Array(12)
         .fill(0)
         .map((_, index) => {
-          return <Grid.Item key={index} className='animate-pulse bg-gray-100 dark:bg-gray-900' />;
+          return <Grid.Item key={index} className={styles.item} />;
         })}
     </Grid>
   );

@@ -11,7 +11,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
 
-//export const runtime = 'edge';
+export const runtime = 'edge';
 
 export async function generateMetadata({
   params
@@ -118,7 +118,7 @@ async function RelatedProducts({ id }: { id: string }) {
     <div>
       <div>Related Products</div>
       <Grid>
-        <ProductGridItems products={relatedProducts} />
+        <ProductGridItems products={relatedProducts} limit={100} />
       </Grid>
     </div>
   );
