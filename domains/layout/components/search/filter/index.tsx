@@ -6,7 +6,7 @@ export type PathFilterItem = { title: string; path: string };
 
 function FilterItemList({ list }: { list: ListItem[] }) {
   return (
-    <div className="hidden md:block">
+    <div>
       {list.map((item: ListItem, i) => (
         <FilterItem key={i} item={item} />
       ))}
