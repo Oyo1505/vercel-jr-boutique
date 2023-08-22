@@ -6,6 +6,7 @@
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  position: relative;
   @include below-sm {
     width: 100%;
   }
@@ -15,4 +16,15 @@
     }
     object-fit: contain;
   }
+}
+
+.fleches{
+  display: flex;
+  margin-top: 5px;
+  margin-right: 5px;
+  gap: 5px;
+  position: absolute;
+  right: 0;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
