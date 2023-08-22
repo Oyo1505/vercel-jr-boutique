@@ -60,10 +60,10 @@ export default function Search() {
           className={styles.search}
         >
           <input
-            type="text"
-            name="search"
-            placeholder="Tapez votre recheche"
-            autoComplete="off"
+            type='text'
+            name='search'
+            placeholder='Tapez votre recheche'
+            autoComplete='off'
             ref={inputSearch}
             defaultValue={valueSearch || ''}
             className={clsx(

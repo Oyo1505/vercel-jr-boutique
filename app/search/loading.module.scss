@@ -1,0 +1,24 @@
+.grid{
+  grid-template-columns: repeat(2, minmax(0, 1fr)); 
+
+
+
+@media (min-width: 1024px) { 
+  grid-template-columns: repeat(3, minmax(0, 1fr)); 
+ }
+}
+
+.item{
+  background-color: $red; 
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: .5;
+    }
+  } 
+
+}
