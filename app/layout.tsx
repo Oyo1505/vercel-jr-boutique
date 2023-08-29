@@ -26,7 +26,8 @@ export const metadata = {
       twitter: {
         card: 'summary_large_image',
         creator: TWITTER_CREATOR,
-        site: TWITTER_SITE
+        site: TWITTER_SITE,
+        description: 'Le plus petit grossiste avec le plus grand service !'
       }
     })
 };
@@ -39,20 +40,20 @@ const inter = Inter({
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang='fr' className={inter.variable}>
+    <html lang="fr" className={inter.variable}>
       <head>
         <link
-          rel='stylesheet'
-          type='text/css'
-          charSet='UTF-8'
-          href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css'
+          rel="stylesheet"
+          type="text/css"
+          charSet="UTF-8"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
         />
         <link
-          rel='stylesheet'
-          type='text/css'
-          href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css'
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
         />
-        <link rel='icon' href={favicon.src} type='image/x-icon' sizes='any'></link>
+        <link rel="icon" href={favicon.src} type="image/x-icon" sizes="any"></link>
       </head>
       <body>
         <Layout>
@@ -66,7 +67,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             <Footer />
           </Container>
         </Layout>
-        <div id='portal' />
+        <div id="portal" />
       </body>
     </html>
   );

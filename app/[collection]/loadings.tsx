@@ -1,6 +1,5 @@
 import Grid from 'domains/grid/components/grid';
 import styles from './loading.module.scss';
-
 export default function Loading() {
   return (
     <Grid className={styles.grid}>
