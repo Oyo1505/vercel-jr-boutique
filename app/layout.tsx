@@ -2,7 +2,7 @@ import Analytics from 'domains/common/components/analytics/analytics';
 import Footer from 'domains/common/components/footer/footer';
 import Navbar from 'domains/common/components/navbar';
 import Container from 'domains/ui/container/container';
-import { Inter, Courgette } from 'next/font/google';
+import { Courgette } from 'next/font/google';
 import { ReactNode, Suspense } from 'react';
 import { Toaster } from 'react-hot-toast';
 import 'setimmediate';

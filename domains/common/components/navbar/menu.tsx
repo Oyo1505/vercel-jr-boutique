@@ -3,12 +3,20 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import styles from './menu.module.scss';
+import { Rubik } from 'next/font/google';
+
+const rubik = Rubik({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap'
+});
+
 const Menu = ({ menu }: any) => {
   const pathname = usePathname();
 
   return menu.length ? (
     <>
-      <ul className={styles.menuItems}>
+      <ul className={clsx(styles.menuItems, rubik.className)}>
         {menu.map((l: any, i: number) => (
           <li
             key={`list-${l.path}-${i}`}
@@ -29,7 +37,6 @@ const Menu = ({ menu }: any) => {
         >
           <Link href={'/contact'}>Contact</Link>
         </li>
-
       </ul>
     </>
   ) : null;
