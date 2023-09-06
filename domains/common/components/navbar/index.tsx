@@ -19,37 +19,43 @@ const Navbar = async () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const headersList = headers();
 
-
   const userAgent = headersList.get('user-agent');
   const isMobileView = userAgent!.match(
     /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
   );
-  
-  
+
   return isMobileView ? (
     <>
       <MobileMenu menu={menu} />
       <nav className={styles.container}>
-        <Link href='/' className={styles.logo} aria-label='Logo'>
-          <Image src={headerLogoSmall} alt='header-logo' priority />
+        <Link href="/" className={styles.logo} aria-label="Logo">
+          <Image src={headerLogoSmall} alt="header-logo" priority quality={100} />
         </Link>
       </nav>
     </>
   ) : (
     <>
       <nav className={styles.container}>
-        <Link href='/' className={styles.logo} aria-label='Logo'>
-          <Image src={headerLogo} alt='header-logo' priority />
+        <Link href="/" className={styles.logo} aria-label="Logo">
+          <Image
+            src={headerLogo}
+            alt="header-logo"
+            priority
+            unoptimized
+            placeholder="blur"
+            sizes="100vw"
+            quality={100}
+          />
         </Link>
         <div className={styles.navBarMenu}>
           <Menu menu={menu} />
         </div>
         <div className={styles.asideContainer}>
           <div className={styles.logoReseau}>
-            <a href='https://www.facebook.com/jrdistribution' aria-label='Facebook' />
+            <a href="https://www.facebook.com/jrdistribution" aria-label="Facebook" />
             <a
-              href='https://www.instagram.com/jrdistribution.particuliers'
-              aria-label='instagram'
+              href="https://www.instagram.com/jrdistribution.particuliers"
+              aria-label="instagram"
             />
           </div>
           <div className={styles.menuProfil}>
@@ -57,8 +63,8 @@ const Navbar = async () => {
               <Cart />
             </Suspense>
             <a href={'https://shopify.com/79699935512/account'}>
-              <Image src={logoLogin} alt='profil' />
-            </a>         
+              <Image src={logoLogin} alt="profil" />
+            </a>
             <SearchNavbarButton />
           </div>
         </div>
