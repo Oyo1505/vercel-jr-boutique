@@ -11,7 +11,6 @@ interface SVGProps extends React.SVGAttributes<HTMLOrSVGElement> {
 const replaceColor = (svgString: string, newColor: string) => {
   const regex = /fill="#[A-Fa-f0-9]{6}"/g;
   const replacement = `fill="${newColor}"`;
-  console.log(svgString);
   return svgString.replace(regex, replacement);
 };
 

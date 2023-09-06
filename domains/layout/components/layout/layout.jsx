@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-  console.log(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY);
+
   return (
     <ReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
       <SearchbarContextContextProvider>

@@ -1,6 +1,10 @@
-import LoadingDots from 'domains/ui/loading-dots/loading-dots';
-import { SVG } from 'domains/ui/svg/svg';
+import LoadingDots from 'domains/ui/loading/loading';
+import styles from './loading.module.scss';
 
 export default function Loading() {
-  return <LoadingDots className="test" />;
+  return (
+    <div className={styles.container}>
+      <LoadingDots />
+    </div>
+  );
 }
