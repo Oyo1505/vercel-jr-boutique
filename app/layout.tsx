@@ -2,7 +2,7 @@ import Analytics from 'domains/common/components/analytics/analytics';
 import Footer from 'domains/common/components/footer/footer';
 import Navbar from 'domains/common/components/navbar';
 import Container from 'domains/ui/container/container';
-import { Inter } from 'next/font/google';
+import { Courgette } from 'next/font/google';
 import { ReactNode, Suspense } from 'react';
 import { Toaster } from 'react-hot-toast';
 import 'setimmediate';
@@ -31,28 +31,28 @@ export const metadata = {
     })
 };
 
-const inter = Inter({
+const courgette = Courgette({
+  weight: '400',
   subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter'
+  display: 'swap'
 });
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang='fr' className={inter.variable}>
+    <html lang="fr" className={courgette.className}>
       <head>
         <link
-          rel='stylesheet'
-          type='text/css'
-          charSet='UTF-8'
-          href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css'
+          rel="stylesheet"
+          type="text/css"
+          charSet="UTF-8"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
         />
         <link
-          rel='stylesheet'
-          type='text/css'
-          href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css'
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
         />
-        <link rel='icon' href={favicon.src} type='image/x-icon' sizes='any'></link>
+        <link rel="icon" href={favicon.src} type="image/x-icon" sizes="any"></link>
       </head>
       <body>
         <Layout>
@@ -66,7 +66,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             <Footer />
           </Container>
         </Layout>
-        <div id='portal' />
+        <div id="portal" />
       </body>
     </html>
   );
