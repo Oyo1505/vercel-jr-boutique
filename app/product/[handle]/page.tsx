@@ -14,7 +14,6 @@ import { Suspense } from 'react';
 import { capitalizeFirstLetter } from 'shared/utilities/capitalize-first-letter/capitaliaze-first-letter';
 import Loading from '../../../domains/ui/loading/loading';
 import styles from './page.module.scss';
-
 export const runtime = 'edge';
 
 export async function generateMetadata({
@@ -28,10 +27,15 @@ export async function generateMetadata({
 
   const { url, width, height, altText: alt } = product.featuredImage || {};
   const hide = !product.tags.includes(HIDDEN_PRODUCT_TAG);
-
   return {
     title: capitalizeFirstLetter(product.seo.title || product.title).replace('_', ' '),
     description: product.seo.description || product.description,
+    verification: {
+      google: 'google'
+    },
+    alternates: {
+      canonical: `${process.env.DOMAIN_URL}/product/${product.handle}`
+    },
     robots: {
       index: hide,
       follow: hide,
@@ -80,7 +84,7 @@ export default async function ProductPage({ params }: { params: { handle: string
   return product ? (
     <div className={styles.container}>
       <script
-        type='application/ld+json'
+        type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(productJsonLd)
         }}
@@ -139,9 +143,8 @@ async function RelatedProducts({ id }: { id: string }) {
     <div>
       <div className={styles.produitRelatedTitle}>Produits associés</div>
       <ul className={styles.produitRelated}>
-        <ProductGridItems products={relatedProducts} limit={2}/>
+        <ProductGridItems products={relatedProducts} limit={2} />
       </ul>
     </div>
   );
 }
-

@@ -17,6 +17,9 @@ export const metadata = {
     default: SITE_NAME,
     template: `%s | ${SITE_NAME}`
   },
+  alternates: {
+    canonical: `${process.env.DOMAIN_URL}`
+  },
   robots: {
     follow: true,
     index: true

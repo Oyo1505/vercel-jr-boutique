@@ -3,11 +3,30 @@ import Map from 'domains/contact/components/map/map';
 import Image from 'next/image';
 import logo from '../../public/images/page-acceuil/Fiabilité.png';
 import styles from './page.module.scss';
+import { Metadata } from 'next';
+
+export async function generateMetadata({
+  params
+}: {
+  params: { collection: string };
+}): Promise<Metadata> {
+  return {
+    title: 'Contact',
+    description: 'Contact JR Distribution',
+    verification: {
+      google: 'google'
+    },
+    alternates: {
+      canonical: `${process.env.DOMAIN_URL}/contact`
+    }
+  };
+}
+
 export default async function Page() {
   return (
     <div className={styles.container}>
       <div className={styles.description}>
-        <Image src={logo} alt='home' />
+        <Image src={logo} alt="home" />
         <h2>JR Distribution</h2>
         <div className={styles.line}>25 chemin du sanatorium</div>
         <div className={styles.line}>25 000 Besançon</div>
