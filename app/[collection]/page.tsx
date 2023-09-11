@@ -21,7 +21,13 @@ export async function generateMetadata({
   return {
     title: capitalizeFirstLetter(collection.seo?.title || collection.title).replace('_', ' '),
     description:
-      collection.seo?.description || collection.description || `${collection.title} products`
+      collection.seo?.description || collection.description || `${collection.title} products`,
+    verification: {
+      google: 'google'
+    },
+    alternates: {
+      canonical: `${process.env.DOMAIN_URL}/${collection.handle}`
+    }
   };
 }
 
