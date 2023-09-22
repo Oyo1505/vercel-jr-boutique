@@ -1,6 +1,7 @@
 import CartPage from 'domains/cart/components/cart-page/cart-page';
 import { createCart, getCart } from 'lib/shopify';
 import { cookies } from 'next/headers';
+export const runtime = 'edge';
 
 const PanierPage = async () => {
   const cartId = cookies().get('cartId')?.value;
