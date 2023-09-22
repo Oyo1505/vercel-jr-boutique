@@ -1,3 +1,4 @@
+'use client';
 import FormContact from 'domains/contact/components/form-contact/form-contact';
 import Map from 'domains/contact/components/map/map';
 import Image from 'next/image';
@@ -5,20 +6,7 @@ import logo from '../../public/images/page-acceuil/Fiabilité.png';
 import styles from './page.module.scss';
 import { Metadata } from 'next';
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: 'Contact',
-    description: 'Contact JR Distribution',
-    verification: {
-      google: 'google'
-    },
-    alternates: {
-      canonical: `${process.env.DOMAIN_URL}/contact`
-    }
-  };
-}
-
-export default async function Page() {
+export default function Page() {
   return (
     <div className={styles.container}>
       <div className={styles.description}>
