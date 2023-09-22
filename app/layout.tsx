@@ -10,6 +10,7 @@ import Layout from '../domains/layout/components/layout/layout';
 import favicon from '../public/images/header/favicon.ico';
 import '../styles/base.scss';
 import './globals.css';
+import Loading from './loading';
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 
 export const metadata = {
@@ -63,7 +64,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           <Toaster />
           <Container>
             <Navbar />
-            <Suspense>
+            <Suspense fallback={<Loading />}>
               <main>{children}</main>
             </Suspense>
             <Footer />
