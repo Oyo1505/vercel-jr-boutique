@@ -28,18 +28,6 @@ const Analytics = () => {
           style={{ display: 'none', visibility: 'hidden' }}
         />
       </noscript>
-
-      <script
-        async
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_ANALYTICS_ID}`}
-      ></script>
-      <script>
-        {`window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-SDBHLWS6N5');`}
-      </script>
     </>
   );
 };
