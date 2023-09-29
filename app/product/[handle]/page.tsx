@@ -34,7 +34,7 @@ export async function generateMetadata({
       google: 'google'
     },
     alternates: {
-      canonical: `${process.env.DOMAIN_URL}/product/${product.handle}`
+      canonical: `/product/${product.handle}`
     },
     robots: {
       index: hide,

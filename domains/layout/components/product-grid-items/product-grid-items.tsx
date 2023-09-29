@@ -28,7 +28,10 @@ export default function ProductGridItems({
               {product?.tags?.find((tag) => tag === 'promotions') && pathname !== '/promotions' && (
                 <Image src={promo} alt="promo" className={styles.promo} unoptimized={true} />
               )}
-              <Link href={`/product/${product.handle}`}>
+              <Link
+                href={`/product/${product.handle}`}
+                aria-label={`poduct-related-${product.handle}`}
+              >
                 <GridTileImage
                   alt={product.title}
                   src={product.featuredImage?.url}
