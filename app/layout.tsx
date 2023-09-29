@@ -62,13 +62,14 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_ANALYTICS_ID}`}
         ></script>
-        <script>
-          {`window.dataLayer = window.dataLayer || [];
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
-        gtag('config', 'G-SDBHLWS6N5');`}
-        </script>
+        gtag('config', '${process.env.NEXT_PUBLIC_ANALYTICS_ID}');`
+          }}
+        ></script>
       </head>
       <body>
         <Layout>
