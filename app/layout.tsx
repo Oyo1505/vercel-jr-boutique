@@ -57,6 +57,19 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
         />
         <link rel="icon" href={favicon.src} type="image/x-icon" sizes="any"></link>
+
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_ANALYTICS_ID}`}
+        ></script>
+        <script>
+          {`window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${process.env.NEXT_PUBLIC_ANALYTICS_ID}',{
+            page_path: window.location.pathname,
+        });`}
+        </script>
       </head>
       <body>
         <Layout>
