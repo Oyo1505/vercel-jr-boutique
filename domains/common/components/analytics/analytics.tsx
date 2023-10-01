@@ -1,7 +1,6 @@
 'use client';
 import { pageview } from 'lib/gmt';
 import { usePathname, useSearchParams } from 'next/navigation';
-import Script from 'next/script';
 import { useEffect } from 'react';
 
 const Analytics = () => {
@@ -18,7 +17,18 @@ const Analytics = () => {
     return null;
   }
 
-  return <></>;
+  return (
+    <>
+      <noscript>
+        <iframe
+          src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM}`}
+          height="0"
+          width="0"
+          style={{ display: 'none', visibility: 'hidden' }}
+        />
+      </noscript>
+    </>
+  );
 };
 
 export default Analytics;
