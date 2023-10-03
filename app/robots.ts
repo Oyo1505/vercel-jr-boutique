@@ -10,7 +10,7 @@ export default function robots() {
         disallow: '/',
       }
     ],
-    sitemap: process.env.ENVIRONEMENT ==='production' ?  `${baseUrl}/sitemap.xml`: null,
-    host: process.env.ENVIRONEMENT ==='production' ? baseUrl : null
+    sitemap: process.env.ENVIRONEMENT ==='production' && baseUrl === 'jr-boutique.fr' ?  `${baseUrl}/sitemap.xml`: null,
+    host: process.env.ENVIRONEMENT ==='production' && baseUrl === 'jr-boutique.fr' ? baseUrl : null
   };
 }
