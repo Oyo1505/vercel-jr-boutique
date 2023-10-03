@@ -7,7 +7,7 @@ export default function robots() {
     rules: [
       {
         userAgent: '*',
-        disallow: ['/'],
+        disallow: '/',
       }
     ],
     sitemap: process.env.ENVIRONEMENT ==='production' ?  `${baseUrl}/sitemap.xml`: null,
