@@ -1,15 +1,16 @@
-const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
-  ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+const baseUrl = process.env.BASE_URL
+  ? `https://${process.env.BASE_URL}` :  process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
   : 'http://localhost:3000';
 
 export default function robots() {
   return {
     rules: [
       {
-        userAgent: '*'
+        userAgent: '*',
+        disallow: '/',
       }
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
-    host: baseUrl
+    sitemap: process.env.ENVIRONEMENT ==='production' ?  `${baseUrl}/sitemap.xml`: null,
+    host: process.env.ENVIRONEMENT ==='production' ? baseUrl : null
   };
 }
