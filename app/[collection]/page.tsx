@@ -26,7 +26,7 @@ export async function generateMetadata({
       google: 'google'
     },
     alternates: {
-      canonical: `${process.env.DOMAIN_URL}/${collection.handle}`
+      canonical: `/${collection.handle}`
     }
   };
 }
