@@ -2,25 +2,20 @@ import ProductGridItems from 'domains/layout/components/product-grid-items/produ
 import { defaultSort, sorting } from 'lib/constants';
 import { getProducts } from 'lib/shopify';
 import styles from './page.module.scss';
-import { Metadata } from 'next';
+
 export const runtime = 'edge';
 
 export const metadata = {
   title: 'Search',
-  description: 'Search for products in the store.'
+  description: 'Search for products in the store.',
+  verification: {
+    google: 'google'
+  },
+  alternates: {
+    canonical: `/search`
+  }
 };
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: 'Contact',
-    description: 'Contact JR Distribution',
-    verification: {
-      google: 'google'
-    },
-    alternates: {
-      canonical: `/search`
-    }
-  };
-}
+
 export default async function SearchPage({
   searchParams
 }: {
