@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
       google: 'google'
     },
     alternates: {
-      canonical: `${process.env.DOMAIN_URL}/contact`
+      canonical: `/contact`
     }
   };
 }

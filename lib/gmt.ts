@@ -12,10 +12,11 @@ export const pageview = (url: string) => {
       event: 'pageview',
       page: url
     });
-  } else {
-    console.log({
-      event: 'pageview',
-      page: url
-    });
   }
+  // if (typeof window.dataLayer === 'undefined') {
+  //   console.log({
+  //     event: 'pageview',
+  //     page: url
+  //   });
+  // }
 };
