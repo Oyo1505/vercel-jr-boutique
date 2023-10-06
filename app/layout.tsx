@@ -12,6 +12,9 @@ import favicon from '../public/images/header/favicon.ico';
 import '../styles/base.scss';
 import './globals.css';
 import Loading from './loading';
+import FloatingButtonCart from 'domains/cart/components/floating-button-cart/floating-button-cart';
+import { cookies, headers } from 'next/headers';
+import { createCart, getCart } from 'lib/shopify';
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 
 export const metadata = {
@@ -43,6 +46,31 @@ const courgette = Courgette({
 });
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
+  const cartId = cookies().get('cartId')?.value;
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const headersList = headers();
+  let cartIdUpdated = false;
+  let cart;
+
+  const userAgent = headersList.get('user-agent');
+  const isMobileView = userAgent!.match(
+    /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
+  );
+
+  if (isMobileView) {
+    if (cartId) {
+      cart = await getCart(cartId);
+    }
+    // If the `cartId` from the cookie is not set or the cart is empty
+    // (old carts becomes `null` when you checkout), then get a new `cartId`
+    //  and re-fetch the cart.
+    if (!cartId || !cart) {
+      cart = await createCart();
+      cartIdUpdated = true;
+    }
+  }
+
   return (
     <html lang="fr" className={courgette.className}>
       <head>
@@ -59,16 +87,18 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         />
         <link rel="icon" href={favicon.src} type="image/x-icon" sizes="any"></link>
         <Script
-        id="gtm-script"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
+          id="gtm-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
           })(window,document,'script','dataLayer', '${process.env.NEXT_PUBLIC_GTM}');
-        `}}/>
+        `
+          }}
+        />
         <script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_ANALYTICS_ID}`}
@@ -90,6 +120,9 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             <Navbar />
             <Suspense fallback={<Loading />}>
               <main>{children}</main>
+              {isMobileView && cart && (
+                <FloatingButtonCart cart={cart} cartIdUpdated={cartIdUpdated} />
+              )}
             </Suspense>
             <Footer />
           </Container>

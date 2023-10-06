@@ -1,0 +1,29 @@
+.container {
+  position: fixed;
+  @include square(50px);
+  bottom: 50px;
+  right: 25px;
+  border-radius: 50%;
+  background-color: $yellow;
+  padding: 15px;
+  z-index: 9999;
+  -webkit-box-shadow: 0px 0px 15px 2px rgba($gray, 0.42);
+  box-shadow: 0px 0px 15px 2px rgba($gray, 0.42);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.subContainer {
+  width: 100%;
+  position: relative;
+  height: 100%;
+}
+
+.quantity {
+  position: absolute;
+  top: -10px;
+  right: 0;
+  color: $red;
+  font-size: $font-size-3;
+  font-family: rubik-bold;
+}
