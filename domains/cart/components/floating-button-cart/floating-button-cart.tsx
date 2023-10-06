@@ -34,7 +34,8 @@ const FloatingButtonCart = ({ cart, cartIdUpdated }: { cart: Cart; cartIdUpdated
   }, [cart.totalQuantity, quantityRef, pathname]);
 
   return (
-    cart?.totalQuantity > 0 && (
+    cart?.totalQuantity > 0 &&
+    pathname !== '/panier' && (
       <Link href={'/panier'}>
         <div className={styles.container}>
           <div className={styles.subContainer}>
