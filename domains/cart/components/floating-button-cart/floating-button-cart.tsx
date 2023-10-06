@@ -22,7 +22,7 @@ const FloatingButtonCart = ({ cart, cartIdUpdated }: { cart: Cart; cartIdUpdated
     }
     return;
   }, [setCookie, cartIdUpdated, cart.id]);
-  console.log(pathname);
+
   useEffect(() => {
     // Open cart modal when when quantity changes.
     if (cart.totalQuantity !== quantityRef.current && pathname !== '/panier') {
