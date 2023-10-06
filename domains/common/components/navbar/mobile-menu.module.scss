@@ -11,13 +11,16 @@
   flex-direction: column;
   gap: 10px;
 }
-.closeButton{
-  @include square(24px);
+.closeButton {
+  @include square(45px);
   right: 0;
   position: absolute;
-  margin: 10px;
+  margin: 15px;
 }
-.isActive{
-  color:$red;
+.isActive {
+  color: $red;
+}
 
+.menuIcon {
+  @include square(45px);
 }

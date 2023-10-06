@@ -38,7 +38,7 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
         className={styles.OpenButton}
         data-testid="open-mobile-menu"
       >
-        <MenuIcon />
+        <MenuIcon className={styles.menuIcon} />
       </button>
       <CustomModal openModal={isOpen} setIsOpen={setIsOpen} direction="left">
         <div>
@@ -48,7 +48,7 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
             data-testid="close-mobile-menu"
             className={styles.closeButton}
           >
-            <CloseIcon />
+            <CloseIcon className={styles.closeIcon} />
           </button>
 
           {/* <div>
@@ -70,8 +70,7 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
                   </li>
                 ))
               : null}
-            <Link href={'/contact'}>Panier</Link>
-            <Link href={'/panier'}>Panier</Link>
+            <Link href={'/contact'}>Contact</Link>
           </ul>
         </div>
       </CustomModal>
