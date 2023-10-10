@@ -21,6 +21,10 @@
   background-color: $yellow;
   padding: 10px 20px;
   color: $red;
+
+  @include below-sm {
+    text-align: center;
+  }
 }
 .vendor {
   font-family: rubik-regular;

@@ -10,7 +10,7 @@ export default function robots() {
       process.env.ENVIRONEMENT !== 'production' &&
         baseUrl !== `https://${process.env.DOMAIN_URL}` && {
           userAgent: '*',
-          disallow: '/'
+          allow: '/'
         }
     ],
     sitemap:
