@@ -22,7 +22,7 @@ export default async function Page() {
       <h1>1. Présentation du site</h1>
       <p>
         En vertu de l’article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans
-        l’économie numérique, il est précisé aux utilisateurs du site{' '}
+        l’économie numérique, il est précisé aux utilisateurs du site
         <a href="https://jr-boutique.fr/">https://jr-boutique.fr/</a> l’identité des différents
         intervenants dans le cadre de sa réalisation et de son suivi :
       </p>
@@ -31,18 +31,18 @@ export default async function Page() {
         <li>Propriétaire : JR Distribution – SARL – 25 chemin du sanatorium</li>
         <li>Créateur : Henri-Pierre RIGOULET</li>
         <li>
-          Responsable publication : Henri-Pierre RIGOULET –{' '}
+          Responsable publication : Henri-Pierre RIGOULET –
           <a href="mailto:rigoulet.henri.pierre@gmail.com">rigoulet.henri.pierre@gmail.com</a>
         </li>
         <li>
-          Webmaster : Henri-Pierre RIGOULET –{' '}
+          Webmaster : Henri-Pierre RIGOULET –
           <a href="mailto:rigoulet.henri.pierre@gmail.com">rigoulet.henri.pierre@gmail.com</a>
         </li>
         <li>Hébergeur : OVH – 75017</li>
       </ul>
 
       <p>
-        Crédits : Le modèle de mentions légales est offert par{' '}
+        Crédits : Le modèle de mentions légales est offert par
         <a href="https://www.subdelirium.com/">Subdelirium.com</a> Générateur de mentions légales
       </p>
 
@@ -76,7 +76,7 @@ export default async function Page() {
       </p>
 
       <p>
-        JR Distribution s’efforce de fournir sur le site{' '}
+        JR Distribution s’efforce de fournir sur le site
         <a href="https://jr-boutique.fr/">https://jr-boutique.fr/</a> des informations aussi
         précises que possible. Toutefois, il ne pourra être tenu responsable des omissions, des
         inexactitudes et des carences dans la mise à jour, qu’elles soient de son fait ou du fait
@@ -84,7 +84,7 @@ export default async function Page() {
       </p>
 
       <p>
-        Tous les informations indiquées sur le site{' '}
+        Tous les informations indiquées sur le site
         <a href="https://jr-boutique.fr/">https://jr-boutique.fr/</a> sont données à titre
         indicatif, et sont susceptibles d’évoluer. Par ailleurs, les renseignements figurant sur le
         site <a href="https://jr-boutique.fr/">https://jr-boutique.fr/</a> ne sont pas exhaustifs.
@@ -122,7 +122,7 @@ export default async function Page() {
       <h2>6. Limitations de responsabilité</h2>
       <p>
         JR Distribution ne pourra être tenue responsable des dommages directs et indirects causés au
-        matériel de l’utilisateur, lors de l’accès au site{' '}
+        matériel de l’utilisateur, lors de l’accès au site
         <a href="https://jr-boutique.fr/">https://jr-boutique.fr/</a>, et résultant soit de
         l’utilisation d’un matériel ne répondant pas aux spécifications indiquées au point 4, soit
         de l’apparition d’un bug ou d’une incompatibilité.
@@ -130,7 +130,7 @@ export default async function Page() {
 
       <p>
         JR Distribution ne pourra également être tenue responsable des dommages indirects (tels par
-        exemple qu’une perte de marché ou perte d’une chance) consécutifs à l’utilisation du site{' '}
+        exemple qu’une perte de marché ou perte d’une chance) consécutifs à l’utilisation du site
         <a href="https://jr-boutique.fr/">https://jr-boutique.fr/</a>.
       </p>
 
@@ -150,16 +150,16 @@ export default async function Page() {
       </p>
 
       <p>
-        A l’occasion de l’utilisation du site{' '}
+        A l’occasion de l’utilisation du site
         <a href="https://jr-boutique.fr/">https://jr-boutique.fr/</a>, peuvent êtres recueillies :
-        l’URL des liens par l’intermédiaire desquels l’utilisateur a accédé au site{' '}
+        l’URL des liens par l’intermédiaire desquels l’utilisateur a accédé au site
         <a href="https://jr-boutique.fr/">https://jr-boutique.fr/</a>, le fournisseur d’accès de
         l’utilisateur, l’adresse de protocole Internet (IP) de l’utilisateur.
       </p>
 
       <p>
         En tout état de cause JR Distribution ne collecte des informations personnelles relatives à
-        l’utilisateur que pour le besoin de certains services proposés par le site{' '}
+        l’utilisateur que pour le besoin de certains services proposés par le site
         <a href="https://jr-boutique.fr/">https://jr-boutique.fr/</a>. L’utilisateur fournit ces
         informations en toute connaissance de cause, notamment lorsqu’il procède par lui-même à leur
         saisie...
@@ -175,7 +175,7 @@ export default async function Page() {
       </p>
 
       <p>
-        Aucune information personnelle de l’utilisateur du site{' '}
+        Aucune information personnelle de l’utilisateur du site
         <a href="https://jr-boutique.fr/">https://jr-boutique.fr/</a> n’est publiée à l’insu de
         l’utilisateur, échangée, transférée, cédée ou vendue sur un support quelconque à des
         tiers...
@@ -234,7 +234,7 @@ export default async function Page() {
 
       <h2>9. Droit applicable et attribution de juridiction</h2>
       <p>
-        Tout litige en relation avec l’utilisation du site{' '}
+        Tout litige en relation avec l’utilisation du site
         <a href="https://jr-boutique.fr/">https://jr-boutique.fr/</a> est soumis au droit français.
         Il est fait attribution exclusive de juridiction aux tribunaux compétents de Paris.
       </p>
