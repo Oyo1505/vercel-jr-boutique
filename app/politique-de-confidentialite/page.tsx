@@ -23,7 +23,7 @@ export default async function Page() {
 
       <p>
         La présente Politique de confidentialité décrit la façon dont vos informations personnelles
-        sont recueillies, utilisées et partagées lorsque vous vous rendez sur{' '}
+        sont recueillies, utilisées et partagées lorsque vous vous rendez sur
         <a href="https://www.jr-boutique.fr/">https://www.jr-boutique.fr/</a> (le « Site ») ou que
         vous y effectuez un achat.
       </p>
@@ -36,12 +36,15 @@ export default async function Page() {
         votre adresse IP, votre fuseau horaire et certains des cookies qui sont installés sur votre
         appareil. En outre, lorsque vous parcourez le Site, nous recueillons des informations sur
         les pages web ou produits individuels que vous consultez, les sites web ou les termes de
-        recherche qui vous ont permis d'arriver sur le Site, ainsi que des informations sur la
+        recherche qui vous ont permis d&aposarriver sur le Site, ainsi que des informations sur la
         manière dont vous interagissez avec le Site. Nous désignons ces informations collectées
-        automatiquement sous l'appellation « Informations sur l'appareil ».
+        automatiquement sous l&aposappellation « Informations sur l&aposappareil ».
       </p>
 
-      <p>Nous recueillons les Informations sur l'appareil à l'aide des technologies suivantes :</p>
+      <p>
+        Nous recueillons les Informations sur l&aposappareil à l&aposaide des technologies suivantes
+        :
+      </p>
 
       <h3>FICHIERS TÉMOINS (COOKIES)</h3>
 
@@ -76,9 +79,10 @@ export default async function Page() {
       </ul>
 
       <p>
-        Les « fichiers journaux » suivent l'activité du Site et recueillent des données telles que
-        votre adresse IP, le type de navigateur que vous utilisez, votre fournisseur d'accès
-        Internet, vos pages référentes et de sortie, et vos données d'horodatage (date et heure).
+        Les « fichiers journaux » suivent l&aposactivité du Site et recueillent des données telles
+        que votre adresse IP, le type de navigateur que vous utilisez, votre fournisseur d&aposaccès
+        Internet, vos pages référentes et de sortie, et vos données d&aposhorodatage (date et
+        heure).
       </p>
 
       <p>
@@ -91,18 +95,18 @@ export default async function Page() {
       </p>
 
       <p>
-        Par ailleurs, lorsque vous effectuez ou tentez d'effectuer un achat par le biais du Site,
-        nous recueillons certaines informations vous concernant, notamment votre nom, votre adresse
-        de facturation, votre adresse d'expédition, vos informations de paiement (y compris vos
-        numéros de cartes de crédit), votre adresse e-mail et votre numéro de téléphone. Ces
-        informations collectées automatiquement sont désignées par l’appellation « Informations sur
-        la commande ».
+        Par ailleurs, lorsque vous effectuez ou tentez d&aposeffectuer un achat par le biais du
+        Site, nous recueillons certaines informations vous concernant, notamment votre nom, votre
+        adresse de facturation, votre adresse d&aposexpédition, vos informations de paiement (y
+        compris vos numéros de cartes de crédit), votre adresse e-mail et votre numéro de téléphone.
+        Ces informations collectées automatiquement sont désignées par l’appellation « Informations
+        sur la commande ».
       </p>
 
       <p>
-        Lorsque nous utilisons l'expression « Informations personnelles » dans la présente Politique
-        de confidentialité, nous faisons allusion à la fois aux Informations sur l'appareil et aux
-        Informations sur la commande.
+        Lorsque nous utilisons l&aposexpression « Informations personnelles » dans la présente
+        Politique de confidentialité, nous faisons allusion à la fois aux Informations sur
+        l&aposappareil et aux Informations sur la commande.
       </p>
 
       <h2>COMMENT UTILISONS-NOUS VOS INFORMATIONS PERSONNELLES ?</h2>
@@ -110,8 +114,9 @@ export default async function Page() {
       <p>
         En règle générale, nous utilisons les Informations sur la commande que nous recueillons pour
         traiter toute commande passée par le biais du Site (y compris pour traiter vos informations
-        de paiement, organiser l'expédition de votre commande et vous fournir des factures et/ou des
-        confirmations de commande). En outre, nous utilisons ces Informations sur la commande pour :
+        de paiement, organiser l&aposexpédition de votre commande et vous fournir des factures et/ou
+        des confirmations de commande). En outre, nous utilisons ces Informations sur la commande
+        pour :
       </p>
 
       <ul>
@@ -124,11 +129,11 @@ export default async function Page() {
       </ul>
 
       <p>
-        Nous utilisons les Informations sur l'appareil (en particulier votre adresse IP) que nous
-        recueillons pour évaluer les fraudes ou risques potentiels et, de manière plus générale,
-        pour améliorer et optimiser notre Site (par exemple, en générant des analyses sur la façon
-        dont nos clients parcourent et interagissent avec le Site, et pour évaluer la réussite de
-        nos campagnes de publicité et de marketing).
+        Nous utilisons les Informations sur l&aposappareil (en particulier votre adresse IP) que
+        nous recueillons pour évaluer les fraudes ou risques potentiels et, de manière plus
+        générale, pour améliorer et optimiser notre Site (par exemple, en générant des analyses sur
+        la façon dont nos clients parcourent et interagissent avec le Site, et pour évaluer la
+        réussite de nos campagnes de publicité et de marketing).
       </p>
 
       <h2>PARTAGE DE VOS INFORMATIONS PERSONNELLES</h2>
@@ -136,18 +141,18 @@ export default async function Page() {
       <p>
         Nous partageons vos Informations personnelles avec des tiers qui nous aident à les utiliser
         aux fins décrites précédemment. Par exemple, nous utilisons Shopify pour héberger notre
-        boutique en ligne – pour en savoir plus sur l'utilisation de vos Informations personnelles
-        par Shopify, veuillez consulter la page suivante :{' '}
+        boutique en ligne – pour en savoir plus sur l&aposutilisation de vos Informations
+        personnelles par Shopify, veuillez consulter la page suivante :
         <a href="https://www.shopify.fr/legal/confidentialite">
           https://www.shopify.fr/legal/confidentialite
         </a>
         . Nous utilisons également Google Analytics pour mieux comprendre comment nos clients
-        utilisent le Site – pour en savoir plus sur l'utilisation de vos Informations personnelles
-        par Google, veuillez consulter la page suivante :{' '}
+        utilisent le Site – pour en savoir plus sur l&aposutilisation de vos Informations
+        personnelles par Google, veuillez consulter la page suivante :
         <a href="https://www.google.com/intl/fr/policies/privacy/">
           https://www.google.com/intl/fr/policies/privacy/
         </a>
-        . Vous pouvez aussi désactiver Google Analytics ici :{' '}
+        . Vous pouvez aussi désactiver Google Analytics ici :
         <a href="https://tools.google.com/dlpage/gaoptout">
           https://tools.google.com/dlpage/gaoptout
         </a>
@@ -167,7 +172,7 @@ export default async function Page() {
         Comme indiqué ci-dessus, nous utilisons vos Informations personnelles pour vous proposer des
         publicités ciblées ou des messages de marketing qui, selon nous, pourraient vous intéresser.
         Pour en savoir plus sur le fonctionnement de la publicité ciblée, vous pouvez consulter la
-        page d'information de la Network Advertising Initiative (NAI) à l'adresse suivante :{' '}
+        page d&aposinformation de la Network Advertising Initiative (NAI) à l&aposadresse suivante :
         <a href="http://www.networkadvertising.org/understanding-online-advertising/how-does-it-work">
           http://www.networkadvertising.org/understanding-online-advertising/how-does-it-work
         </a>
@@ -180,19 +185,19 @@ export default async function Page() {
 
       <ul>
         <li>
-          FACEBOOK –{' '}
+          FACEBOOK –
           <a href="https://www.facebook.com/settings/?tab=ads">
             https://www.facebook.com/settings/?tab=ads
           </a>
         </li>
         <li>
-          GOOGLE –{' '}
+          GOOGLE –
           <a href="https://www.google.com/settings/ads/anonymous">
             https://www.google.com/settings/ads/anonymous
           </a>
         </li>
         <li>
-          BING –{' '}
+          BING –
           <a href="https://about.ads.microsoft.com/fr-fr/ressources/politiques/annonces-personnalisees">
             https://about.ads.microsoft.com/fr-fr/ressources/politiques/annonces-personnalisees
           </a>
@@ -201,7 +206,7 @@ export default async function Page() {
 
       <p>
         En outre, vous pouvez refuser certains de ces services en vous rendant sur le portail de
-        désactivation de Digital Advertising Alliance à l'adresse suivante :{' '}
+        désactivation de Digital Advertising Alliance à l&aposadresse suivante :
         <a href="https://optout.aboutads.info/?c=3&lang=fr">
           https://optout.aboutads.info/?c=3&lang=fr
         </a>
@@ -212,17 +217,17 @@ export default async function Page() {
 
       <p>
         Veuillez noter que nous ne modifions pas la collecte de données de notre Site et nos
-        pratiques d'utilisation lorsque nous détectons un signal « Ne pas suivre » sur votre
+        pratiques d&aposutilisation lorsque nous détectons un signal « Ne pas suivre » sur votre
         navigateur.
       </p>
 
       <h2>VOS DROITS</h2>
 
       <p>
-        Si vous êtes résident(e) européen(ne), vous disposez d'un droit d'accès aux informations
-        personnelles que nous détenons à votre sujet et vous pouvez demander à ce qu'elles soient
-        corrigées, mises à jour ou supprimées. Si vous souhaitez exercer ce droit, veuillez nous
-        contacter au moyen des coordonnées précisées ci-dessous.
+        Si vous êtes résident(e) européen(ne), vous disposez d&aposun droit d&aposaccès aux
+        informations personnelles que nous détenons à votre sujet et vous pouvez demander à ce
+        qu&aposelles soient corrigées, mises à jour ou supprimées. Si vous souhaitez exercer ce
+        droit, veuillez nous contacter au moyen des coordonnées précisées ci-dessous.
       </p>
 
       <p>
@@ -230,14 +235,14 @@ export default async function Page() {
         informations dans le but de remplir nos obligations contractuelles à votre égard (par
         exemple si vous passez une commande sur le Site) ou de poursuivre nos intérêts commerciaux
         légitimes, énumérés ci-dessus. Veuillez également noter que vos informations seront
-        transférées hors de l'Europe, y compris au Canada et aux États-Unis.
+        transférées hors de l&aposEurope, y compris au Canada et aux États-Unis.
       </p>
 
       <h2>RÉTENTION DES DONNÉES</h2>
 
       <p>
-        Lorsque vous passez une commande par l'intermédiaire du Site, nous conservons les
-        Informations sur votre commande dans nos dossiers, sauf si et jusqu'à ce que vous nous
+        Lorsque vous passez une commande par l&aposintermédiaire du Site, nous conservons les
+        Informations sur votre commande dans nos dossiers, sauf si et jusqu&aposà ce que vous nous
         demandiez de les supprimer.
       </p>
 
@@ -245,17 +250,17 @@ export default async function Page() {
 
       <p>
         Nous pouvons être amenés à modifier la présente politique de confidentialité de temps à
-        autre afin d'y refléter, par exemple, les changements apportés à nos pratiques ou pour
-        d'autres motifs opérationnels, juridiques ou réglementaires.
+        autre afin d&aposy refléter, par exemple, les changements apportés à nos pratiques ou pour
+        d&aposautres motifs opérationnels, juridiques ou réglementaires.
       </p>
 
       <h2>NOUS CONTACTER</h2>
 
       <p>
         Pour en savoir plus sur nos pratiques de confidentialité, si vous avez des questions ou si
-        vous souhaitez déposer une réclamation, veuillez nous contacter par e-mail à{' '}
+        vous souhaitez déposer une réclamation, veuillez nous contacter par e-mail à
         <a href="mailto:rigoulet.henri.pierre@gmail.com">rigoulet.henri.pierre@gmail.com</a>, ou par
-        courrier à l'adresse suivante :
+        courrier à l&aposadresse suivante :
       </p>
 
       <address>25 chemin du sanatorium, Besançon, 25000, France</address>
