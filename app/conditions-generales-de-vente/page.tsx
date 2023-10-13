@@ -1,6 +1,6 @@
 import styles from './page.module.scss';
 
-const ConditionsGeneralDeVentePage = () => {
+export default async function Page() {
   return (
     <section className={styles.container}>
       <h1>CONDITIONS D'UTILISATION</h1>
@@ -440,6 +440,4 @@ const ConditionsGeneralDeVentePage = () => {
       </p>
     </section>
   );
-};
-
-export default ConditionsGeneralDeVentePage;
+}

@@ -1,6 +1,6 @@
 import styles from './mentions-legales.module.scss';
 
-const MentionsLegalesPage = () => {
+export default async function Page() {
   return (
     <section className={styles.container}>
       <h1>1. Présentation du site</h1>
@@ -241,6 +241,4 @@ const MentionsLegalesPage = () => {
       </p>
     </section>
   );
-};
-
-export default MentionsLegalesPage;
+}

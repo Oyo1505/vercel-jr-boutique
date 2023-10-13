@@ -1,6 +1,6 @@
 import styles from './page.module.scss';
 
-const ConditionsGeneralDeVentePage = () => {
+export default async function Page() {
   return (
     <section className={styles.container}>
       <h1>Politique de confidentialité de JR Distribution</h1>
@@ -245,6 +245,4 @@ const ConditionsGeneralDeVentePage = () => {
       <address>25 chemin du sanatorium, Besançon, 25000, France</address>
     </section>
   );
-};
-
-export default ConditionsGeneralDeVentePage;
+}
