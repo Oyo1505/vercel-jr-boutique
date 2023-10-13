@@ -1,4 +1,20 @@
+import { Metadata } from 'next';
 import styles from './mentions-legales.module.scss';
+import { URL_MENTIONS_LEGALES } from 'shared/constants/route';
+export const runtime = 'edge';
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Mentions légales',
+    description: 'Mentions légales | JR Distribution',
+    verification: {
+      google: 'google'
+    },
+    alternates: {
+      canonical: URL_MENTIONS_LEGALES
+    }
+  };
+}
 
 export default async function Page() {
   return (

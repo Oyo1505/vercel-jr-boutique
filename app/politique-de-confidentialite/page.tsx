@@ -1,4 +1,20 @@
+import { Metadata } from 'next';
 import styles from './page.module.scss';
+import { URL_POLITIQUE_DE_CONFIDENRIALITE } from 'shared/constants/route';
+export const runtime = 'edge';
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Politique de confidentialité',
+    description: 'Politique de confidentialité | JR Distribution',
+    verification: {
+      google: 'google'
+    },
+    alternates: {
+      canonical: URL_POLITIQUE_DE_CONFIDENRIALITE
+    }
+  };
+}
 
 export default async function Page() {
   return (
