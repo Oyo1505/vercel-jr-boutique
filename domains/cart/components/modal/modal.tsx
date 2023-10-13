@@ -90,7 +90,6 @@ export default function CartModal({ cart, cartIdUpdated }: { cart: Cart; cartIdU
               <ul className={styles.subContainerItems}>
                 {cart.lines.map((item, i) => {
                   const merchandiseSearchParams = {} as MerchandiseSearchParams;
-
                   item.merchandise.selectedOptions.forEach(({ name, value }) => {
                     if (value !== DEFAULT_OPTION) {
                       merchandiseSearchParams[name.toLowerCase()] = value;
@@ -123,7 +122,12 @@ export default function CartModal({ cart, cartIdUpdated }: { cart: Cart; cartIdU
                         <DeleteItemButton item={item} />
                         <div className={styles.variantItem}>
                           {item.merchandise.title !== DEFAULT_OPTION ? (
-                            <p data-testid="cart-product-variant">{item.merchandise.title}</p>
+                            <p
+                              data-testid="cart-product-variant"
+                              className={styles.cartProductVariant}
+                            >
+                              {item.merchandise.title}
+                            </p>
                           ) : null}
                         </div>
                         <div className={styles.quantity}>

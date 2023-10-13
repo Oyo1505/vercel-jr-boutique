@@ -1,0 +1,16 @@
+.container {
+  line-height: 25px;
+  h1 {
+    font-size: $font-size-5;
+    text-align: center;
+  }
+  h2 {
+    font-size: $font-size-4;
+  }
+  a {
+    color: $red;
+  }
+  p {
+    margin-bottom: 30px;
+  }
+}
