@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styles from './not-found.module.scss';
 import Image from 'next/image';
-import emptyPanier from '../../../public/images/page-acceuil/Qualité.png';
+import emptyPanier from '../../public/images/page-acceuil/Qualité.png';
 export default async function NotFound() {
   return (
     <div className={styles.emptyCart}>
