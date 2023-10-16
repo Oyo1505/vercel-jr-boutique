@@ -13,8 +13,7 @@ import '../styles/base.scss';
 import './globals.css';
 import Loading from './loading';
 import FloatingButtonCart from 'domains/cart/components/floating-button-cart/floating-button-cart';
-import { cookies, headers } from 'next/headers';
-import { createCart, getCart } from 'lib/shopify';
+import { headers } from 'next/headers';
 import useGetPanier from 'domains/cart/hooks/use-get-panier';
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 
@@ -23,9 +22,8 @@ export const metadata = {
     default: SITE_NAME,
     template: `%s | ${SITE_NAME}`
   },
-  alternates: {
-    canonical: `${process.env.DOMAIN_URL}`
-  },
+  description:
+    'Découvrez la saveur authentique de la Franche-Comté avec JR Distribution. Explorez nos délices régionaux, des fromages exquis aux saucisses de Morteau fumées. Rejoignez-nous pour une expérience gustative régionale exceptionnelle !',
   robots: {
     follow: true,
     index: true
