@@ -23,7 +23,7 @@ export const metadata = {
     template: `%s | ${SITE_NAME}`
   },
   description:
-    'Découvrez la saveur authentique de la Franche-Comté avec JR Distribution. Explorez nos délices régionaux, des fromages exquis aux saucisses de Morteau fumées. Rejoignez-nous pour une expérience gustative régionale exceptionnelle !',
+    'JR Distribution vous offre la Franche-Comté en un clic. Vente en ligne de produits francs-comtois pour une expérience gustative authentique !',
   robots: {
     follow: true,
     index: true
