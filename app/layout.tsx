@@ -23,7 +23,7 @@ export const metadata = {
     template: `%s | ${SITE_NAME}`
   },
   description:
-    'JR Distribution vous offre la Franche-Comté en un clic. Vente en ligne de produits francs-comtois pour une expérience gustative authentique !',
+    'JR Distribution vous offre la Franche-Comté en un clic. Vente en ligne de fromages, produits régionnaux... ',
   robots: {
     follow: true,
     index: true
