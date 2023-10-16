@@ -6,6 +6,9 @@ import { Suspense } from 'react';
 export const runtime = 'edge';
 
 export const metadata = {
+  alternates: {
+    canonical: `/`
+  },
   openGraph: {
     images: [
       {
