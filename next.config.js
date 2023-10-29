@@ -11,7 +11,7 @@ module.exports = {
     prependData: '@import "styles.scss";'
   },
   experimental: {
-    serverActions: true
+    webpackBuildWorker: true
   },
   images: {
     formats: ['image/avif', 'image/webp'],
