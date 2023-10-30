@@ -9,7 +9,6 @@ export default function robots() {
     rules: [
       process.env.ENVIRONEMENT !== 'production' &&
         baseUrl !== `https://${process.env.DOMAIN_URL}` && {
-          userAgent: '*',
           allow: '/'
         }
     ],
