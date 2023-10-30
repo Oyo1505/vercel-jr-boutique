@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import styles from './page.module.scss';
 import { URL_CONDITIONS_GENERALES } from 'shared/constants/route';
-export const runtime = 'edge';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {

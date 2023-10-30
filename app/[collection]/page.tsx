@@ -7,8 +7,6 @@ import { notFound } from 'next/navigation';
 import { capitalizeFirstLetter } from 'shared/utilities/capitalize-first-letter/capitaliaze-first-letter';
 import styles from './page.module.scss';
 
-export const runtime = 'edge';
-
 export async function generateMetadata({
   params
 }: {
