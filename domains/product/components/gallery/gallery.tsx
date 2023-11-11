@@ -1,10 +1,10 @@
 'use client';
 import clsx from 'clsx';
-import ArrowLeftIcon from 'domains/icons/arrow-left';
 import Image from 'next/image';
 import { useState } from 'react';
+import flecheDroite from '../../../../public/images/diver/FlecheDroite.png';
+import flecheGauche from '../../../../public/images/diver/FlecheGauche.png';
 import styles from './gallery.module.scss';
-
 export function Gallery({
   images
 }: {
@@ -38,33 +38,17 @@ export function Gallery({
       )}
 
       {images.length > 1 ? (
-        <div>
+        <div className={styles.fleches}>
           <button aria-label='Previous product image' onClick={() => handleNavigate('previous')}>
-            <ArrowLeftIcon className='h-6' />
+            <Image src={flecheGauche} width={30} height={30} alt={'fleche-gauche'}  priority={true} />
           </button>
           <button
             aria-label='Next product image'
             className={clsx(buttonClassName)}
             onClick={() => handleNavigate('next')}
           >
-            <ArrowLeftIcon />
+           <Image src={flecheDroite} width={30} height={30} alt={'fleche-droite'}  priority={true} />
           </button>
-        </div>
-      ) : null}
-
-      {images.length > 1 ? (
-        <div>
-          {images.map((image, index) => {
-            return (
-              <button
-                aria-label='Enlarge product image'
-                key={image.src}
-                onClick={() => setCurrentImage(index)}
-              >
-                <Image alt={image?.altText} src={image.src} width={725} height={320} />
-              </button>
-            );
-          })}
         </div>
       ) : null}
     </div>

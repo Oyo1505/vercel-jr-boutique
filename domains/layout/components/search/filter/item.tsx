@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import type { ListItem, PathFilterItem } from '.';
-
+import styles from './item.module.scss';
 function PathFilterItem({ item }: { item: PathFilterItem }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -21,7 +21,7 @@ function PathFilterItem({ item }: { item: PathFilterItem }) {
   }, [pathname, item.path]);
 
   return (
-    <li className="mt-2 flex text-sm text-gray-400" key={item.title}>
+    <li  key={item.title}>
       <Link
         href={createUrl(item.path, newParams)}
         className={clsx('w-full hover:text-gray-800 dark:hover:text-gray-100', {
@@ -57,14 +57,14 @@ function SortFilterItem({ item }: { item: SortFilterItem }) {
       : pathname;
 
   return (
-    <li className="mt-2 flex text-sm text-gray-400" key={item.title}>
+    <li className={styles.items} key={item.title}>
       <Link
         prefetch={false}
         href={href!}
-        className={clsx('w-full hover:text-gray-800 dark:hover:text-gray-100', {
-          'text-gray-600 dark:text-gray-400': !active,
-          'font-semibold text-black dark:text-white': active
-        })}
+        className={clsx(styles.item, 
+           !active && styles.notActive,
+           active && styles.active
+        )}
       >
         {item.title}
       </Link>

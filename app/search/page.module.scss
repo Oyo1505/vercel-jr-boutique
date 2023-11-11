@@ -1,0 +1,14 @@
+.searchContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  list-style: none;
+  margin: 0 auto;
+}
+
+.noResult {
+  text-align: center;
+}

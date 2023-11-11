@@ -23,6 +23,7 @@ const GridProductLabels: FC<Props> = ({ product }) => {
       <h3 data-testid="product-name" className={styles.title}>
         {product.title}
       </h3>
+      <div className={styles.vendor}>{product?.vendor}</div>
       <div className={styles.containerPrice}>
         <div className={clsx(styles.price, isPromo && styles.promo)}>
           {parseFloat(product.priceRange.minVariantPrice.amount)} €

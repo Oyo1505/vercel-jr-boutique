@@ -1,0 +1,25 @@
+.items{
+  display: flex; 
+  margin-top: 0.5rem; 
+  font-size: 0.875rem;
+  line-height: 1.25rem; 
+  color: $gray; 
+}
+
+.item{
+  width: 100%; 
+  &:hover {
+  color: $black; 
+  }
+}
+
+.notActive{
+  color: $red;
+ 
+
+}
+
+.active{
+  font-weight: 600; 
+  color: $black; 
+}

@@ -1,0 +1,7 @@
+.container {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0 auto;
+}

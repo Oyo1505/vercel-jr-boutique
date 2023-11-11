@@ -1,6 +1,21 @@
 import CartPage from 'domains/cart/components/cart-page/cart-page';
 import { createCart, getCart } from 'lib/shopify';
+import { Metadata } from 'next';
 import { cookies } from 'next/headers';
+
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Contact',
+    description: 'Contact JR Distribution',
+    verification: {
+      google: 'google'
+    },
+    alternates: {
+      canonical: `/panier`
+    }
+  };
+}
 
 const PanierPage = async () => {
   const cartId = cookies().get('cartId')?.value;

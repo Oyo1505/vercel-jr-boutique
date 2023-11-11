@@ -1,6 +1,9 @@
 .container {
   width: 400px;
   font-family: rubik-regular;
+  @include below-sm {
+    width: 100%;
+  }
 }
 
 .form {

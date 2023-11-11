@@ -4,14 +4,25 @@
   @include below-md {
     width: 100%;
   }
-
+  [class*='slick-track'] {
+    div {
+      @include below-sm {
+        width: 215px !important;
+      }
+    }
+  }
   [class*='slick-track'] {
     display: flex;
     flex-direction: row;
     gap: 40px;
+    @include below-sm {
+      gap: 60px;
+    }
   }
 
   .lastProducts {
+    width: 215px !important;
+
     .imageProduct {
       width: 215px;
       height: 215px;

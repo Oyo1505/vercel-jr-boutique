@@ -22,10 +22,7 @@
 .isPending {
   cursor: not-allowed;
 }
-.plusIcon {
-  @include square(20px);
-}
 
-.minusIcon {
-  @include square(20px);
+.icon {
+  aspect-ratio: 1;
 }

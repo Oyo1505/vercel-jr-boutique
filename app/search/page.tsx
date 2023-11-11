@@ -1,13 +1,17 @@
-import Grid from 'domains/grid/components/grid';
 import ProductGridItems from 'domains/layout/components/product-grid-items/product-grid-items';
 import { defaultSort, sorting } from 'lib/constants';
 import { getProducts } from 'lib/shopify';
-
-export const runtime = 'edge';
+import styles from './page.module.scss';
 
 export const metadata = {
   title: 'Search',
-  description: 'Search for products in the store.'
+  description: 'Search for products in the store.',
+  verification: {
+    google: 'google'
+  },
+  alternates: {
+    canonical: `/search`
+  }
 };
 
 export default async function SearchPage({
@@ -20,21 +24,15 @@ export default async function SearchPage({
 
   const products = await getProducts({ sortKey, reverse, query: searchValue });
 
-  const resultsText = products.length > 1 ? 'results' : 'result';
   return (
     <>
       {searchValue ? (
-        <p>
-          {products.length === 0
-            ? 'There are no products that match '
-            : `Showing ${products.length} ${resultsText} for `}
-          <span className="font-bold">&quot;{searchValue}&quot;</span>
-        </p>
+        <p className={styles.noResult}>{products.length === 0 && 'Aucun résultat '}</p>
       ) : null}
       {products.length > 0 ? (
-        <Grid>
-          <ProductGridItems products={products} />
-        </Grid>
+        <ul className={styles.searchContainer}>
+          <ProductGridItems products={products} limit={100} />
+        </ul>
       ) : null}
     </>
   );

@@ -3,4 +3,8 @@
   height: 600px;
   background-color: $gray;
   border-radius: 20px;
+
+  @include below-sm {
+    width: 100%;
+  }
 }

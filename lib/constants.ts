@@ -3,23 +3,22 @@ export type SortFilterItem = {
   slug: string | null;
   sortKey: 'RELEVANCE' | 'BEST_SELLING' | 'CREATED_AT' | 'PRICE';
   reverse: boolean;
-  first?:number
+  first?: number;
 };
 
 export const defaultSort: SortFilterItem = {
-  title: 'Relevance',
-  slug: null,
-  sortKey: 'RELEVANCE',
+  title: 'Meilleur ventes',
+  slug: 'trending-desc',
+  sortKey: 'BEST_SELLING',
   reverse: false,
-  first:100
+  first: 100
 };
 
 export const sorting: SortFilterItem[] = [
   defaultSort,
-  { title: 'Trending', slug: 'trending-desc', sortKey: 'BEST_SELLING', reverse: false }, // asc
-  { title: 'Latest arrivals', slug: 'latest-desc', sortKey: 'CREATED_AT', reverse: true },
-  { title: 'Price: Low to high', slug: 'price-asc', sortKey: 'PRICE', reverse: false }, // asc
-  { title: 'Price: High to low', slug: 'price-desc', sortKey: 'PRICE', reverse: true }
+  { title: 'Nouveautés', slug: 'latest-desc', sortKey: 'CREATED_AT', reverse: true },
+  { title: 'Du moins cher au plus cher', slug: 'price-asc', sortKey: 'PRICE', reverse: false }, // asc
+  { title: 'Du plus cher au moins cher', slug: 'price-desc', sortKey: 'PRICE', reverse: true }
 ];
 
 export const TAGS = {

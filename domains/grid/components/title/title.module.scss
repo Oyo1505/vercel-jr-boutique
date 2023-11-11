@@ -1,7 +1,6 @@
 .title {
   color: $red;
   text-align: center;
-
 }
 
 .containerPrice {
@@ -22,10 +21,11 @@
 .imageGridProduct {
   @include square(215px);
   border: 2px solid $yellow;
+  object-fit: contain;
 }
 .image {
   position: relative;
-  @include below-md{
+  @include below-md {
     display: flex;
     justify-content: center;
   }

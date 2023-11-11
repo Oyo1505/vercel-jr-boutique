@@ -34,21 +34,21 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
     <>
       <button
         onClick={openMobileMenu}
-        aria-label='Open mobile menu'
+        aria-label="Open mobile menu"
         className={styles.OpenButton}
-        data-testid='open-mobile-menu'
+        data-testid="open-mobile-menu"
       >
-        <MenuIcon />
+        <MenuIcon className={styles.menuIcon} />
       </button>
-      <CustomModal openModal={isOpen} setIsOpen={setIsOpen} direction='left'>
+      <CustomModal openModal={isOpen} setIsOpen={setIsOpen} direction="left">
         <div>
           <button
             onClick={closeMobileMenu}
-            aria-label='Close mobile menu'
-            data-testid='close-mobile-menu'
+            aria-label="Close mobile menu"
+            data-testid="close-mobile-menu"
             className={styles.closeButton}
           >
-            <CloseIcon />
+            <CloseIcon className={styles.closeIcon} />
           </button>
 
           {/* <div>
@@ -70,7 +70,7 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
                   </li>
                 ))
               : null}
-            <Link href={'/panier'}>Panier</Link>
+            <Link href={'/contact'}>Contact</Link>
           </ul>
         </div>
       </CustomModal>
