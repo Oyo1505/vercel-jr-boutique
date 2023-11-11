@@ -1,10 +1,10 @@
 import FormContact from 'domains/contact/components/form-contact/form-contact';
 import Map from 'domains/contact/components/map/map';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import logo from '../../public/images/page-acceuil/Fiabilité.png';
 import styles from './page.module.scss';
-import { Metadata } from 'next';
-export const runtime = 'edge';
+
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -20,6 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Page() {
+  'use server';
   return (
     <div className={styles.container}>
       <div className={styles.description}>

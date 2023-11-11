@@ -3,8 +3,6 @@ import { defaultSort, sorting } from 'lib/constants';
 import { getProducts } from 'lib/shopify';
 import styles from './page.module.scss';
 
-export const runtime = 'edge';
-
 export const metadata = {
   title: 'Search',
   description: 'Search for products in the store.',

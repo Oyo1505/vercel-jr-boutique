@@ -1,8 +1,11 @@
+import FloatingButtonCart from 'domains/cart/components/floating-button-cart/floating-button-cart';
+import useGetPanier from 'domains/cart/hooks/use-get-panier';
 import Analytics from 'domains/common/components/analytics/analytics';
 import Footer from 'domains/common/components/footer/footer';
 import Navbar from 'domains/common/components/navbar';
 import Container from 'domains/ui/container/container';
 import { Courgette } from 'next/font/google';
+import { headers } from 'next/headers';
 import Script from 'next/script';
 import { ReactNode, Suspense } from 'react';
 import { Toaster } from 'react-hot-toast';
@@ -12,9 +15,6 @@ import favicon from '../public/images/header/favicon.ico';
 import '../styles/base.scss';
 import './globals.css';
 import Loading from './loading';
-import FloatingButtonCart from 'domains/cart/components/floating-button-cart/floating-button-cart';
-import { headers } from 'next/headers';
-import useGetPanier from 'domains/cart/hooks/use-get-panier';
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 
 export const metadata = {
@@ -85,14 +85,16 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_ANALYTICS_ID}`}
         ></script>
-        <script>
-          {`window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '${process.env.NEXT_PUBLIC_ANALYTICS_ID}',{
-            page_path: window.location.pathname,
-        });`}
-        </script>
+        <Script  id="dataLayer"  dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_ANALYTICS_ID}',{
+                page_path: window.location.pathname,
+            });`}} 
+            />
+     
+        
       </head>
       <body>
         <Layout>
