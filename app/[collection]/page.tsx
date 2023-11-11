@@ -1,3 +1,4 @@
+'use server';
 import Grid from 'domains/grid/components/grid';
 import ProductGridItems from 'domains/layout/components/product-grid-items/product-grid-items';
 import { defaultSort, sorting } from 'lib/constants';
@@ -7,7 +8,7 @@ import { notFound } from 'next/navigation';
 import { capitalizeFirstLetter } from 'shared/utilities/capitalize-first-letter/capitaliaze-first-letter';
 import styles from './page.module.scss';
 
-export const runtime = 'edge';
+
 
 export async function generateMetadata({
   params

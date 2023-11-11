@@ -14,7 +14,6 @@ import { Suspense } from 'react';
 import { capitalizeFirstLetter } from 'shared/utilities/capitalize-first-letter/capitaliaze-first-letter';
 import Loading from '../../../domains/ui/loading/loading';
 import styles from './page.module.scss';
-export const runtime = 'edge';
 
 export async function generateMetadata({
   params

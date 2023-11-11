@@ -2,7 +2,7 @@ import CartPage from 'domains/cart/components/cart-page/cart-page';
 import { createCart, getCart } from 'lib/shopify';
 import { Metadata } from 'next';
 import { cookies } from 'next/headers';
-export const runtime = 'edge';
+
 
 export async function generateMetadata(): Promise<Metadata> {
   return {

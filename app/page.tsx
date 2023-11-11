@@ -3,7 +3,6 @@ import Carrousel from 'domains/page-accueuil/components/carrousel/carrousel';
 import { getAllProducts } from 'lib/shopify';
 import { Suspense } from 'react';
 
-export const runtime = 'edge';
 
 export const metadata = {
   alternates: {
