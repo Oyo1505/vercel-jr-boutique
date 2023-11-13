@@ -4,7 +4,6 @@ import { getAllProducts } from 'lib/shopify';
 import { Suspense } from 'react';
 
 export const metadata = {
-  metadataBase: new URL(process.env.DOMAIN_URL || ''),
   alternates: {
     canonical: `/`
   },
