@@ -9,7 +9,6 @@ export async function generateMetadata(): Promise<Metadata> {
     verification: {
       google: 'google'
     },
-    metadataBase: new URL(process.env.DOMAIN_URL || ''),
     alternates: {
       canonical: URL_POLITIQUE_DE_CONFIDENRIALITE
     }

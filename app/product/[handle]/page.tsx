@@ -29,7 +29,6 @@ export async function generateMetadata({
   return {
     title: capitalizeFirstLetter(product.seo.title || product.title).replace('_', ' '),
     description: product.seo.description || product.description,
-    metadataBase: new URL(process.env.DOMAIN_URL || ''),
     verification: {
       google: 'google'
     },

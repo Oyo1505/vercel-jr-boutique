@@ -7,7 +7,6 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Mentions légales',
     description: 'Mentions légales | JR Distribution',
-    metadataBase: new URL(process.env.DOMAIN_URL || ''),
     verification: {
       google: 'google'
     },
