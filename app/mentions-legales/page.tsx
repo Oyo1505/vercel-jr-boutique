@@ -3,11 +3,11 @@ import { Metadata } from 'next';
 import { URL_MENTIONS_LEGALES } from 'shared/constants/route';
 import styles from './mentions-legales.module.scss';
 
-
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Mentions légales',
     description: 'Mentions légales | JR Distribution',
+    metadataBase: new URL(process.env.DOMAIN_URL || ''),
     verification: {
       google: 'google'
     },

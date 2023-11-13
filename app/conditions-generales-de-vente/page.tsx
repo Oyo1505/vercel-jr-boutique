@@ -6,6 +6,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Conditions générales de vente',
     description: 'Conditions générales de vente | JR Distribution',
+    metadataBase: new URL(process.env.DOMAIN_URL || ''),
     verification: {
       google: 'google'
     },

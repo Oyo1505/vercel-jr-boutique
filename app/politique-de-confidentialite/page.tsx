@@ -2,7 +2,6 @@ import { Metadata } from 'next';
 import { URL_POLITIQUE_DE_CONFIDENRIALITE } from 'shared/constants/route';
 import styles from './page.module.scss';
 
-
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Politique de confidentialité',
@@ -10,6 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
     verification: {
       google: 'google'
     },
+    metadataBase: new URL(process.env.DOMAIN_URL || ''),
     alternates: {
       canonical: URL_POLITIQUE_DE_CONFIDENRIALITE
     }

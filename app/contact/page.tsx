@@ -5,11 +5,11 @@ import Image from 'next/image';
 import logo from '../../public/images/page-acceuil/Fiabilité.png';
 import styles from './page.module.scss';
 
-
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Contact',
     description: 'Contact JR Distribution',
+    metadataBase: new URL(process.env.DOMAIN_URL || ''),
     verification: {
       google: 'google'
     },
