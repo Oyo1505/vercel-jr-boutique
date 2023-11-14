@@ -27,7 +27,7 @@ export async function generateMetadata({
   const { url, width, height, altText: alt } = product.featuredImage || {};
   const hide = !product.tags.includes(HIDDEN_PRODUCT_TAG);
   return {
-    metadataBase : process.env.VERCEL_URL ?  new URL(`https://${process.env.VERCEL_URL}`) :  new URL('http://localhost:3000'),
+    metadataBase : process.env.DOMAIN_URL ?  new URL(`https://${process.env.DOMAIN_URL}`) :  new URL('http://localhost:3000'),
     title: capitalizeFirstLetter(product.seo.title || product.title).replace('_', ' '),
     description: product.seo.description || product.description,
     verification: {
