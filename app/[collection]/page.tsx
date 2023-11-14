@@ -18,7 +18,7 @@ export async function generateMetadata({
   if (!collection) return notFound();
 
   return {
-    metadataBase : process.env.VERCEL_URL ?  new URL(`https://${process.env.VERCEL_URL}`) :  new URL('http://localhost:3000'),
+    metadataBase : process.env.DOMAIN_URL ?  new URL(`https://${process.env.DOMAIN_URL}`) :  new URL('http://localhost:3000'),
     title: capitalizeFirstLetter(collection.seo?.title || collection.title).replace('_', ' '),
     description:
       collection.seo?.description || collection.description || `${collection.title} products`,
