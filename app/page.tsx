@@ -4,6 +4,7 @@ import { getAllProducts } from 'lib/shopify';
 import { Suspense } from 'react';
 
 export const metadata = {
+  metadataBase : process.env.VERCEL_URL ?  new URL(`https://${process.env.VERCEL_URL}`) :  new URL('http://localhost:3000'),
   alternates: {
     canonical: `/`
   },
