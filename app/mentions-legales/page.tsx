@@ -3,9 +3,9 @@ import { Metadata } from 'next';
 import { URL_MENTIONS_LEGALES } from 'shared/constants/route';
 import styles from './mentions-legales.module.scss';
 
-
 export async function generateMetadata(): Promise<Metadata> {
   return {
+    metadataBase : process.env.VERCEL_URL ?  new URL(`https://${process.env.VERCEL_URL}`) :  new URL('http://localhost:3000'),
     title: 'Mentions légales',
     description: 'Mentions légales | JR Distribution',
     verification: {
