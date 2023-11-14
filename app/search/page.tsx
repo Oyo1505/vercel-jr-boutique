@@ -4,6 +4,7 @@ import { getProducts } from 'lib/shopify';
 import styles from './page.module.scss';
 
 export const metadata = {
+  metadataBase : process.env.DOMAIN_URL ?  new URL(`https://${process.env.DOMAIN_URL}`) :  new URL('http://localhost:3000'),
   title: 'Search',
   description: 'Search for products in the store.',
   verification: {

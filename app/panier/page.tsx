@@ -3,9 +3,10 @@ import { createCart, getCart } from 'lib/shopify';
 import { Metadata } from 'next';
 import { cookies } from 'next/headers';
 
-
 export async function generateMetadata(): Promise<Metadata> {
   return {
+    metadataBase : process.env.DOMAIN_URL ?  new URL(`https://${process.env.DOMAIN_URL}`) :  new URL('http://localhost:3000'),
+
     title: 'Contact',
     description: 'Contact JR Distribution',
     verification: {

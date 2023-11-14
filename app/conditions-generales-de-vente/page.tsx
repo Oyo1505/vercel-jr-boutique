@@ -4,6 +4,7 @@ import styles from './page.module.scss';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
+    metadataBase : process.env.DOMAIN_URL ?  new URL(`https://${process.env.DOMAIN_URL}`) :  new URL('http://localhost:3000'),
     title: 'Conditions générales de vente',
     description: 'Conditions générales de vente | JR Distribution',
     verification: {
