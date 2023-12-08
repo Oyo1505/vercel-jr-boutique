@@ -1,32 +1,32 @@
 'use client';
-import axios from 'axios';
 import clsx from 'clsx';
 import { isValidPhoneNumber } from 'libphonenumber-js/min';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
 import { useReCaptcha } from 'next-recaptcha-v3';
-import { FC, useCallback, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { FC, useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import styles from './form-contact.module.scss';
+import sendEmailAction from './sendEmail.action';
+import { FormDataSchema } from 'lib/schema/formData';
 
-interface IFormContact {
-  nom: string;
-  phone: number;
-  message: string;
-  email: string;
-}
+type Inputs = z.infer<typeof FormDataSchema>;
 
 const FormContact: FC = () => {
-  const [, setLoading] = useState<string>();
-
+  const [loading, setLoading] = useState<boolean>(false);
+  const [, setDataForm] = useState<Inputs>();
   const { executeRecaptcha } = useReCaptcha();
-
   const {
     register,
     handleSubmit,
     setValue,
     setError,
+    reset,
     formState: { errors }
-  } = useForm<IInputsForm>();
+  } = useForm<Inputs>({
+    resolver: zodResolver(FormDataSchema)
+  });
 
   const toastConfig = {
     duration: 4000,
@@ -46,84 +46,66 @@ const FormContact: FC = () => {
     }
   } as any;
 
-  const onSubmit = useCallback(
-    async (data: IFormContact) => {
-      const { email, message, nom, phone } = data;
-     
-      if(phone && !isValidPhoneNumber(String(phone), 'FR')) return setError('phone', { type: 'custom', message: 'Veuillez renseignez un numéro de téléphone correct.' });
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    if (data?.phone && !isValidPhoneNumber(data?.phone, 'FR'))
+      return setError('phone', {
+        type: 'custom',
+        message: 'Veuillez renseignez un numéro de téléphone correct.'
+      });
+    setLoading(() => true);
+    const token = await executeRecaptcha('form_submit');
+    const result = await sendEmailAction(data, token);
 
-      // Generate ReCaptcha token
-      const token = await executeRecaptcha('form_submit');
+    if (!result) {
+      toast.error('Une erreur est survenue');
+      return;
+    }
 
-      setLoading('loading');
-      try {
-        const res = await axios({
-          url: '/api/email',
-          method: 'POST',
-          data: {
-            nom,
-            email,
-            phone,
-            message,
-            token
-          }
-        });
-        if (res.status === 200) {
-          toast.success('Votre message à bien été envoyé', toastConfig);
-          setValue('nom', '', { shouldValidate: false });
-          setValue('email', '', { shouldValidate: false });
-          setValue('phone',0 , { shouldValidate: false });
-          setValue('message', '', { shouldValidate: false });
-        }
-        setTimeout(() => {
-          setLoading('ready');
-        }, 1500);
-      } catch (e) {
-        toast.error('Erreur lors de l\'envoi du message', toastConfig);
-        console.log(e);
-      }
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [executeRecaptcha, handleSubmit]
-  );
-
+    if (result.error) {
+      // set local error state
+      toast.error('Une erreur est survenue');
+      return;
+    }
+    toast.success('Votre message à bien été envoyé');
+    reset();
+    setDataForm(result.data);
+  };
+  console.log(errors);
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <input
           className={clsx(styles.input, errors.nom && styles.error)}
           placeholder={'Nom / Société (obligatoire)'}
-          {...register('nom', { required: true, maxLength: 20 })}
+          {...register('nom')}
         />
         <input
           className={clsx(styles.input, errors.nom && styles.error)}
           placeholder={'Email (obligatoire)'}
-          {...register('email', { required: true,  validate: {
-            maxLength: (v) =>
-              v.length <= 50 || "The email should have at most 50 characters",
-            matchPattern: (v) =>
-              /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
-              "L'email est incorrect.",
-          }, })}
+          {...register('email')}
         />
         <input
-         className={clsx(styles.input, errors.phone && styles.error)}
+          className={clsx(styles.input, errors.phone && styles.error)}
           placeholder={'Téléphone'}
-          {...register('phone', { maxLength: 10 })}
+          {...register('phone')}
         />
         <textarea
           className={clsx(styles.input, styles.textarea)}
           placeholder={'Message (obligatoire)'}
-          {...register('message', { required: true })}
+          {...register('message')}
         />
         {(errors?.nom || errors?.email || errors?.message) && (
-          <span className={styles.lineError}>{errors?.email?.message ? errors?.email?.message :  'Veuillez renseignez tous champs obligatoires.'}</span>
+          <span className={styles.lineError}>
+            {errors?.email?.message
+              ? errors?.email?.message
+              : errors?.message?.message
+              ? errors?.message.message
+              : 'Veuillez renseignez tous champs obligatoires.'}
+          </span>
         )}
-         {(errors?.phone) && (
-          <span className={styles.lineError}>{errors?.phone?.message}</span>
-        )}
+        {errors?.phone && <span className={styles.lineError}>{errors?.phone?.message}</span>}
 
-        <input type='submit' className={styles.button} value={'Envoyer'} />
+        <input type="submit" className={styles.button} value={'Envoyer'} disabled={loading} />
       </form>
     </div>
   );
