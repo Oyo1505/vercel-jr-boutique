@@ -48,7 +48,10 @@ const tesSubmit = async (formData: Inputs, tkn: string) => {
         return { success: false, error };
       }
     } else {
-      return NextResponse.json({ msg: 'Erreur lors de la vérification du recaptcha', status: 500 });
+      return {
+        success: false,
+        error: { msg: 'Erreur lors de la vérification du recaptcha', status: 500 }
+      };
     }
   }
   if (result.error) {
