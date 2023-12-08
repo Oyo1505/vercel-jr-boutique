@@ -4,7 +4,6 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import logo from '../../public/images/page-acceuil/Fiabilité.png';
 import styles from './page.module.scss';
-import TestForm from 'domains/contact/components/test-form/test-form';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -34,7 +33,6 @@ export default async function Page() {
         <div className={styles.phone}>03 81 53 02 06</div>
       </div>
       <div className={styles.elements}>
-        {/* <TestForm /> */}
         <FormContact />
         <Map />
       </div>
