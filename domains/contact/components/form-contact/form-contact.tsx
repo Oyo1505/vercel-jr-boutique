@@ -70,7 +70,7 @@ const FormContact: FC = () => {
     reset();
     setDataForm(result.data);
   };
-  console.log(errors);
+
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
