@@ -1,15 +1,14 @@
 'use client';
-import axios from 'axios';
 import clsx from 'clsx';
 import { isValidPhoneNumber } from 'libphonenumber-js/min';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useReCaptcha } from 'next-recaptcha-v3';
-import { FC, useCallback, useState } from 'react';
+import { FC, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import styles from './form-contact.module.scss';
-import tesSubmit from './sendEmail.action';
+import sendEmailAction from './sendEmail.action';
 import { FormDataSchema } from 'lib/schema/formData';
 
 type Inputs = z.infer<typeof FormDataSchema>;
@@ -55,7 +54,7 @@ const FormContact: FC = () => {
       });
     setLoading(() => true);
     const token = await executeRecaptcha('form_submit');
-    const result = await tesSubmit(data, token);
+    const result = await sendEmailAction(data, token);
 
     if (!result) {
       toast.error('Une erreur est survenue');

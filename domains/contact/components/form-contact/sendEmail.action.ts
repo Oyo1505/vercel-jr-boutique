@@ -13,7 +13,7 @@ const verifyRecaptcha = async (token: string) => {
 };
 type Inputs = z.infer<typeof FormDataSchema>;
 
-const tesSubmit = async (formData: Inputs, tkn: string) => {
+const sendEmailAction = async (formData: Inputs, tkn: string) => {
   const result = FormDataSchema.safeParse(formData);
 
   if (result.success) {
@@ -58,4 +58,4 @@ const tesSubmit = async (formData: Inputs, tkn: string) => {
   }
 };
 
-export default tesSubmit;
+export default sendEmailAction;
