@@ -15,7 +15,8 @@ import { FormDataSchema } from 'lib/schema/formData';
 type Inputs = z.infer<typeof FormDataSchema>;
 
 const FormContact: FC = () => {
-  const [dataForm, setDataForm] = useState<any>();
+  const [loading, setLoading] = useState<boolean>(false);
+  const [dataForm, setDataForm] = useState<Inputs>();
   const { executeRecaptcha } = useReCaptcha();
   const {
     register,
@@ -52,24 +53,23 @@ const FormContact: FC = () => {
         type: 'custom',
         message: 'Veuillez renseignez un numéro de téléphone correct.'
       });
-
+    setLoading(() => true);
     const token = await executeRecaptcha('form_submit');
     const result = await tesSubmit(data, token);
 
     if (!result) {
-      console.log('Something went wrong');
+      toast.error('Something went wrong');
       return;
     }
 
     if (result.error) {
       // set local error state
-      console.log(result.error);
+      toast.error(result.error);
       return;
     }
-
+    toast.success('Votre message à bien été envoyé');
     reset();
     setDataForm(result.data);
-    // const { phone } = data;
   };
 
   return (
@@ -113,7 +113,7 @@ const FormContact: FC = () => {
         )}
         {errors?.phone && <span className={styles.lineError}>{errors?.phone?.message}</span>}
 
-        <input type="submit" className={styles.button} value={'Envoyer'} />
+        <input type="submit" className={styles.button} value={'Envoyer'} disabled={loading} />
       </form>
     </div>
   );
