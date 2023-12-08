@@ -64,7 +64,7 @@ const FormContact: FC = () => {
 
     if (result.error) {
       // set local error state
-      toast.error(result.error);
+      toast.error(result?.error?.message);
       return;
     }
     toast.success('Votre message à bien été envoyé');

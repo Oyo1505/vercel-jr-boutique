@@ -44,7 +44,6 @@ const tesSubmit = async (formData: Inputs, tkn: string) => {
         await transporter.sendMail(mailOptions);
         return { success: true, data: result.data };
       } catch (error) {
-        console.log(error);
         return { success: false, error };
       }
     } else {
