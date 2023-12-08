@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
+    "@hookform/resolvers": "^3.3.2",
     "@react-email/button": "0.0.9",
     "@react-email/html": "0.0.4",
     "@react-email/render": "^0.0.7",
@@ -60,7 +61,8 @@
     "resend": "^0.17.2",
     "sharp": "^0.32.6",
     "slick-carousel": "^1.8.1",
-    "stylelint": "^15.11.0"
+    "stylelint": "^15.11.0",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@playwright/test": "^1.39.0",

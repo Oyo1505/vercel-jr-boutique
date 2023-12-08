@@ -1,6 +1,6 @@
 interface IInputsForm {
   nom: string;
   email: string;
-  phone: number;
+  phone?: string;
   message: string;
 }
