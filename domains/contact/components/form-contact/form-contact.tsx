@@ -15,7 +15,7 @@ type Inputs = z.infer<typeof FormDataSchema>;
 
 const FormContact: FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
-  const [dataForm, setDataForm] = useState<Inputs>();
+  const [, setDataForm] = useState<Inputs>();
   const { executeRecaptcha } = useReCaptcha();
   const {
     register,
@@ -70,7 +70,7 @@ const FormContact: FC = () => {
     reset();
     setDataForm(result.data);
   };
-
+  console.log(errors);
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -82,16 +82,7 @@ const FormContact: FC = () => {
         <input
           className={clsx(styles.input, errors.nom && styles.error)}
           placeholder={'Email (obligatoire)'}
-          {...register(
-            'email'
-            // , {
-            //   validate: {
-            //     maxLength: (v) => v.length <= 50 || 'l\'email doit faire moins de 50 characters',
-            //     matchPattern: (v) =>
-            //       /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || "L'email est incorrect."
-            //   }
-            // }
-          )}
+          {...register('email')}
         />
         <input
           className={clsx(styles.input, errors.phone && styles.error)}
@@ -107,6 +98,8 @@ const FormContact: FC = () => {
           <span className={styles.lineError}>
             {errors?.email?.message
               ? errors?.email?.message
+              : errors?.message?.message
+              ? errors?.message.message
               : 'Veuillez renseignez tous champs obligatoires.'}
           </span>
         )}
