@@ -459,7 +459,7 @@ export default async function Page() {
       <p>
         Les questions concernant les Conditions d&apos;utilisation doivent nous être envoyées à
         l&apos;adresse e-mail suivante :
-        <a href="mailto:contact-jr@contac-jrboutique.fr">contact-jr@contac-jrboutique.fr</a>
+        <a href="mailto:contact-jr@jr-boutique.fr">contact-jr@jr-boutique.fr</a>
       </p>
     </section>
   );

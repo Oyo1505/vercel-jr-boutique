@@ -23,8 +23,7 @@ export default async function Page() {
 
       <p>
         La présente Politique de confidentialité décrit la façon dont vos informations personnelles
-        sont recueillies, utilisées et partagées lorsque vous vous rendez sur
-        <a href="https://www.jr-boutique.fr/">https://www.jr-boutique.fr/</a> (le « Site ») ou que
+        sont recueillies, utilisées et partagées lorsque vous vous rendez sur <a href="https://www.jr-boutique.fr/">https://www.jr-boutique.fr/</a> (le « Site ») ou que
         vous y effectuez un achat.
       </p>
 
