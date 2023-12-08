@@ -58,13 +58,13 @@ const FormContact: FC = () => {
     const result = await tesSubmit(data, token);
 
     if (!result) {
-      toast.error('Something went wrong');
+      toast.error('Une erreur est survenue');
       return;
     }
 
     if (result.error) {
       // set local error state
-      toast.error(result?.error?.message);
+      toast.error('Une erreur est survenue');
       return;
     }
     toast.success('Votre message à bien été envoyé');
