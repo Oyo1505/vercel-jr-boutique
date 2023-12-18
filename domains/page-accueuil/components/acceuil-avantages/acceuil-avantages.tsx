@@ -36,7 +36,7 @@ const AcceuilAvantages: FC = () => (
           <div className={styles.titleCard}>Flexibilité</div>
           <div className={styles.text}>
             Livraison sur Besançon en camion refrigeré , retrait sur place ou envoi dans toute la
-            france via le réseau chronofresh de Chronopost pour une chaîne du froid maîtrisée.{' '}
+            france via Colissimo.
           </div>
         </div>
       </div>
