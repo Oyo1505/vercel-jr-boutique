@@ -9,11 +9,12 @@
   justify-content: center;
   margin: 50px 0;
   gap: 25px;
-  @include below-sm {
-    flex-direction: inherit;
-  }
+
   .pages {
     color: $gray;
+    @include below-sm {
+      text-align: center;
+    }
   }
 }
 
