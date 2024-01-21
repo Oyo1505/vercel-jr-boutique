@@ -8,11 +8,11 @@ export default function robots() {
   return {
     rules: [
       process.env.ENVIRONEMENT === 'production' &&
-        baseUrl !== `https://${process.env.DOMAIN_URL}` && {
+       {
           userAgent: '*',
           allow: '/',
           disallow: ['/next/*']
-        }
+      }
     ],
     sitemap:
       process.env.ENVIRONEMENT === 'production' && baseUrl === `https://${process.env.DOMAIN_URL}`
