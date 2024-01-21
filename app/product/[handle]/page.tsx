@@ -37,11 +37,11 @@ export async function generateMetadata({
       canonical: `/product/${product.handle}`
     },
     robots: {
-      index: hide,
-      follow: hide,
+      follow: true,
+      index: true,
       googleBot: {
-        index: hide,
-        follow: hide
+        follow: true,
+      index: true,
       }
     },
     openGraph: url
