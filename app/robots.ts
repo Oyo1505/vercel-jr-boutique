@@ -7,7 +7,7 @@ const baseUrl = process.env.DOMAIN_URL
 export default function robots() {
   return {
     rules: [
-      process.env.ENVIRONEMENT !== 'production' &&
+      process.env.ENVIRONEMENT === 'production' &&
         baseUrl !== `https://${process.env.DOMAIN_URL}` && {
           userAgent: '*',
           allow: '/',
