@@ -33,7 +33,7 @@ export const metadata = {
       twitter: {
         card: 'summary_large_image',
         creator: TWITTER_CREATOR,
-        site: TWITTER_SITE
+        site: SITE_NAME
       }
     })
 };
