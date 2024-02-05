@@ -1,6 +1,6 @@
 .container {
   width: $md-width;
-
+  transition: all 0.3s;
   @include below-md {
     width: 100%;
   }

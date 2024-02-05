@@ -2,11 +2,12 @@
 import GridProductLabels from 'domains/grid/components/grid_product-labels/grid-product-labels';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FC } from 'react';
+import { FC, useRef } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import styles from './carrousel.module.scss';
+import { useInView } from 'framer-motion';
 
 interface Props {
   title: string;
@@ -14,6 +15,9 @@ interface Props {
 }
 
 const Carrousel: FC<Props> = ({ title, products }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+
   const settings = {
     dots: true,
     dotsClass: styles.dots,
@@ -30,7 +34,13 @@ const Carrousel: FC<Props> = ({ title, products }) => {
   if (!products?.length) return null;
 
   return (
-    <div className={styles.container}>
+    <div
+      ref={ref}
+      className={styles.container}
+      style={{
+        opacity: isInView ? 1 : 0
+      }}
+    >
       <h4 className={styles.title}>{title}</h4>
 
       <Slider {...settings}>
