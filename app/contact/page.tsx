@@ -22,7 +22,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Page() {
-  'use server';
   return (
     <div className={styles.container}>
       <div className={styles.description}>

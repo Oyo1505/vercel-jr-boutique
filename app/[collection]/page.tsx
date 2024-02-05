@@ -18,7 +18,9 @@ export async function generateMetadata({
   if (!collection) return notFound();
 
   return {
-    metadataBase : process.env.DOMAIN_URL ?  new URL(`https://${process.env.DOMAIN_URL}`) :  new URL('http://localhost:3000'),
+    metadataBase: process.env.DOMAIN_URL
+      ? new URL(`https://${process.env.DOMAIN_URL}`)
+      : new URL('http://localhost:3000'),
     title: capitalizeFirstLetter(collection.seo?.title || collection.title).replace('_', ' '),
     description:
       collection.seo?.description || collection.description || `${collection.title} products`,
@@ -48,9 +50,7 @@ export default async function CategoryPage({
       {products.length === 0 ? (
         <p>{`Pas de produits disponible`}</p>
       ) : (
-        <Grid className={styles.gridContainer}>
-          <ProductGridItems products={products} limit={100} />
-        </Grid>
+        <ProductGridItems products={products} limit={100} />
       )}
     </section>
   );

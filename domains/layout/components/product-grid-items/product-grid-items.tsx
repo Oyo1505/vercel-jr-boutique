@@ -9,7 +9,7 @@ import { usePathname } from 'next/navigation';
 import { Suspense } from 'react';
 import promo from '../../../../public/images/diver/EnPromo.png';
 import styles from './product-grid-items.module.scss';
-
+import { motion } from 'framer-motion';
 export default function ProductGridItems({
   products,
   limit = 2
@@ -21,29 +21,34 @@ export default function ProductGridItems({
 
   return (
     <Suspense>
-      {products.map(
-        (product, index) =>
-          index <= limit && (
-            <Grid.Item key={product.handle} className={styles.gridItem}>
-              {product?.tags?.find((tag) => tag === 'promotions') && pathname !== '/promotions' && (
-                <Image src={promo} alt="promo" className={styles.promo} unoptimized={true} />
-              )}
-              <Link
-                href={`/product/${product.handle}`}
-                aria-label={`poduct-related-${product.handle}`}
-              >
-                <GridTileImage
-                  alt={product.title}
-                  src={product.featuredImage?.url}
-                  product={product}
-                  width={215}
-                  height={215}
-                />
-              </Link>
-              <GridProductLabels product={product} />
-            </Grid.Item>
-          )
-      )}
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ type: 'spring' }}>
+        <Grid className={styles.gridContainer}>
+          {products.map(
+            (product, index) =>
+              index <= limit && (
+                <Grid.Item key={product.handle} className={styles.gridItem}>
+                  {product?.tags?.find((tag) => tag === 'promotions') &&
+                    pathname !== '/promotions' && (
+                      <Image src={promo} alt="promo" className={styles.promo} unoptimized={true} />
+                    )}
+                  <Link
+                    href={`/product/${product.handle}`}
+                    aria-label={`poduct-related-${product.handle}`}
+                  >
+                    <GridTileImage
+                      alt={product.title}
+                      src={product.featuredImage?.url}
+                      product={product}
+                      width={215}
+                      height={215}
+                    />
+                  </Link>
+                  <GridProductLabels product={product} />
+                </Grid.Item>
+              )
+          )}
+        </Grid>
+      </motion.div>
     </Suspense>
   );
 }
