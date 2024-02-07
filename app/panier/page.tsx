@@ -5,10 +5,12 @@ import { cookies } from 'next/headers';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    metadataBase : process.env.DOMAIN_URL ?  new URL(`https://${process.env.DOMAIN_URL}`) :  new URL('http://localhost:3000'),
+    metadataBase: process.env.DOMAIN_URL
+      ? new URL(`https://${process.env.DOMAIN_URL}`)
+      : new URL('http://localhost:3000'),
 
-    title: 'Contact',
-    description: 'Contact JR Distribution',
+    title: 'Panier',
+    description: 'Panier',
     verification: {
       google: 'google'
     },

@@ -11,7 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
       ? new URL(`https://${process.env.DOMAIN_URL}`)
       : new URL('http://localhost:3000'),
     title: 'Contact',
-    description: 'Contact JR Distribution',
+    description: 'Contact',
     verification: {
       google: 'google'
     },

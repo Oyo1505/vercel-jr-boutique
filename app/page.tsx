@@ -4,10 +4,15 @@ import { getAllProducts } from 'lib/shopify';
 import { Suspense } from 'react';
 
 export const metadata = {
-  metadataBase : process.env.DOMAIN_URL ?  new URL(`https://${process.env.DOMAIN_URL}`) :  new URL('http://localhost:3000'),
+  metadataBase: process.env.DOMAIN_URL
+    ? new URL(`https://${process.env.DOMAIN_URL}`)
+    : new URL('http://localhost:3000'),
   alternates: {
     canonical: `/`
   },
+  title: process.env.SITE_NAME,
+  description:
+    'JR Distribution vous offre la Franche-Comté en un clic. Vente en ligne de fromages, produits régionnaux... ',
   openGraph: {
     images: [
       {
