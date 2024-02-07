@@ -12,6 +12,14 @@ export async function generateMetadata(): Promise<Metadata> {
       : new URL('http://localhost:3000'),
     title: 'Contact',
     description: 'Contact',
+    robots: {
+      follow: true,
+      index: true,
+      googleBot: {
+        follow: true,
+        index: true
+      }
+    },
     verification: {
       google: 'google'
     },
