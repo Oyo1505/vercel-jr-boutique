@@ -20,7 +20,7 @@ const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 export const metadata = {
   title: {
     default: SITE_NAME,
-    template: `%s | ${SITE_NAME}`
+    template: `%s`
   },
   description:
     'JR Distribution vous offre la Franche-Comté en un clic. Vente en ligne de fromages, produits régionnaux... ',
@@ -85,16 +85,17 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_ANALYTICS_ID}`}
         ></script>
-        <Script  id="dataLayer"  dangerouslySetInnerHTML={{
+        <Script
+          id="dataLayer"
+          dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${process.env.NEXT_PUBLIC_ANALYTICS_ID}',{
                 page_path: window.location.pathname,
-            });`}} 
-            />
-     
-        
+            });`
+          }}
+        />
       </head>
       <body>
         <Layout>
