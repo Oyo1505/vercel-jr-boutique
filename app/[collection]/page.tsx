@@ -27,6 +27,14 @@ export async function generateMetadata({
     verification: {
       google: 'google'
     },
+    robots: {
+      follow: true,
+      index: true,
+      googleBot: {
+        follow: true,
+        index: true
+      }
+    },
     alternates: {
       canonical: `/${collection.handle}`
     }

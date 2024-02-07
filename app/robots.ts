@@ -7,11 +7,10 @@ const baseUrl = process.env.DOMAIN_URL
 export default function robots() {
   return {
     rules: [
-      process.env.ENVIRONEMENT === 'production' &&
-       {
-          userAgent: '*',
-          allow: '/',
-          disallow: ['/next/*']
+      process.env.ENVIRONEMENT === 'production' && {
+        userAgent: '*',
+        allow: '/',
+        disallow: ['/_next/*']
       }
     ],
     sitemap:
