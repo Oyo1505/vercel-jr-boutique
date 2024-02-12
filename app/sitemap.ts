@@ -15,7 +15,7 @@ export default async function sitemap(): Promise<Promise<Promise<MetadataRoute.S
 
   const collectionsPromise = getCollections().then((collections) =>
     collections.map((collection) => ({
-      url: `${baseUrl}${collection.path}`,
+      url: `${baseUrl}/${collection.handle}`,
       lastModified: collection.updatedAt
     }))
   );
