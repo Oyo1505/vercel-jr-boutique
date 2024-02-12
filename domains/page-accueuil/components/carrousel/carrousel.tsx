@@ -41,7 +41,7 @@ const Carrousel: FC<Props> = ({ title, products }) => {
         opacity: isInView ? 1 : 0
       }}
     >
-      <h4 className={styles.title}>{title}</h4>
+      <h2 className={styles.title}>{title}</h2>
 
       <Slider {...settings}>
         {products &&
