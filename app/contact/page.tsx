@@ -37,7 +37,7 @@ export default async function Page() {
         <h2>JR Distribution</h2>
         <div className={styles.line}>25 chemin du sanatorium</div>
         <div className={styles.line}>25 000 Besançon</div>
-        <div className={styles.phone}>03 81 53 02 06</div>
+        <div className={styles.phone}>03 81 53 02 08</div>
       </div>
       <div className={styles.elements}>
         <FormContact />
