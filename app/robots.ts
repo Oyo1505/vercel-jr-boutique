@@ -9,8 +9,7 @@ export default function robots() {
     rules: [
       process.env.ENVIRONEMENT === 'production' && {
         userAgent: '*',
-        allow: '/',
-        disallow: ['/_next']
+        allow: '/'
       }
     ],
     sitemap:
