@@ -27,7 +27,7 @@ export async function generateMetadata({
   const { url, width, height, altText: alt } = product.featuredImage || {};
   const hide = !product.tags.includes(HIDDEN_PRODUCT_TAG);
   return {
-    metadataBase: new URL(`https://${process.env.VERCEL_URL}`),
+    metadataBase: new URL(`https://www.jr-boutique.fr`),
     title: capitalizeFirstLetter(product.seo.title || product.title).replace('_', ' '),
     description: product.seo.description || product.description,
     verification: {

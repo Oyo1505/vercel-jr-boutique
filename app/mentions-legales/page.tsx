@@ -5,7 +5,7 @@ import styles from './mentions-legales.module.scss';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    metadataBase: new URL(`https://${process.env.NEXT_PUBLIC_DOMAIN_URL}`),
+    metadataBase: new URL(`https://www.jr-boutique.fr`),
     title: 'Mentions légales',
     description: 'Mentions légales',
     verification: {

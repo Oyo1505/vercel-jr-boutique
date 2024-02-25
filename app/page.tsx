@@ -4,7 +4,7 @@ import { getAllProducts } from 'lib/shopify';
 import { Suspense } from 'react';
 
 export const metadata = {
-  metadataBase: new URL(`https://${process.env.VERCEL_URL}`),
+  metadataBase: new URL(`https://www.jr-boutique.fr`),
   alternates: {
     canonical: `/`
   },
