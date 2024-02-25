@@ -7,9 +7,7 @@ import styles from './page.module.scss';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    metadataBase: process.env.DOMAIN_URL
-      ? new URL(`https://${process.env.DOMAIN_URL}`)
-      : new URL('http://localhost:3000'),
+    metadataBase: new URL(`https://${process.env.NEXT_PUBLIC_DOMAIN_URL}`),
     title: 'Contact',
     description: 'Contact',
     robots: {
@@ -21,7 +19,9 @@ export async function generateMetadata(): Promise<Metadata> {
       }
     },
     verification: {
-      google: 'google'
+      google: 'google',
+      yandex: 'yandex',
+      yahoo: 'yahoo',
     },
     alternates: {
       canonical: `/contact`
