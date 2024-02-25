@@ -15,10 +15,6 @@ export default function robots() {
     sitemap:
       process.env.ENVIRONEMENT === 'production' && baseUrl === `https://${process.env.NEXT_PUBLIC_DOMAIN_URL}`
         ? `${baseUrl}/sitemap.xml`
-        : null,
-    host:
-      process.env.ENVIRONEMENT === 'production' && baseUrl === `https://${process.env.NEXT_PUBLIC_DOMAIN_URL}`
-        ? baseUrl
         : null
   };
 }
