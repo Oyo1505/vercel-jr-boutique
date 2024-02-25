@@ -4,7 +4,7 @@ import styles from './page.module.scss';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    metadataBase: new URL(`https://${process.env.NEXT_PUBLIC_DOMAIN_URL}`),
+    metadataBase: new URL(`https://www.jr-boutique.fr`),
     title: 'Conditions générales de vente',
     description: 'Conditions générales de vente',
     verification: {

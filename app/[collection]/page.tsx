@@ -17,7 +17,7 @@ export async function generateMetadata({
   if (!collection) return notFound();
 
   return {
-    metadataBase: new URL(`https://${process.env.VERCEL_URL}`),
+    metadataBase: new URL(`https://www.jr-boutique.fr`),
     title: capitalizeFirstLetter(collection.seo?.title || collection.title).replace('_', ' '),
     description: collection.seo?.description || collection.description || `${collection.title}`,
     verification: {

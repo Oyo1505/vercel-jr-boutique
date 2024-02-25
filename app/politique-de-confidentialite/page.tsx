@@ -4,7 +4,7 @@ import styles from './page.module.scss';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-   
+    metadataBase: new URL(`https://www.jr-boutique.fr`),
     title: 'Politique de confidentialité',
     description: 'Politique de confidentialité',
     verification: {
