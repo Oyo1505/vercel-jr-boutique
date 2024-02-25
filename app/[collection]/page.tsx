@@ -1,5 +1,4 @@
 'use server';
-import Grid from 'domains/grid/components/grid';
 import ProductGridItems from 'domains/layout/components/product-grid-items/product-grid-items';
 import { defaultSort, sorting } from 'lib/constants';
 import { getCollection, getCollectionProducts } from 'lib/shopify';
@@ -18,14 +17,13 @@ export async function generateMetadata({
   if (!collection) return notFound();
 
   return {
-    metadataBase: process.env.DOMAIN_URL
-      ? new URL(`https://${process.env.DOMAIN_URL}`)
-      : new URL('http://localhost:3000'),
+    metadataBase: new URL(`https://${process.env.VERCEL_URL}`),
     title: capitalizeFirstLetter(collection.seo?.title || collection.title).replace('_', ' '),
-    description:
-      collection.seo?.description || collection.description || `${collection.title} products`,
+    description: collection.seo?.description || collection.description || `${collection.title}`,
     verification: {
-      google: 'google'
+      google: 'google',
+      yandex: 'yandex',
+      yahoo: 'yahoo',
     },
     robots: {
       follow: true,

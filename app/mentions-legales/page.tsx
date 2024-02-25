@@ -5,13 +5,13 @@ import styles from './mentions-legales.module.scss';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    metadataBase: process.env.DOMAIN_URL
-      ? new URL(`https://${process.env.DOMAIN_URL}`)
-      : new URL('http://localhost:3000'),
+    metadataBase: new URL(`https://${process.env.NEXT_PUBLIC_DOMAIN_URL}`),
     title: 'Mentions légales',
     description: 'Mentions légales',
     verification: {
-      google: 'google'
+      google: 'google',
+      yandex: 'yandex',
+      yahoo: 'yahoo',
     },
     robots: {
       follow: true,

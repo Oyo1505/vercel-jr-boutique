@@ -27,11 +27,13 @@ export async function generateMetadata({
   const { url, width, height, altText: alt } = product.featuredImage || {};
   const hide = !product.tags.includes(HIDDEN_PRODUCT_TAG);
   return {
-    metadataBase : process.env.DOMAIN_URL ?  new URL(`https://${process.env.DOMAIN_URL}`) :  new URL('http://localhost:3000'),
+    metadataBase: new URL(`https://${process.env.VERCEL_URL}`),
     title: capitalizeFirstLetter(product.seo.title || product.title).replace('_', ' '),
     description: product.seo.description || product.description,
     verification: {
-      google: 'google'
+      google: 'google',
+      yandex: 'yandex',
+      yahoo: 'yahoo',
     },
     alternates: {
       canonical: `/product/${product.handle}`
@@ -41,7 +43,7 @@ export async function generateMetadata({
       index: true,
       googleBot: {
         follow: true,
-      index: true,
+        index: true,
       }
     },
     openGraph: url

@@ -4,20 +4,20 @@ import styles from './page.module.scss';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    metadataBase: process.env.DOMAIN_URL
-      ? new URL(`https://${process.env.DOMAIN_URL}`)
-      : new URL('http://localhost:3000'),
+   
     title: 'Politique de confidentialité',
     description: 'Politique de confidentialité',
     verification: {
-      google: 'google'
+      google: 'google',
+      yandex: 'yandex',
+      yahoo: 'yahoo',
     },
     robots: {
       follow: true,
       index: true,
       googleBot: {
         follow: true,
-        index: true
+        index: true,
       }
     },
     alternates: {
