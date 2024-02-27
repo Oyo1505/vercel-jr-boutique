@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import Image from 'next/image';
-import ShoppingBagIcon from '../../public/images/header/PanierMenu.png';
+import ShoppingBagIcon from '../../public/images/header/PanierMenu.webp';
 import styles from './cart.module.scss';
 export default function CartIcon({
   className,
