@@ -5,7 +5,7 @@ import { headers } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
-import headerLogo from '../../../../public/images/header/Header.webp';
+import headerLogo from '../../../../public/images/header/header.webp';
 import logoLogin from '../../../../public/images/header/ProfilMenu.webp';
 import headerLogoSmall from '../../../../public/images/page-acceuil/miniLogo.png';
 import SearchNavbarButton from '../search-navbar-button/search-navbar-button';
