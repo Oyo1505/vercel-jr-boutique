@@ -102,8 +102,8 @@ dependencies:
     specifier: ^3.16.1
     version: 3.16.1(react-dom@18.2.0)(react@18.2.0)
   react-slick:
-    specifier: ^0.29.0
-    version: 0.29.0(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^0.30.2
+    version: 0.30.2(react-dom@18.2.0)(react@18.2.0)
   resend:
     specifier: ^0.17.2
     version: 0.17.2
@@ -1385,8 +1385,8 @@ packages:
     dev: false
     optional: true
 
-  /bare-fs@2.1.5:
-    resolution: {integrity: sha512-5t0nlecX+N2uJqdxe9d18A98cp2u9BETelbjKpiVgQqzzmVNFYWEAjQHqS+2Khgto1vcwhik9cXucaj5ve2WWA==}
+  /bare-fs@2.2.0:
+    resolution: {integrity: sha512-+VhW202E9eTVGkX7p+TNXtZC4RTzj9JfJW7PtfIbZ7mIQ/QT9uOafQTx7lx2n9ERmWsXvLHF4hStAFn4gl2mQw==}
     requiresBuild: true
     dependencies:
       bare-events: 2.2.0
@@ -4680,8 +4680,8 @@ packages:
       warning: 4.0.3
     dev: false
 
-  /react-slick@0.29.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-TGdOKE+ZkJHHeC4aaoH85m8RnFyWqdqRfAGkhd6dirmATXMZWAxOpTLmw2Ll/jPTQ3eEG7ercFr/sbzdeYCJXA==}
+  /react-slick@0.30.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-XvQJi7mRHuiU3b9irsqS9SGIgftIfdV5/tNcURTb5LdIokRA5kIIx3l4rlq2XYHfxcSntXapoRg/GxaVOM1yfg==}
     peerDependencies:
       react: ^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0
       react-dom: ^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0
@@ -5370,7 +5370,7 @@ packages:
       pump: 3.0.0
       tar-stream: 3.1.7
     optionalDependencies:
-      bare-fs: 2.1.5
+      bare-fs: 2.2.0
       bare-path: 2.1.0
     dev: false
 

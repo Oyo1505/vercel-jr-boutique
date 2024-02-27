@@ -46,7 +46,7 @@ const Carrousel: FC<Props> = ({ title, products }) => {
       <Slider {...settings}>
         {products &&
           products?.map((product: any, index: number) => (
-            <div key={`${product?.name}-${index}`} className={styles.lastProducts}>
+            <div  aria-hidden="false" key={`${product?.name}-${index}`} className={styles.lastProducts}>
               <Link href={`product/${product?.handle}`}>
                 <div className={styles.imageProduct}>
                   <Image
