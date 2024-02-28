@@ -11,7 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
     verification: {
       google: 'google',
       yandex: 'yandex',
-      yahoo: 'yahoo',
+      yahoo: 'yahoo'
     },
     robots: {
       follow: true,
@@ -53,7 +53,6 @@ export default async function Page() {
         <li>Hébergeur : Verce – 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis</li>
         <li>
           contact de hébergeur : <a href="mailto:privacy@vercel.com">privacy@vercel.com</a>
-          privacy@vercel.com
         </li>
       </ul>
 

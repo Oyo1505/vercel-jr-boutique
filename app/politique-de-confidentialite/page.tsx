@@ -10,14 +10,14 @@ export async function generateMetadata(): Promise<Metadata> {
     verification: {
       google: 'google',
       yandex: 'yandex',
-      yahoo: 'yahoo',
+      yahoo: 'yahoo'
     },
     robots: {
       follow: true,
       index: true,
       googleBot: {
         follow: true,
-        index: true,
+        index: true
       }
     },
     alternates: {
@@ -99,11 +99,6 @@ export default async function Page() {
         Les « pixels invisibles », les « balises » et les « pixels » sont des fichiers électroniques
         qui enregistrent des informations sur la façon dont vous parcourez le Site.
       </p>
-
-      <p>
-        [[INSÉRER LES DESCRIPTIONS DES AUTRES TYPES DE TECHNOLOGIES DE SUIVI QUE VOUS UTILISEZ]]
-      </p>
-
       <p>
         Par ailleurs, lorsque vous effectuez ou tentez d&apos;effectuer un achat par le biais du
         Site, nous recueillons certaines informations vous concernant, notamment votre nom, votre
