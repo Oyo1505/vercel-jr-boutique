@@ -1,3 +1,4 @@
+import collectionFragment from './collection';
 import imageFragment from './image';
 import seoFragment from './seo';
 
@@ -59,6 +60,13 @@ const productFragment = /* GraphQL */ `
         }
       }
     }
+    collections(first: 5) {
+      edges {
+        node {
+          ...collection
+        }
+      }
+    }
     seo {
       ...seo
     }
@@ -67,6 +75,7 @@ const productFragment = /* GraphQL */ `
   }
   ${imageFragment}
   ${seoFragment}
+  ${collectionFragment}
 `;
 
 export default productFragment;
