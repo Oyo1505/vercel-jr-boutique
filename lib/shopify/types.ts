@@ -61,12 +61,20 @@ export type Page = {
   updatedAt: string;
 };
 
-export type Product<T> = Omit<ShopifyProduct, 'variants' | 'images'> & {
+interface ProductCollectionsNode {
+  node?: {
+    seo?: SEO;
+  };
+}
+
+interface ProductCollectionsEdge {
+  edges?: (ProductCollectionsNode | null)[] | null;
+}
+
+export type Product = Omit<ShopifyProduct, 'variants' | 'images'> & {
   variants: ProductVariant[];
   images: Image[];
-  collections?: {
-    edges: Array<Edge<T>>;
-  };
+  collections?: ProductCollectionsEdge;
 };
 
 export type ProductOption = {

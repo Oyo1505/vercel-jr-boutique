@@ -6,8 +6,8 @@ import Link from 'next/link';
 import useBreakpoints from 'domains/common/hooks/use-breakpoints';
 
 interface Props {
-  collection: string;
-  produit: string;
+  collection?: string;
+  produit?: string;
 }
 
 const Ariane = ({ collection, produit }: Props) => {

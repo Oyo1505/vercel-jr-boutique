@@ -88,7 +88,7 @@ export default async function ProductPage({ params }: { params: { handle: string
   return product ? (
     <div className={styles.container}>
       <Ariane
-        collection={product?.collections?.edges[0]?.node?.seo?.title}
+        collection={product?.collections?.edges?.[0]?.node?.seo?.title}
         produit={product.title}
       />
       <script
