@@ -70,7 +70,9 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
                   </li>
                 ))
               : null}
-            <Link href={'/contact'}>Contact</Link>
+            <li>
+              <Link href={'/contact'}>Contact</Link>
+            </li>
           </ul>
         </div>
       </CustomModal>

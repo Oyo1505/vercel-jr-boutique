@@ -14,6 +14,7 @@ import { Suspense } from 'react';
 import { capitalizeFirstLetter } from 'shared/utilities/capitalize-first-letter/capitaliaze-first-letter';
 import Loading from '../../../domains/ui/loading/loading';
 import styles from './page.module.scss';
+import Ariane from 'domains/layout/components/ariane/ariane';
 
 export async function generateMetadata({
   params
@@ -26,6 +27,7 @@ export async function generateMetadata({
 
   const { url, width, height, altText: alt } = product.featuredImage || {};
   const hide = !product.tags.includes(HIDDEN_PRODUCT_TAG);
+
   return {
     metadataBase: new URL(`https://www.jr-boutique.fr`),
     title: capitalizeFirstLetter(product.seo.title || product.title).replace('_', ' '),
@@ -33,7 +35,7 @@ export async function generateMetadata({
     verification: {
       google: 'google',
       yandex: 'yandex',
-      yahoo: 'yahoo',
+      yahoo: 'yahoo'
     },
     alternates: {
       canonical: `/product/${product.handle}`
@@ -43,7 +45,7 @@ export async function generateMetadata({
       index: true,
       googleBot: {
         follow: true,
-        index: true,
+        index: true
       }
     },
     openGraph: url
@@ -85,6 +87,10 @@ export default async function ProductPage({ params }: { params: { handle: string
 
   return product ? (
     <div className={styles.container}>
+      <Ariane
+        collection={product?.collections?.edges?.[0]?.node?.seo?.title}
+        produit={product.title}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
