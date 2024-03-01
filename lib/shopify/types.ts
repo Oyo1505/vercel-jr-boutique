@@ -64,7 +64,7 @@ export type Page = {
 export type Product<T> = Omit<ShopifyProduct, 'variants' | 'images'> & {
   variants: ProductVariant[];
   images: Image[];
-  collections: {
+  collections?: {
     edges: Array<Edge<T>>;
   };
 };
