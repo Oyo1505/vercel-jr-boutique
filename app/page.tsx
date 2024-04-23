@@ -7,7 +7,7 @@ export const metadata = {
   alternates: {
     canonical: `/`
   },
-  title: process.env.SITE_NAME,
+  title: process.env.NEXT_PUBLIC_SITE_NAME,
   robots: {
     index: true,
     follow: true
@@ -21,7 +21,7 @@ export const metadata = {
   openGraph: {
     images: [
       {
-        url: `/api/og?title=${encodeURIComponent(process.env.SITE_NAME || '')}`,
+        url: `/api/og?title=${encodeURIComponent(process.env.NEXT_PUBLIC_SITE_NAME || '')}`,
         width: 1200,
         height: 630
       }
