@@ -15,11 +15,12 @@ import favicon from '../public/images/header/favicon.ico';
 import '../styles/base.scss';
 import './globals.css';
 import Loading from './loading';
+import { Metadata } from 'next';
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
-    default: SITE_NAME,
+    default: SITE_NAME ?? 'JR Distrition',
     template: `%s`
   },
   description:
