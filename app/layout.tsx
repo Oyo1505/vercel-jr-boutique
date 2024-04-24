@@ -16,11 +16,12 @@ import '../styles/base.scss';
 import './globals.css';
 import Loading from './loading';
 import { Metadata } from 'next';
-const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
+const { TWITTER_CREATOR, TWITTER_SITE, NEXT_PUBLIC_SITE_NAME,
+} = process.env;
 
 export const metadata: Metadata = {
   title: {
-    default: SITE_NAME ?? 'JR Distrition',
+    default: NEXT_PUBLIC_SITE_NAME ?? 'JR Distrition',
     template: `%s`
   },
   description:
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
       twitter: {
         card: 'summary_large_image',
         creator: TWITTER_CREATOR,
-        site: SITE_NAME
+        site: NEXT_PUBLIC_SITE_NAME
       }
     })
 };
